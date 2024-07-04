@@ -18,7 +18,7 @@ namespace DialogueSystem.Windows
         private Button saveButton;
         private Button miniMapButton;
 
-        [MenuItem("Window/DS/Dialogue Graph")]
+        [MenuItem("Tools/Dialogue Graph")]
         public static void Open()
         {
             GetWindow<DSEditorWindow>("Dialogue Graph");

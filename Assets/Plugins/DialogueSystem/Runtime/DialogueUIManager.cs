@@ -1,5 +1,6 @@
 using DialogueSystem;
 using DialogueSystem.ScriptableObjects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(DialogueGroupSelector))]
 public class DialogueUIManager : MonoBehaviour
 {
-    public Text dialogText;
+    public TMP_Text dialogText;
     public CanvasGroup canvasGroup;
     public DialogueGroupSelector dialogue;
 
@@ -25,7 +26,6 @@ public class DialogueUIManager : MonoBehaviour
 
     }
 
-    int index = 0;
     DSDialogueSO targetDialogue;
     public void StartDialogue()
     {
