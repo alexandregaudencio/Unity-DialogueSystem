@@ -5,7 +5,9 @@ using UnityEngine.UIElements;
 
 namespace DialogueSystem.Windows
 {
+    using DialogueSystem.Data.Save;
     using System;
+    using UnityEngine;
     using Utilities;
 
     public class DSEditorWindow : EditorWindow
@@ -17,6 +19,7 @@ namespace DialogueSystem.Windows
         private static TextField fileNameTextField;
         private Button saveButton;
         private Button miniMapButton;
+        private string lastLoadedFilePath = "";
 
         [MenuItem("Tools/Dialogue Graph")]
         public static void Open()
@@ -52,7 +55,7 @@ namespace DialogueSystem.Windows
 
             saveButton = DSElementUtility.CreateButton("Save", () => Save());
 
-            Button loadButton = DSElementUtility.CreateButton("Load", () => Load());
+            Button loadButton = DSElementUtility.CreateButton("Load", () => OpenLoadFilePanel());
             Button clearButton = DSElementUtility.CreateButton("Clear", () => Clear());
             Button resetButton = DSElementUtility.CreateButton("Reset", () => ResetGraph());
 
@@ -88,20 +91,22 @@ namespace DialogueSystem.Windows
             DSIOUtility.Save();
         }
 
-        private void Load()
+        private void OpenLoadFilePanel()
         {
             string filePath = EditorUtility.OpenFilePanel("Dialogue Graphs", GlobalVariables.DialogueGraphsPath, "asset");
-
-            if (string.IsNullOrEmpty(filePath))
-            {
-                return;
-            }
-
-            Clear();
-
-            DSIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
-            DSIOUtility.Load();
+            Load(filePath);
         }
+
+        private void Load(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath))  return;    
+            Clear();
+            DSIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
+            DSIOUtility.StartLoad();
+            lastLoadedFilePath = filePath;
+        }
+
+
 
         private void Clear()
         {
@@ -113,6 +118,7 @@ namespace DialogueSystem.Windows
             Clear();
 
             UpdateFileName(defaultFileName);
+            Load(lastLoadedFilePath);
         }
 
         private void ToggleMiniMap()

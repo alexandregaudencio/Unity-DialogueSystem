@@ -28,7 +28,6 @@ namespace DialogueSystem.Utilities
 
         private static Dictionary<string, DSGroup> loadedGroups;
         private static Dictionary<string, DSNode> loadedNodes;
-
         public static void Initialize(DSGraphView dsGraphView, string graphName)
         {
             graphView = dsGraphView;
@@ -164,6 +163,7 @@ namespace DialogueSystem.Utilities
                 Text = node.Text,
                 GroupID = node.Group?.ID,
                 DialogueType = node.DialogueType,
+                Actor = node.Actor,
                 Position = node.GetPosition().position
             };
 
@@ -192,6 +192,7 @@ namespace DialogueSystem.Utilities
                 node.Text,
                 ConvertNodeChoicesToDialogueChoices(node.Choices),
                 node.DialogueType,
+                node.Actor,
                 node.IsStartingNode()
             );
 
@@ -277,9 +278,15 @@ namespace DialogueSystem.Utilities
             graphData.OldUngroupedNodeNames = new List<string>(currentUngroupedNodeNames);
         }
 
-        public static void Load()
+
+        public static void StartLoad()
         {
             DSGraphSaveDataSO graphData = LoadAsset<DSGraphSaveDataSO>(GlobalVariables.DialogueGraphsPath, graphFileName);
+            Load(graphData);
+        }
+
+        private static void Load(DSGraphSaveDataSO graphData)
+        {
 
             if (graphData == null)
             {
@@ -290,7 +297,6 @@ namespace DialogueSystem.Utilities
                     "Make sure you chose the right file and it's placed at the folder path mentioned above.",
                     "Thanks!"
                 );
-
                 return;
             }
 
@@ -299,6 +305,7 @@ namespace DialogueSystem.Utilities
             LoadGroups(graphData.Groups);
             LoadNodes(graphData.Nodes);
             LoadNodesConnections();
+            return;
         }
 
         private static void LoadGroups(List<DSGroupSaveData> groups)
@@ -324,7 +331,7 @@ namespace DialogueSystem.Utilities
                 node.ID = nodeData.ID;
                 node.Choices = choices;
                 node.Text = nodeData.Text;
-
+                node.Actor = nodeData.Actor;
                 node.Draw();
 
                 graphView.AddElement(node);
