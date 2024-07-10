@@ -235,7 +235,7 @@ namespace DialogueSystem.Windows
 
             DSNode node = (DSNode) Activator.CreateInstance(nodeType);
 
-            node.Initialize(nodeName, this, position);
+            node.Initialize(nodeName, DSActor.None, this, position);
 
             if (shouldDraw)
             {

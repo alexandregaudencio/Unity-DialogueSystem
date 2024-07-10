@@ -9,8 +9,6 @@ namespace DialogueSystem.Elements
 {
     using Data.Save;
     using Enumerations;
-    using UnityEditor;
-    using UnityEngine.Events;
     using Utilities;
     using Windows;
 
@@ -21,12 +19,16 @@ namespace DialogueSystem.Elements
         public List<DSChoiceSaveData> Choices { get; set; }
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
+        public DSActor Actor { get; set; }
+
         public DSGroup Group { get; set; }
         protected DSGraphView graphView;
         private Color defaultBackgroundColor;
 
         [SerializeField]
         private MonoBehaviour associatedScript;
+
+
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
             evt.menu.AppendAction("Disconnect Input Ports", actionEvent => DisconnectInputPorts());
@@ -36,13 +38,13 @@ namespace DialogueSystem.Elements
         }
 
 
-        public virtual void Initialize(string nodeName, DSGraphView dsGraphView, Vector2 position)
+        public virtual void Initialize(string nodeName, DSActor actor,  DSGraphView dsGraphView, Vector2 position)
         {
             ID = Guid.NewGuid().ToString();
-
             DialogueName = nodeName;
             Choices = new List<DSChoiceSaveData>();
             Text = "Dialogue text.";
+            Actor = actor;
 
             SetPosition(new Rect(position, Vector2.zero));
 
@@ -55,12 +57,18 @@ namespace DialogueSystem.Elements
 
         public virtual void Draw()
         {
+
+            /* INPUT CONTAINER */
+            Port inputPort = this.CreatePort("Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
+            inputContainer.Add(inputPort);
+
             /* TITLE CONTAINER */
 
             TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, null, callback =>
             {
                 TextField target = (TextField) callback.target;
 
+                //Updates the tittle
                 target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
 
                 if (string.IsNullOrEmpty(target.value))
@@ -108,11 +116,7 @@ namespace DialogueSystem.Elements
 
             titleContainer.Insert(0, dialogueNameTextField);
 
-            /* INPUT CONTAINER */
 
-            Port inputPort = this.CreatePort("Dialogue Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
-
-            inputContainer.Add(inputPort);
 
             /* EXTENSION CONTAINER */
 
@@ -120,23 +124,33 @@ namespace DialogueSystem.Elements
 
             customDataContainer.AddToClassList("ds-node__custom-data-container");
 
-            Foldout textFoldout = DSElementUtility.CreateFoldout("Dialogue Text");
+
+            Foldout textFoldout = DSElementUtility.CreateFoldout("");
+
+            List<string> actors = Enum.GetNames(typeof(DSActor)).ToList();
+            int defaultIndex = actors.IndexOf(Actor.ToString());
+            DropdownField dropdown = DSElementUtility.CreateDropdown("Actor", actors, OnActorChange, defaultIndex);
+            textFoldout.Add(dropdown);
+
 
             TextField textTextField = DSElementUtility.CreateTextArea(Text, null, callback => Text = callback.newValue);
-
             textTextField.AddClasses(
                 "ds-node__text-field",
                 "ds-node__quote-text-field"
             );
-
             textFoldout.Add(textTextField);
-
             customDataContainer.Add(textFoldout);
+
 
             extensionContainer.Add(customDataContainer);
 
         }
 
+        private string OnActorChange(string actor)
+        {
+            Actor = (DSActor)Enum.Parse(typeof(DSActor), actor, true);
+            return actor;
+        }
 
         public void DisconnectAllPorts()
         {

@@ -4,7 +4,9 @@ using UnityEngine.UIElements;
 
 namespace DialogueSystem.Utilities
 {
+    using DialogueSystem.Enumerations;
     using Elements;
+    using System.Collections.Generic;
 
     public static class DSElementUtility
     {
@@ -27,6 +29,12 @@ namespace DialogueSystem.Utilities
             };
 
             return foldout;
+        }
+
+        public static DropdownField CreateDropdown(string title, List<string> options, Func<string, string> valueChange, int defaultIndex = 0)
+        {
+            DropdownField dropdown = new DropdownField(title, options, defaultIndex, valueChange);
+            return dropdown;
         }
 
         public static Port CreatePort(this DSNode node, string portName = "", Orientation orientation = Orientation.Horizontal, Direction direction = Direction.Output, Port.Capacity capacity = Port.Capacity.Single)
