@@ -16,9 +16,19 @@ namespace DialogueSystem.Utilities
             {
                 text = text
             };
+            
 
             return button;
         }
+
+        public static TextElement CreateTextElement(string text)
+        {
+
+            TextElement textElement = new TextElement();
+            textElement.text = text;
+            return textElement;
+        }
+
 
         public static Foldout CreateFoldout(string title, bool collapsed = false)
         {

@@ -706,5 +706,7 @@ namespace DialogueSystem.Windows
         {
             miniMap.visible = !miniMap.visible;
         }
+
+
     }
 }

@@ -5,9 +5,6 @@ using UnityEngine.UIElements;
 
 namespace DialogueSystem.Windows
 {
-    using DialogueSystem.Data.Save;
-    using System;
-    using UnityEngine;
     using Utilities;
 
     public class DSEditorWindow : EditorWindow
@@ -19,6 +16,7 @@ namespace DialogueSystem.Windows
         private static TextField fileNameTextField;
         private Button saveButton;
         private Button miniMapButton;
+        private Button actorsButton;
         private string lastLoadedFilePath = "";
 
         [MenuItem("Tools/Dialogue Graph")]
@@ -48,25 +46,29 @@ namespace DialogueSystem.Windows
         {
             Toolbar toolbar = new Toolbar();
 
-            fileNameTextField = DSElementUtility.CreateTextField(defaultFileName, "File Name:", callback =>
+            fileNameTextField = DSElementUtility.CreateTextField(defaultFileName,"", callback =>
             {
                 fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
             });
 
             saveButton = DSElementUtility.CreateButton("Save", () => Save());
 
-            Button loadButton = DSElementUtility.CreateButton("Load", () => OpenLoadFilePanel());
-            Button clearButton = DSElementUtility.CreateButton("Clear", () => Clear());
-            Button resetButton = DSElementUtility.CreateButton("Reset", () => ResetGraph());
+            Button loadButton = DSElementUtility.CreateButton("Load", OpenLoadFilePanel);
+            Button clearButton = DSElementUtility.CreateButton("Clear", Clear);
+            Button resetButton = DSElementUtility.CreateButton("Reset", ResetGraph);
+            TextElement tf = DSElementUtility.CreateTextElement("               ");
 
-            miniMapButton = DSElementUtility.CreateButton("Minimap", () => ToggleMiniMap());
+            miniMapButton = DSElementUtility.CreateButton("Minimap",ToggleMiniMap);
+            actorsButton = DSElementUtility.CreateButton("Actor", Actors);
 
             toolbar.Add(fileNameTextField);
             toolbar.Add(saveButton);
             toolbar.Add(loadButton);
             toolbar.Add(clearButton);
             toolbar.Add(resetButton);
+            toolbar.Add(tf);
             toolbar.Add(miniMapButton);
+            toolbar.Add(actorsButton);
 
             toolbar.AddStyleSheets("DSToolbarStyles.uss");
 
@@ -106,7 +108,10 @@ namespace DialogueSystem.Windows
             lastLoadedFilePath = filePath;
         }
 
-
+        private void Actors()
+        {
+            DSActorWindow.OpenWindow();
+        }
 
         private void Clear()
         {
@@ -142,5 +147,7 @@ namespace DialogueSystem.Windows
         {
             saveButton.SetEnabled(false);
         }
+
+
     }
 }
