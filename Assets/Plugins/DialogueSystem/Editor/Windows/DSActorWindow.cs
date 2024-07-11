@@ -40,10 +40,10 @@ namespace DialogueSystem.Windows
 
         private void ShowActors()
         {
-            GUILayout.Label("Enum Values:", EditorStyles.boldLabel);
+            GUILayout.Label("Actors:", EditorStyles.boldLabel);
             foreach (string enumValue in Enum.GetNames(typeof(DSActor)))
             {
-                GUILayout.Label(enumValue);
+                GUILayout.Label(" - "+enumValue);
             }
         }
 
@@ -61,6 +61,8 @@ namespace DialogueSystem.Windows
 
         private void AddValueToEnum(string value)
         {
+            if (string.IsNullOrEmpty(value)) return;
+
             DSActor Actors;
             if (Enum.TryParse(value, out Actors))
             {
