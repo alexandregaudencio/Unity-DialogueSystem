@@ -10,7 +10,6 @@ namespace DialogueSystem.Windows
     using Data.Save;
     using Elements;
     using Enumerations;
-    using PlasticGui.WorkspaceWindow.Merge;
     using Utilities;
 
     public class DSGraphView : GraphView
@@ -137,16 +136,6 @@ namespace DialogueSystem.Windows
 
 
 
-
-
-
-
-
-
-
-
-
-
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
         {
             List<Port> compatiblePorts = new List<Port>();
@@ -182,8 +171,8 @@ namespace DialogueSystem.Windows
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
 
-            this.AddManipulator(CreateNodeContextualMenu("Add Single Choice", DSDialogueType.SingleChoice));
-            this.AddManipulator(CreateNodeContextualMenu("Add Multiple Choice", DSDialogueType.MultipleChoice));
+            this.AddManipulator(CreateNodeContextualMenu("Create Dialogue", DSDialogueType.SingleChoice));
+            //this.AddManipulator(CreateNodeContextualMenu("Add Multiple Choice", DSDialogueType.MultipleChoice));
 
             this.AddManipulator(CreateGroupContextualMenu());
         }
@@ -221,7 +210,7 @@ namespace DialogueSystem.Windows
                     continue;
                 }
 
-                DSNode node = (DSNode) selectedElement;
+                DSNode node = (DSNode)selectedElement;
 
                 group.AddElement(node);
             }
@@ -229,12 +218,25 @@ namespace DialogueSystem.Windows
             return group;
         }
 
+        public bool SelectionHasMutipleGroup()
+        {
+            int count = 0;
+            foreach (GraphElement selectedElement in selection)
+            {
+                if ((selectedElement is DSGroup))
+                {
+                    count++;
+                }
+            }
+            Debug.Log(count);
+
+            return count > 1;
+        }
+
         public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, Vector2 position, bool shouldDraw = true)
         {
             Type nodeType = Type.GetType($"{typeof(DSNode).Namespace}.DS{dialogueType}Node");
-
-            DSNode node = (DSNode) Activator.CreateInstance(nodeType);
-
+            DSNode node = (DSNode)Activator.CreateInstance(nodeType);
             node.Initialize(nodeName, DSActor.None, this, position);
 
             if (shouldDraw)
@@ -242,8 +244,15 @@ namespace DialogueSystem.Windows
                 node.Draw();
             }
 
-            AddUngroupedNode(node);
+            //DSGroup SelectedGroup = selection.First(s => s is DSGroup) as DSGroup;
+            //Debug.Log(SelectedGroup);
+            //if(SelectedGroup != null)
+            //{
+            //    AddGroupedNode(node, SelectedGroup);
+            //    return node;
+            //}
 
+            AddUngroupedNode(node);
             return node;
         }
 
@@ -269,7 +278,7 @@ namespace DialogueSystem.Windows
 
                     if (selectedElement.GetType() == edgeType)
                     {
-                        Edge edge = (Edge) selectedElement;
+                        Edge edge = (Edge)selectedElement;
 
                         edgesToDelete.Add(edge);
 
@@ -281,7 +290,7 @@ namespace DialogueSystem.Windows
                         continue;
                     }
 
-                    DSGroup group = (DSGroup) selectedElement;
+                    DSGroup group = (DSGroup)selectedElement;
 
                     groupsToDelete.Add(group);
                 }
@@ -297,7 +306,7 @@ namespace DialogueSystem.Windows
                             continue;
                         }
 
-                        DSNode groupNode = (DSNode) groupElement;
+                        DSNode groupNode = (DSNode)groupElement;
 
                         groupNodes.Add(groupNode);
                     }
@@ -338,8 +347,8 @@ namespace DialogueSystem.Windows
                         continue;
                     }
 
-                    DSGroup dsGroup = (DSGroup) group;
-                    DSNode node = (DSNode) element;
+                    DSGroup dsGroup = (DSGroup)group;
+                    DSNode node = (DSNode)element;
 
                     RemoveUngroupedNode(node);
                     AddGroupedNode(node, dsGroup);
@@ -358,8 +367,8 @@ namespace DialogueSystem.Windows
                         continue;
                     }
 
-                    DSGroup dsGroup = (DSGroup) group;
-                    DSNode node = (DSNode) element;
+                    DSGroup dsGroup = (DSGroup)group;
+                    DSNode node = (DSNode)element;
 
                     RemoveGroupedNode(node, dsGroup);
                     AddUngroupedNode(node);
@@ -371,7 +380,7 @@ namespace DialogueSystem.Windows
         {
             groupTitleChanged = (group, newTitle) =>
             {
-                DSGroup dsGroup = (DSGroup) group;
+                DSGroup dsGroup = (DSGroup)group;
 
                 dsGroup.title = newTitle.RemoveWhitespaces().RemoveSpecialCharacters();
 
@@ -407,9 +416,9 @@ namespace DialogueSystem.Windows
                     foreach (Edge edge in changes.edgesToCreate)
                     {
                         Debug.Log("Node: " + edge.input.node.title + " ___ " + edge.output.node.title);
-                        DSNode nextNode = (DSNode) edge.input.node;
+                        DSNode nextNode = (DSNode)edge.input.node;
 
-                        DSChoiceSaveData choiceData = (DSChoiceSaveData) edge.output.userData;
+                        DSChoiceSaveData choiceData = (DSChoiceSaveData)edge.output.userData;
 
                         choiceData.NodeID = nextNode.ID;
 
@@ -427,9 +436,9 @@ namespace DialogueSystem.Windows
                             continue;
                         }
 
-                        Edge edge = (Edge) element;
+                        Edge edge = (Edge)element;
 
-                        DSChoiceSaveData choiceData = (DSChoiceSaveData) edge.output.userData;
+                        DSChoiceSaveData choiceData = (DSChoiceSaveData)edge.output.userData;
 
                         choiceData.NodeID = "";
                     }
@@ -442,7 +451,7 @@ namespace DialogueSystem.Windows
 
         public void AddUngroupedNode(DSNode node)
         {
-            string nodeName = node.DialogueName.ToLower();
+            string nodeName = node.DialogueName;
 
             if (!ungroupedNodes.ContainsKey(nodeName))
             {
@@ -473,7 +482,7 @@ namespace DialogueSystem.Windows
 
         public void RemoveUngroupedNode(DSNode node)
         {
-            string nodeName = node.DialogueName.ToLower();
+            string nodeName = node.DialogueName;
 
             List<DSNode> ungroupedNodesList = ungroupedNodes[nodeName].Nodes;
 
@@ -498,7 +507,7 @@ namespace DialogueSystem.Windows
 
         private void AddGroup(DSGroup group)
         {
-            string groupName = group.title.ToLower();
+            string groupName = group.title;
 
             if (!groups.ContainsKey(groupName))
             {
@@ -529,7 +538,7 @@ namespace DialogueSystem.Windows
 
         private void RemoveGroup(DSGroup group)
         {
-            string oldGroupName = group.OldTitle.ToLower();
+            string oldGroupName = group.OldTitle;
 
             List<DSGroup> groupsList = groups[oldGroupName].Groups;
 
@@ -554,7 +563,7 @@ namespace DialogueSystem.Windows
 
         public void AddGroupedNode(DSNode node, DSGroup group)
         {
-            string nodeName = node.DialogueName.ToLower();
+            string nodeName = node.DialogueName;
 
             node.Group = group;
 
@@ -592,7 +601,7 @@ namespace DialogueSystem.Windows
 
         public void RemoveGroupedNode(DSNode node, DSGroup group)
         {
-            string nodeName = node.DialogueName.ToLower();
+            string nodeName = node.DialogueName;
 
             node.Group = null;
 

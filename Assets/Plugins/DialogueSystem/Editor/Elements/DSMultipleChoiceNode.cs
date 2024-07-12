@@ -39,9 +39,7 @@ namespace DialogueSystem.Elements
                 };
 
                 Choices.Add(choiceData);
-
                 Port choicePort = CreateChoicePort(choiceData);
-
                 outputContainer.Add(choicePort);
             });
 
@@ -50,11 +48,9 @@ namespace DialogueSystem.Elements
             mainContainer.Insert(1, addChoiceButton);
 
             /* OUTPUT CONTAINER */
-
             foreach (DSChoiceSaveData choice in Choices)
             {
                 Port choicePort = CreateChoicePort(choice);
-
                 outputContainer.Add(choicePort);
             }
 
@@ -82,8 +78,8 @@ namespace DialogueSystem.Elements
                 }
 
                 Choices.Remove(choiceData);
-
                 graphView.RemoveElement(choicePort);
+
             });
 
             deleteChoiceButton.AddToClassList("ds-node__button");

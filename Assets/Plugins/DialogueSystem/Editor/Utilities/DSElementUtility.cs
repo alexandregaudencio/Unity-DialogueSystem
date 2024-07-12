@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 namespace DialogueSystem.Utilities
 {
-    using DialogueSystem.Enumerations;
     using Elements;
     using System.Collections.Generic;
 
@@ -16,19 +15,10 @@ namespace DialogueSystem.Utilities
             {
                 text = text
             };
-            
+
 
             return button;
         }
-
-        public static TextElement CreateTextElement(string text)
-        {
-
-            TextElement textElement = new TextElement();
-            textElement.text = text;
-            return textElement;
-        }
-
 
         public static Foldout CreateFoldout(string title, bool collapsed = false)
         {
@@ -54,6 +44,20 @@ namespace DialogueSystem.Utilities
             port.portName = portName;
 
             return port;
+        }
+
+        public static TextElement CreateTextElement(string text, EventCallback<ChangeEvent<string>> onValueChanged = null)
+        {
+
+            TextElement textElement = new TextElement();
+            textElement.text = text;
+            if (onValueChanged != null)
+            {
+                textElement.RegisterValueChangedCallback(onValueChanged);
+            }
+            return textElement;
+
+
         }
 
         public static TextField CreateTextField(string value = null, string label = null, EventCallback<ChangeEvent<string>> onValueChanged = null)

@@ -26,22 +26,22 @@ namespace DialogueSystem.Windows
             List<SearchTreeEntry> searchTreeEntries = new List<SearchTreeEntry>()
             {
                 new SearchTreeGroupEntry(new GUIContent("Create Elements")),
-                new SearchTreeGroupEntry(new GUIContent("Dialogue Nodes"), 1),
-                new SearchTreeEntry(new GUIContent("Single Choice", indentationIcon))
+                //new SearchTreeGroupEntry(new GUIContent("Dialogue Nodes"), 1),
+                new SearchTreeEntry(new GUIContent("Create Dialogue", indentationIcon))
                 {
                     userData = DSDialogueType.SingleChoice,
-                    level = 2
+                    level = 1
                 },
-                new SearchTreeEntry(new GUIContent("Multiple Choice", indentationIcon))
-                {
-                    userData = DSDialogueType.MultipleChoice,
-                    level = 2
-                },
-                new SearchTreeGroupEntry(new GUIContent("Dialogue Groups"), 1),
-                new SearchTreeEntry(new GUIContent("Single Group", indentationIcon))
+                //new SearchTreeEntry(new GUIContent("Multiple Choice", indentationIcon))
+                //{
+                //    userData = DSDialogueType.MultipleChoice,
+                //    level = 2
+                //},
+                //new SearchTreeGroupEntry(new GUIContent("Dialogue Groups"), 1),
+                new SearchTreeEntry(new GUIContent("Add Group", indentationIcon))
                 {
                     userData = new Group(),
-                    level = 2
+                    level = 1
                 }
             };
 

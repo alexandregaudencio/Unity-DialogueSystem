@@ -28,6 +28,9 @@ namespace DialogueSystem.Elements
         [SerializeField]
         private MonoBehaviour associatedScript;
 
+        private Port inputPort;
+        TextElement dialogueNameTextElement;
+
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
@@ -38,12 +41,12 @@ namespace DialogueSystem.Elements
         }
 
 
-        public virtual void Initialize(string nodeName, DSActor actor,  DSGraphView dsGraphView, Vector2 position)
+        public virtual void Initialize(string nodeName, DSActor actor, DSGraphView dsGraphView, Vector2 position)
         {
             ID = Guid.NewGuid().ToString();
-            DialogueName = nodeName;
+            DialogueName = nodeName ;
             Choices = new List<DSChoiceSaveData>();
-            Text = "Dialogue text.";
+            Text = "New Dialogue Text " + ID;
             Actor = actor;
 
             SetPosition(new Rect(position, Vector2.zero));
@@ -59,67 +62,23 @@ namespace DialogueSystem.Elements
         {
 
             /* INPUT CONTAINER */
-            Port inputPort = this.CreatePort("Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
+            inputPort = this.CreatePort("Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
             inputContainer.Add(inputPort);
 
             /* TITLE CONTAINER */
+            dialogueNameTextElement = DSElementUtility.CreateTextElement(DialogueName, OnDialogueNameChanged);
 
-            TextField dialogueNameTextField = DSElementUtility.CreateTextField(DialogueName, null, callback =>
-            {
-                TextField target = (TextField) callback.target;
-
-                //Updates the tittle
-                target.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
-
-                if (string.IsNullOrEmpty(target.value))
-                {
-                    if (!string.IsNullOrEmpty(DialogueName))
-                    {
-                        ++graphView.NameErrorsAmount;
-                    }
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(DialogueName))
-                    {
-                        --graphView.NameErrorsAmount;
-                    }
-                }
-
-                if (Group == null)
-                {
-                    graphView.RemoveUngroupedNode(this);
-
-                    DialogueName = target.value;
-
-                    graphView.AddUngroupedNode(this);
-
-                    return;
-                }
-
-                DSGroup currentGroup = Group;
-
-                graphView.RemoveGroupedNode(this, Group);
-
-                DialogueName = target.value;
-
-                graphView.AddGroupedNode(this, currentGroup);
-
-
-            });
-
-            dialogueNameTextField.AddClasses(
+            dialogueNameTextElement.AddClasses(
                 "ds-node__text-field",
                 "ds-node__text-field__hidden",
                 "ds-node__filename-text-field"
             );
 
-            titleContainer.Insert(0, dialogueNameTextField);
+            titleContainer.Insert(0, dialogueNameTextElement);
 
 
 
             /* EXTENSION CONTAINER */
-
             VisualElement customDataContainer = new VisualElement();
 
             customDataContainer.AddToClassList("ds-node__custom-data-container");
@@ -132,8 +91,7 @@ namespace DialogueSystem.Elements
             DropdownField dropdown = DSElementUtility.CreateDropdown("Actor", actors, OnActorChange, defaultIndex);
             textFoldout.Add(dropdown);
 
-
-            TextField textTextField = DSElementUtility.CreateTextArea(Text, null, callback => Text = callback.newValue);
+            TextField textTextField = DSElementUtility.CreateTextArea(Text, null, OnDialogueTextChanged);
             textTextField.AddClasses(
                 "ds-node__text-field",
                 "ds-node__quote-text-field"
@@ -144,6 +102,73 @@ namespace DialogueSystem.Elements
 
             extensionContainer.Add(customDataContainer);
 
+        }
+
+        private void OnDialogueNameChanged(ChangeEvent<string> callback)
+        {
+            TextElement target = (TextElement)callback.target;
+            if (string.IsNullOrEmpty(target.text))
+            {
+                if (!string.IsNullOrEmpty(DialogueName))
+                {
+                    ++graphView.NameErrorsAmount;
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(DialogueName))
+                {
+                    --graphView.NameErrorsAmount;
+                }
+            }
+
+            if (Group == null)
+            {
+                graphView.RemoveUngroupedNode(this);
+
+                DialogueName = target.text;
+
+                graphView.AddUngroupedNode(this);
+
+                return;
+            }
+
+            DSGroup currentGroup = Group;
+
+            graphView.RemoveGroupedNode(this, Group);
+
+            DialogueName = target.text;
+
+            graphView.AddGroupedNode(this, currentGroup);
+
+
+
+        }
+
+        private void OnDialogueTextChanged(ChangeEvent<string> callback)
+        {
+            TextField target = (TextField)callback.target;
+            Text = target.text;
+            dialogueNameTextElement.text = GetTittleTextRanged(target.text, 30);
+
+        }
+
+
+        /// <summary>
+        /// return TextElement value limited with "..." at end of the string.
+        /// </summary>
+        /// <param name="callback"></param>
+        /// <returns></returns>
+        private string GetTittleTextRanged(string value, int maxLength)
+        {
+            string newValue = value;
+            if (newValue.Length > maxLength)
+            {
+                newValue = value.Substring(0, 25) + "...";
+                return newValue;
+            }
+            dialogueNameTextElement.text = newValue;
+            return newValue;
         }
 
         private string OnActorChange(string actor)
@@ -176,7 +201,6 @@ namespace DialogueSystem.Elements
                 {
                     continue;
                 }
-
                 graphView.DeleteElements(port.connections);
             }
         }
@@ -184,7 +208,7 @@ namespace DialogueSystem.Elements
         public bool IsStartingNode()
         {
             Debug.Log("starting node");
-            Port inputPort = (Port) inputContainer.Children().First();
+            Port inputPort = (Port)inputContainer.Children().First();
 
             return !inputPort.connected;
         }
@@ -198,5 +222,6 @@ namespace DialogueSystem.Elements
         {
             mainContainer.style.backgroundColor = defaultBackgroundColor;
         }
+
     }
 }
