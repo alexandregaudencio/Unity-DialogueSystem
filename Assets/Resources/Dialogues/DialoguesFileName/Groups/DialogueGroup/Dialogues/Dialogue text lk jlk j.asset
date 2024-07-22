@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: 'Dialogue text jlkjkj '
+  m_Name: Dialogue text lk jlk j
   m_EditorClassIdentifier: 
-  text: 'Dialogue text jlkjkj '
-  <DialogueName>k__BackingField: 'Dialogue text jlkjkj '
+  text: Dialogue text lk jlk j
+  <DialogueName>k__BackingField: Dialogue text lk jlk j
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 0}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 1
-  <IsStartingDialogue>k__BackingField: 1
+  <IsStartingDialogue>k__BackingField: 0

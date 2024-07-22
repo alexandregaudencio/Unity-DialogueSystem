@@ -16,38 +16,8 @@ MonoBehaviour:
   <Groups>k__BackingField:
   - <ID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <Name>k__BackingField: DialogueGroup
-    <Position>k__BackingField: {x: 524.00006, y: 60.800003}
+    <Position>k__BackingField: {x: 418.4, y: 59.99998}
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: 6bb5aa7e-45ed-44b4-846c-026e36fa3ef4
-    <Name>k__BackingField: DialogueNamej
-    <Text>k__BackingField: Dialogue text.
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 437b0284-ddec-4044-943b-0b46d5420aa9
-    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 848, y: 120.8}
-  - <ID>k__BackingField: 437b0284-ddec-4044-943b-0b46d5420aa9
-    <Name>k__BackingField: hhhh
-    <Text>k__BackingField: Dialogue text.
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 3908d846-bf05-4fb0-b1e7-65e3a335f934
-    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 1136.7999, y: 120.8}
-  - <ID>k__BackingField: 3908d846-bf05-4fb0-b1e7-65e3a335f934
-    <Name>k__BackingField: hhh
-    <Text>k__BackingField: Dialogue text.
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 2
-    <Position>k__BackingField: {x: 1420.7999, y: 120.8}
   - <ID>k__BackingField: 8ef2495b-55ae-4ad4-ae9c-c9902e6c2c66
     <Name>k__BackingField: 'Dialogue text jlkjkj '
     <Text>k__BackingField: 'Dialogue text jlkjkj '
@@ -59,24 +29,79 @@ MonoBehaviour:
     <Actor>k__BackingField: 1
     <Position>k__BackingField: {x: 549.60004, y: 120.8}
   - <ID>k__BackingField: fbd0f773-4356-4107-a743-b138c0f92fef
-    <Name>k__BackingField: DialogueName
-    <Text>k__BackingField: Dialogue text.
+    <Name>k__BackingField: lk   jjjjj
+    <Text>k__BackingField: lk   jjjjj
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: 
+    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <Position>k__BackingField: {x: 1722.3999, y: 120}
+  - <ID>k__BackingField: 3544fdba-dabe-45cc-a51a-b610b0a6441a
+    <Name>k__BackingField: uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+    <Text>k__BackingField: uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 244.8, y: 136}
+    <Position>k__BackingField: {x: 1112.7999, y: 390.4}
+  - <ID>k__BackingField: 6e7664c2-f46a-4ca5-9793-00888345b841
+    <Name>k__BackingField: New Dialogue Text 6e7664c2-f46a-4ca5-9793-00888345b841l
+      lkj lkj lkj lkj lkj lkj lk jlkj lkj lkj lk jlkj
+    <Text>k__BackingField: New Dialogue Text 6e7664c2-f46a-4ca5-9793-00888345b841l
+      lkj lkj lkj lkj lkj lkj lk jlkj lkj lkj lk jlkj
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 0
+    <Position>k__BackingField: {x: 444, y: 390.4}
+  - <ID>k__BackingField: 6bb5aa7e-45ed-44b4-846c-026e36fa3ef4
+    <Name>k__BackingField: Dialogue text lk jlk j
+    <Text>k__BackingField: Dialogue text lk jlk j
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 437b0284-ddec-4044-943b-0b46d5420aa9
+    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <Position>k__BackingField: {x: 848, y: 120.8}
+  - <ID>k__BackingField: 3908d846-bf05-4fb0-b1e7-65e3a335f934
+    <Name>k__BackingField: jjjjjjjjjjjjjj
+    <Text>k__BackingField: jjjjjjjjjjjjjj
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: fbd0f773-4356-4107-a743-b138c0f92fef
+    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 2
+    <Position>k__BackingField: {x: 1401.6, y: 120}
+  - <ID>k__BackingField: 437b0284-ddec-4044-943b-0b46d5420aa9
+    <Name>k__BackingField: /kkkkkkkkkkkkkkkkkkkkkkkkkkkkk...
+    <Text>k__BackingField: /kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk     kkkkkkkkkkkkk
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 3908d846-bf05-4fb0-b1e7-65e3a335f934
+    <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <Position>k__BackingField: {x: 1112.7999, y: 120}
   <OldGroupNames>k__BackingField:
   - DialogueGroup
-  <OldUngroupedNodeNames>k__BackingField:
-  - DialogueName
+  <OldUngroupedNodeNames>k__BackingField: []
   <OldGroupedNodeNames>k__BackingField:
     list:
     - Key: DialogueGroup
       Value:
-      - DialogueNamej
-      - hhhh
-      - hhh
       - 'Dialogue text jlkjkj '
+      - lk   jjjjj
+      - uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+      - New Dialogue Text 6e7664c2-f46a-4ca5-9793-00888345b841l lkj lkj lkj lkj lkj
+        lkj lk jlkj lkj lkj lk jlkj
+      - Dialogue text lk jlk j
+      - jjjjjjjjjjjjjj
+      - /kkkkkkkkkkkkkkkkkkkkkkkkkkkkk...
