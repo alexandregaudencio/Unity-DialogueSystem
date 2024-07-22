@@ -88,4 +88,23 @@ public static class TextUtility
 
 		return new string(textCharacters, 0, currentWhitespacelessTextLength);
 	}
+
+    /// <summary>
+    ///     /// return string with "..." at end of the string.
+    /// </summary>
+    /// <param name="stringValue"></param>
+    ///// <param name="maxLength">max characters in the final string.</param>
+    /// <returns>return a new string with 30 characters max and "..." at end of the string.</returns>
+    public static string DialogueNameRangeFormat(this string stringValue/*, int maxLength*/)
+    {
+        string newValue = stringValue;
+        if (newValue.Length > 30)
+        {
+            newValue = stringValue.Substring(0, 30) + "...";
+            return newValue;
+        }
+        //dialogueNameTextElement.text = newValue;
+        return newValue;
+    }
+
 }

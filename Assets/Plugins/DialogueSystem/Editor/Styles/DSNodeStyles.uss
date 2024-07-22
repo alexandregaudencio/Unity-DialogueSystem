@@ -45,7 +45,7 @@
 
 .ds-node__filename-text-field > .unity-text-field__input
 {
-	max-width: var(--ds-metrics-window-pixels-1000);
+	max-width: var(--ds-metrics-window-pixels-100);
 	margin: var(--ds-metrics-window-pixels-4);
 	padding: var(--ds-metrics-window-pixels-4);
 }

@@ -66,7 +66,7 @@ namespace DialogueSystem.Elements
             inputContainer.Add(inputPort);
 
             /* TITLE CONTAINER */
-            dialogueNameTextElement = DSElementUtility.CreateTextElement(DialogueName, OnDialogueNameChanged);
+            dialogueNameTextElement = DSElementUtility.CreateTextElement(DialogueName.DialogueNameRangeFormat(), OnDialogueNameChanged);
 
             dialogueNameTextElement.AddClasses(
                 "ds-node__text-field",
@@ -149,27 +149,10 @@ namespace DialogueSystem.Elements
         {
             TextField target = (TextField)callback.target;
             Text = target.text;
-            dialogueNameTextElement.text = GetTittleTextRanged(target.text, 30);
+            dialogueNameTextElement.text = target.text.DialogueNameRangeFormat();
 
         }
 
-
-        /// <summary>
-        /// return TextElement value limited with "..." at end of the string.
-        /// </summary>
-        /// <param name="callback"></param>
-        /// <returns></returns>
-        private string GetTittleTextRanged(string value, int maxLength)
-        {
-            string newValue = value;
-            if (newValue.Length > maxLength)
-            {
-                newValue = value.Substring(0, 25) + "...";
-                return newValue;
-            }
-            dialogueNameTextElement.text = newValue;
-            return newValue;
-        }
 
         private string OnActorChange(string actor)
         {

@@ -326,7 +326,7 @@ namespace DialogueSystem.Utilities
             {
                 List<DSChoiceSaveData> choices = CloneNodeChoices(nodeData.Choices);
 
-                DSNode node = graphView.CreateNode(nodeData.Name, nodeData.DialogueType, nodeData.Position, false);
+                DSNode node = graphView.CreateNode(nodeData.Text, nodeData.DialogueType, nodeData.Position, false);
 
                 node.ID = nodeData.ID;
                 node.Choices = choices;
