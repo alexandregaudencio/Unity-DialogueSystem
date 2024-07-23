@@ -51,7 +51,7 @@ namespace DialogueSystem.Windows
                 fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
             });
 
-            saveButton = DSElementUtility.CreateButton("Save", () => Save());
+            saveButton = DSElementUtility.CreateButton("Save",Save);
 
             Button loadButton = DSElementUtility.CreateButton("Load", OpenLoadFilePanel);
             Button clearButton = DSElementUtility.CreateButton("Clear", Clear);

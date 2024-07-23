@@ -66,7 +66,8 @@ namespace DialogueSystem.Elements
             inputContainer.Add(inputPort);
 
             /* TITLE CONTAINER */
-            dialogueNameTextElement = DSElementUtility.CreateTextElement(DialogueName.DialogueNameRangeFormat(), OnDialogueNameChanged);
+            string Text = DialogueName.DialogueNameRangeFormat();
+            dialogueNameTextElement = DSElementUtility.CreateTextElement(Text, OnDialogueNameChanged);
 
             dialogueNameTextElement.AddClasses(
                 "ds-node__text-field",
@@ -137,7 +138,7 @@ namespace DialogueSystem.Elements
 
             graphView.RemoveGroupedNode(this, Group);
 
-            DialogueName = target.text;
+            DialogueName = target.text.SanitizeFileName();
 
             graphView.AddGroupedNode(this, currentGroup);
 

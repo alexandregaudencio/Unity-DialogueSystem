@@ -29,7 +29,7 @@ namespace DialogueSystem.Windows
             AddActorField();
             if (showErrorMessage)
             {
-                EditorGUILayout.HelpBox($"{errorValue} Already is defined an Actor.", MessageType.Warning);
+                EditorGUILayout.HelpBox($"{errorValue} Already has defined an Actor.", MessageType.Warning);
             }
             GUILayout.Space(20);
             ShowActors();
