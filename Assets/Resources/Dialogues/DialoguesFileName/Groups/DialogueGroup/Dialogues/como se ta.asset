@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: ___
+  m_Name: como se ta
   m_EditorClassIdentifier: 
-  text: '   '
-  <DialogueName>k__BackingField: ___
+  text: como se ta
+  <DialogueName>k__BackingField: como se ta
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 8b10b59664d308a43aac5793a0d22df7, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 0}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 1
-  <IsStartingDialogue>k__BackingField: 1
+  <IsStartingDialogue>k__BackingField: 0

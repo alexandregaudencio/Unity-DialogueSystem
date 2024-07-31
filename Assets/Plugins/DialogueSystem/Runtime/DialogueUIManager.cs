@@ -15,9 +15,11 @@ public class DialogueUIManager : MonoBehaviour
 
     private void Start()
     {
+
         dialogue = GetComponent<DialogueGroupSelector>();
         targetDialogue = dialogue.targetDialogue;
-
+        dialogText.text = targetDialogue.RequestText;
+        StartDialogue();
     }
 
     private void Update()
@@ -32,6 +34,7 @@ public class DialogueUIManager : MonoBehaviour
 
         if (Input.anyKeyDown)
         {
+            Debug.Log("teste");
             //if (index > dialogue.DialogueGroupTarget.Count) return;
             if (targetDialogue.Choices[0].NextDialogue == null)
             {

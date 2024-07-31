@@ -16,7 +16,7 @@ MonoBehaviour:
   <Groups>k__BackingField:
   - <ID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <Name>k__BackingField: DialogueGroup
-    <Position>k__BackingField: {x: 392.80005, y: 59.999992}
+    <Position>k__BackingField: {x: 393, y: 61}
   <Nodes>k__BackingField:
   - <ID>k__BackingField: fbd0f773-4356-4107-a743-b138c0f92fef
     <Name>k__BackingField: lk   jjjjj
@@ -27,7 +27,7 @@ MonoBehaviour:
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 1722.3999, y: 120}
+    <Position>k__BackingField: {x: 1722, y: 120}
   - <ID>k__BackingField: 6e7664c2-f46a-4ca5-9793-00888345b841
     <Name>k__BackingField: New Dialogue Text 6e7664c2-f46a-4ca5-9793-00888345b841l
       lkj lkj lkj lkj lkj lkj lk jlkj lkj lkj lk jlkj
@@ -39,7 +39,7 @@ MonoBehaviour:
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 444, y: 390.4}
+    <Position>k__BackingField: {x: 444, y: 390}
   - <ID>k__BackingField: 3908d846-bf05-4fb0-b1e7-65e3a335f934
     <Name>k__BackingField: jjjjjjjjjjjjjj
     <Text>k__BackingField: jjjjjjjjjjjjjj
@@ -49,7 +49,7 @@ MonoBehaviour:
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 2
-    <Position>k__BackingField: {x: 1401.6, y: 120}
+    <Position>k__BackingField: {x: 1402, y: 120}
   - <ID>k__BackingField: 3544fdba-dabe-45cc-a51a-b610b0a6441a
     <Name>k__BackingField: uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
     <Text>k__BackingField: uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
@@ -59,7 +59,7 @@ MonoBehaviour:
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 1112.7999, y: 390.4}
+    <Position>k__BackingField: {x: 1113, y: 390}
   - <ID>k__BackingField: 437b0284-ddec-4044-943b-0b46d5420aa9
     <Name>k__BackingField: kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk     kkkkkkkkkkkkk
     <Text>k__BackingField: kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk     kkkkkkkkkkkkk
@@ -69,27 +69,27 @@ MonoBehaviour:
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 1112.7999, y: 120}
+    <Position>k__BackingField: {x: 1113, y: 120}
   - <ID>k__BackingField: 6bb5aa7e-45ed-44b4-846c-026e36fa3ef4
-    <Name>k__BackingField: Dialogue text lk jlk j
-    <Text>k__BackingField: Dialogue text lk jlk j
+    <Name>k__BackingField: como_se_ta
+    <Text>k__BackingField: como se ta
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 437b0284-ddec-4044-943b-0b46d5420aa9
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 848, y: 120.8}
+    <Position>k__BackingField: {x: 848, y: 121}
   - <ID>k__BackingField: 8ef2495b-55ae-4ad4-ae9c-c9902e6c2c66
-    <Name>k__BackingField: ___
-    <Text>k__BackingField: '   '
+    <Name>k__BackingField: _Iai_meu_mano__
+    <Text>k__BackingField: ' Iai meu mano  '
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 6bb5aa7e-45ed-44b4-846c-026e36fa3ef4
     <GroupID>k__BackingField: 2ffc5841-2583-48c5-b19c-f78e3d4f4fe6
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 418.40002, y: 120.8}
+    <Position>k__BackingField: {x: 418, y: 121}
   <OldGroupNames>k__BackingField:
   - DialogueGroup
   <OldUngroupedNodeNames>k__BackingField: []
@@ -103,5 +103,5 @@ MonoBehaviour:
       - jjjjjjjjjjjjjj
       - uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
       - kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk     kkkkkkkkkkkkk
-      - Dialogue text lk jlk j
-      - ___
+      - como_se_ta
+      - _Iai_meu_mano__

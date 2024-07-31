@@ -25,9 +25,9 @@
 	background-color: var(--ds-colors-window-dark-grey-1);
 	border-color: var(--ds-colors-window-dark-grey-6);
 	border-radius: var(--ds-metrics-window-pixels-4);
-	max-width: var(--ds-metrics-window-pixels-240);
+	max-width: var(--ds-metrics-window-pixels-260); 	/* default: 260 */
 	min-width: var(--ds-metrics-window-pixels-160);
-	padding: var(--ds-metrics-window-pixels-8);
+	padding: var(--ds-metrics-window-pixels-20);
 	white-space: normal;
 }
 

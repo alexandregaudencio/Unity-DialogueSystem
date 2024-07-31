@@ -73,8 +73,8 @@ namespace DialogueSystem.Windows
             AddMiniMapStyles();
 
 
-            this.RegisterCallback<MouseDownEvent>((evt) => Debug.Log("Mouse down"));
-            this.RegisterCallback<MouseUpEvent>((evt) => Debug.Log("Mouse up"));
+            // this.RegisterCallback<MouseDownEvent>((evt) => Debug.Log("Mouse down"));
+            // this.RegisterCallback<MouseUpEvent>((evt) => Debug.Log("Mouse up"));
             //this.RegisterCallback<MouseMoveEvent>(OnMouseMove);
         }
         private Edge edgeInProgress;
@@ -87,7 +87,7 @@ namespace DialogueSystem.Windows
         //        // Comece a criar uma nova aresta
         //        edgeInProgress = new Edge();
         //        //edgeInProgress.input = new Port();
-        //        //edgeInProgress.input.owe = null; // Porta de origem não definida ainda
+        //        //edgeInProgress.input.owe = null; // Porta de origem nï¿½o definida ainda
         //        edgeInProgress.input.Connect(edgeInProgress);
         //        AddElement(edgeInProgress);
         //        evt.StopPropagation();
@@ -98,11 +98,11 @@ namespace DialogueSystem.Windows
         //{
         //    if (edgeInProgress != null)
         //    {
-        //        // Atualize a posição da extremidade da aresta conforme o mouse é movido
+        //        // Atualize a posiï¿½ï¿½o da extremidade da aresta conforme o mouse ï¿½ movido
         //        Vector2 mousePosition = evt.mousePosition;
         //        //edgeInProgress.output = new Port();
         //        edgeInProgress.output.Connect(edgeInProgress);
-        //        //edgeInProgress.output.owner = null; // Porta de destino não definida ainda
+        //        //edgeInProgress.output.owner = null; // Porta de destino nï¿½o definida ainda
         //        edgeInProgress.UpdateEdgeControl();
         //        edgeInProgress.candidatePosition = mousePosition;
         //        evt.StopPropagation();
@@ -113,7 +113,7 @@ namespace DialogueSystem.Windows
         //{
         //    if (edgeInProgress != null)
         //    {
-        //        // Verifique se a origem e o destino da aresta estão definidos
+        //        // Verifique se a origem e o destino da aresta estï¿½o definidos
         //        if (edgeInProgress.input.owner == null || edgeInProgress.output.owner == null)
         //        {
         //            OnEdgeCreatedWithoutConnection(edgeInProgress);
@@ -130,10 +130,10 @@ namespace DialogueSystem.Windows
 
         //private void OnEdgeCreatedWithoutConnection(Edge edge)
         //{
-        //    // Execute a lógica desejada quando uma aresta é criada, mas não conectada a outro nó
-        //    Debug.Log("Uma aresta foi criada, mas não conectada a outro nó!");
+        //    // Execute a lï¿½gica desejada quando uma aresta ï¿½ criada, mas nï¿½o conectada a outro nï¿½
+        //    Debug.Log("Uma aresta foi criada, mas nï¿½o conectada a outro nï¿½!");
 
-        //    // Aqui você pode executar qualquer ação necessária quando uma aresta é criada sem uma conexão
+        //    // Aqui vocï¿½ pode executar qualquer aï¿½ï¿½o necessï¿½ria quando uma aresta ï¿½ criada sem uma conexï¿½o
         //}
 
 
