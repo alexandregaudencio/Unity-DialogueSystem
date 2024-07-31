@@ -314,7 +314,7 @@ namespace DialogueSystem.Utilities
             {
                 DSGroup group = graphView.CreateGroup(groupData.Name, groupData.Position);
 
-                group.ID = groupData.ID;
+                group.ID = groupData.ID.ToString();
 
                 loadedGroups.Add(group.ID, group);
             }
@@ -359,12 +359,12 @@ namespace DialogueSystem.Utilities
                 {
                     DSChoiceSaveData choiceData = (DSChoiceSaveData) choicePort.userData;
 
-                    if (string.IsNullOrEmpty(choiceData.NodeID))
+                    if (string.IsNullOrEmpty(choiceData.NodeID.ToString()))
                     {
                         continue;
                     }
 
-                    DSNode nextNode = loadedNodes[choiceData.NodeID];
+                    DSNode nextNode = loadedNodes[choiceData.NodeID.ToString()];
 
                     Port nextNodeInputPort = (Port) nextNode.inputContainer.Children().First();
 

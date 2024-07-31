@@ -151,12 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f70cf55b2086fe4e916735c1b64ee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueContainer: {fileID: 11400000, guid: efc17dc265c93154dab56facb3986f0f, type: 2}
+  dialogueContainer: {fileID: 11400000, guid: ec3b18b85db371746831114de80c3f16, type: 2}
   dialogueGroup: {fileID: 11400000, guid: ad865eaad8a4a2845bfb9f1f50505f50, type: 2}
-  groupedDialogues: 1
+  groupedDialogues: 0
   selectedDialogueGroupIndex: 0
-  selectedDialogueIndex: 1
-  targetDialogue: {fileID: 11400000, guid: b3eaf2c87f97d8b42b7a1d9fd4bcf3a8, type: 2}
+  selectedDialogueIndex: 0
+  targetDialogue: {fileID: 11400000, guid: e4ef38d597485214d98542f8026db270, type: 2}
   onTextRequested:
     m_PersistentCalls:
       m_Calls: []
@@ -169,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 382085196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.37, y: 0.97999996, z: 0.54}
+  m_LocalPosition: {x: -0.79, y: 0, z: -1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -349,7 +349,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759484020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -357,7 +357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.39, y: 1.49}
+  m_AnchoredPosition: {x: 0.6, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759484022
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4278ca070d8dc141ad5b07a22032d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueContainer: {fileID: 11400000, guid: e73af11cb50ab46449f2bc9f8f00db34, type: 2}
+  dialogueContainer: {fileID: 11400000, guid: ec3b18b85db371746831114de80c3f16, type: 2}
   dialogueGroup: {fileID: 11400000, guid: bba8cc20d63645648875ad2958831148, type: 2}
   dialogue: {fileID: 11400000, guid: 127077c35e46d4846b4c59e987cd9c35, type: 2}
   startingDialoguesOnly: 0

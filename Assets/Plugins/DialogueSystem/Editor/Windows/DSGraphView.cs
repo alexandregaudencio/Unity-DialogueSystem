@@ -44,6 +44,8 @@ namespace DialogueSystem.Windows
                 if (nameErrorsAmount == 1)
                 {
                     editorWindow.DisableSaving();
+                    Debug.Log("error");
+
                 }
             }
         }
@@ -180,7 +182,7 @@ namespace DialogueSystem.Windows
         private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType)
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("DialogueName", dialogueType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("", dialogueType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
             );
 
             return contextualMenuManipulator;
@@ -468,15 +470,15 @@ namespace DialogueSystem.Windows
 
             ungroupedNodesList.Add(node);
 
-            Color errorColor = ungroupedNodes[nodeName].ErrorData.Color;
+            Color errorColor = DSErrorData.Color;
 
-            node.SetErrorStyle(errorColor);
+            node.SetBackgroundColor(errorColor);
 
             if (ungroupedNodesList.Count == 2)
             {
                 ++NameErrorsAmount;
 
-                ungroupedNodesList[0].SetErrorStyle(errorColor);
+                ungroupedNodesList[0].SetBackgroundColor(errorColor);
             }
         }
 
@@ -488,13 +490,13 @@ namespace DialogueSystem.Windows
 
             ungroupedNodesList.Remove(node);
 
-            node.ResetStyle();
+            //node.ResetBackgroundColor();
 
             if (ungroupedNodesList.Count == 1)
             {
                 --NameErrorsAmount;
 
-                ungroupedNodesList[0].ResetStyle();
+                ungroupedNodesList[0].ResetBackgroundColor();
 
                 return;
             }
@@ -524,15 +526,14 @@ namespace DialogueSystem.Windows
 
             groupsList.Add(group);
 
-            Color errorColor = groups[groupName].ErrorData.Color;
 
-            group.SetErrorStyle(errorColor);
+            group.SetErrorStyle();
 
             if (groupsList.Count == 2)
             {
                 ++NameErrorsAmount;
 
-                groupsList[0].SetErrorStyle(errorColor);
+                groupsList[0].SetErrorStyle();
             }
         }
 
@@ -587,15 +588,14 @@ namespace DialogueSystem.Windows
 
             groupedNodesList.Add(node);
 
-            Color errorColor = groupedNodes[group][nodeName].ErrorData.Color;
+            Color errorColor = DSErrorData.Color;
 
-            node.SetErrorStyle(errorColor);
+            node.SetBackgroundColor(errorColor);
 
             if (groupedNodesList.Count == 2)
             {
                 ++NameErrorsAmount;
-
-                groupedNodesList[0].SetErrorStyle(errorColor);
+                groupedNodesList[0].SetBackgroundColor(errorColor);
             }
         }
 
@@ -609,13 +609,13 @@ namespace DialogueSystem.Windows
 
             groupedNodesList.Remove(node);
 
-            node.ResetStyle();
+            //node.ResetBackgroundColor();
 
             if (groupedNodesList.Count == 1)
             {
                 --NameErrorsAmount;
 
-                groupedNodesList[0].ResetStyle();
+                groupedNodesList[0].ResetBackgroundColor();
 
                 return;
             }

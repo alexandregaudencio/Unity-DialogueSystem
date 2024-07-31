@@ -128,6 +128,7 @@ public static class TextUtility
     {
         if (string.IsNullOrEmpty(value))
         {
+            return "_";
             throw new ArgumentException("File name cannot be null or empty", nameof(value));
         }
 
