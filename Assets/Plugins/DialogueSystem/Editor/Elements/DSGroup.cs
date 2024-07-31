@@ -1,3 +1,4 @@
+using DialogueSystem.Data.Error;
 using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -25,9 +26,9 @@ namespace DialogueSystem.Elements
             defaultBorderWidth = contentContainer.style.borderBottomWidth.value;
         }
 
-        public void SetErrorStyle(Color color)
+        public void SetErrorStyle()
         {
-            contentContainer.style.borderBottomColor = color;
+            contentContainer.style.borderBottomColor = DSErrorData.Color;
             contentContainer.style.borderBottomWidth = 2f;
         }
 

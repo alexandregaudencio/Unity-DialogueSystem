@@ -6,12 +6,13 @@ namespace DialogueSystem.Data.Error
 
     public class DSGroupErrorData
     {
-        public DSErrorData ErrorData { get; set; }
+        //public DSErrorData ErrorData { get; set; }
         public List<DSGroup> Groups { get; set; }
+
 
         public DSGroupErrorData()
         {
-            ErrorData = new DSErrorData();
+            //ErrorData = new DSErrorData();
             Groups = new List<DSGroup>();
         }
     }

@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 namespace DialogueSystem.Elements
 {
     using Data.Save;
+    using DialogueSystem.Data.Error;
     using Enumerations;
     using Utilities;
     using Windows;
@@ -46,7 +47,7 @@ namespace DialogueSystem.Elements
             ID = Guid.NewGuid().ToString();
             DialogueName = nodeName ;
             Choices = new List<DSChoiceSaveData>();
-            Text = "New Dialogue Text " + ID;
+            Text = " Dialogue " + ID;
             Actor = actor;
 
             SetPosition(new Rect(position, Vector2.zero));
@@ -56,6 +57,12 @@ namespace DialogueSystem.Elements
 
             mainContainer.AddToClassList("ds-node__main-container");
             extensionContainer.AddToClassList("ds-node__extension-container");
+            if (DialogueName == "")
+            {
+                SetErrorColor();
+                ++graphView.NameErrorsAmount;
+
+            }
         }
 
         public virtual void Draw()
@@ -108,10 +115,13 @@ namespace DialogueSystem.Elements
         private void OnDialogueNameChanged(ChangeEvent<string> callback)
         {
             TextElement target = (TextElement)callback.target;
+
             if (string.IsNullOrEmpty(target.text))
             {
+                SetErrorColor();
                 if (!string.IsNullOrEmpty(DialogueName))
                 {
+
                     ++graphView.NameErrorsAmount;
                 }
             }
@@ -119,6 +129,7 @@ namespace DialogueSystem.Elements
             {
                 if (string.IsNullOrEmpty(DialogueName))
                 {
+                    ResetBackgroundColor();
                     --graphView.NameErrorsAmount;
                 }
             }
@@ -151,7 +162,7 @@ namespace DialogueSystem.Elements
             TextField target = (TextField)callback.target;
             Text = target.text;
             dialogueNameTextElement.text = target.text.DialogueNameRangeFormat();
-
+            if(target.text == "") SetErrorColor();
         }
 
 
@@ -191,18 +202,22 @@ namespace DialogueSystem.Elements
 
         public bool IsStartingNode()
         {
-            Debug.Log("starting node");
             Port inputPort = (Port)inputContainer.Children().First();
 
             return !inputPort.connected;
         }
 
-        public void SetErrorStyle(Color color)
+        public void SetBackgroundColor(Color color)
         {
             mainContainer.style.backgroundColor = color;
         }
 
-        public void ResetStyle()
+        public void SetErrorColor()
+        {
+            mainContainer.style.backgroundColor = DSErrorData.Color;
+        }
+
+        public void ResetBackgroundColor()
         {
             mainContainer.style.backgroundColor = defaultBackgroundColor;
         }

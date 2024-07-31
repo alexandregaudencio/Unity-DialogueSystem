@@ -6,12 +6,12 @@ namespace DialogueSystem.Data.Error
 
     public class DSNodeErrorData
     {
-        public DSErrorData ErrorData { get; set; }
+        //public DSErrorData ErrorData { get; set; }
         public List<DSNode> Nodes { get; set; }
 
         public DSNodeErrorData()
         {
-            ErrorData = new DSErrorData();
+            //ErrorData = new DSErrorData();
             Nodes = new List<DSNode>();
         }
     }
