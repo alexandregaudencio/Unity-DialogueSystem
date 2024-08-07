@@ -24,35 +24,20 @@ namespace DialogueSystem.Windows
 
         public void OnDrop(GraphView graphView, Edge edge)
         {
-            Debug.Log("on drop " + edge.input.node.name);
-            Debug.Log("on drop " + edge.output.node.name);
-            // Aqui você pode tratar a conexão entre dois portos existentes
         }
 
         public void OnDropOutsidePort(Edge edge, Vector2 position)
         {
-            Debug.Log("on drop outside " );
+            if (edge.output != null && edge.input == null)
+            {
+                Vector2 localMousePosition = _graphView.GetLocalMousePosition(position);
+                var newNode = _graphView.CreateNode("", DSDialogueType.SingleChoice, localMousePosition);
+                var newEdge = edge.output.ConnectTo(newNode.inputContainer[0] as Port);
+                _graphView.AddElement(newNode);
+                _graphView.AddElement(newEdge);
+            }
 
-            //// Se a conexão foi solta fora de um porto, crie um novo nó
-            //if (edge.output != null && edge.input == null)
-            //{
-            //    var newNode = _graphView.CreateNode("New Node", position);
-
-            //    // Conectar o novo nó à conexão existente
-            //    var newEdge = edge.output.ConnectTo(newNode.inputContainer[0] as Port);
-            //    _graphView.AddElement(newEdge);
-            //}
-            //else if (edge.input != null && edge.output == null)
-            //{
-            //    var newNode = _graphView.CreateNode("New Node", position);
-
-            //    // Conectar o novo nó à conexão existente
-            //    var newEdge = newNode.outputContainer[0].ConnectTo(edge.input);
-            //    _graphView.AddElement(newEdge);
-            //}
-
-            //// Remover a conexão original que não estava conectada
-            //edge.RemoveFromHierarchy();
+            edge.RemoveFromHierarchy();
         }
     }
 
