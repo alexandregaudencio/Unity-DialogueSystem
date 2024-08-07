@@ -9,6 +9,7 @@
 .ds-node__main-container
 {
 	background-color: var(--ds-colors-window-dark-grey-1);
+	max-width: var(--ds-metrics-window-pixels-240);
 }
 
 .ds-node__custom-data-container
@@ -27,7 +28,7 @@
 	border-radius: var(--ds-metrics-window-pixels-4);
 	max-width: var(--ds-metrics-window-pixels-260); 	/* default: 260 */
 	min-width: var(--ds-metrics-window-pixels-160);
-	padding: var(--ds-metrics-window-pixels-20);
+	padding: var(--ds-metrics-window-pixels-10);
 	white-space: normal;
 }
 
@@ -67,17 +68,17 @@
 
 .ds-node__quote-text-field > .unity-text-field__input
 {
-	background-color: var(--ds-colors-window-dark-grey-4);
+	background-color: var(--ds-colors-window-dark-grey-1);
 	border-color: transparent;
 	border-left-color: var(--ds-colors-window-dark-grey-6);
 	border-left-width: var(--ds-metrics-window-pixels-4);
 	padding: var(--ds-metrics-window-pixels-16);
-	max-width: var(--ds-metrics-window-pixels-600);
+	max-width: var(--ds-metrics-window-pixels-300);
 }
 
 .ds-node__quote-text-field > .unity-text-field__input:hover
 {
-	background-color: var(--ds-colors-window-dark-grey-5);
+	background-color: var(--ds-colors-window-dark-grey-1);
 }
 
 .ds-node__quote-text-field > .unity-text-field__input:focus

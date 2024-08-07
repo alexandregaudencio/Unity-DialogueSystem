@@ -10,10 +10,12 @@ namespace DialogueSystem.Elements
     using Data.Save;
     using DialogueSystem.Data.Error;
     using Enumerations;
+    using Unity.VisualScripting;
     using Utilities;
     using Windows;
 
-    public class DSNode : Node
+
+    public class DSNode : Node, IEdgeConnectorListener
     {
         public string ID { get; set; }
         public string DialogueName { get; set; }
@@ -31,6 +33,9 @@ namespace DialogueSystem.Elements
 
         private Port inputPort;
         TextElement dialogueNameTextElement;
+        
+        public Action<UnityEditor.Experimental.GraphView.Edge, Vector2> OnDropOutsidePortEvent;
+        private IEdgeConnectorListener edgeConnectorListener;
 
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
@@ -63,6 +68,9 @@ namespace DialogueSystem.Elements
                 ++graphView.NameErrorsAmount;
 
             }
+
+            
+            
         }
 
         public virtual void Draw()
@@ -71,6 +79,15 @@ namespace DialogueSystem.Elements
             /* INPUT CONTAINER */
             inputPort = this.CreatePort("Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
             inputContainer.Add(inputPort);
+            
+            inputPort.AddManipulator(new EdgeConnector<UnityEditor.Experimental.GraphView.Edge>(edgeConnectorListener));
+            
+
+        // ... other code ...
+            // var edgeConnectorListener = new CustomEdgeConnectorListener();
+            // inputPort.AddManipulator(new EdgeConnector<Edge>(new CustomEdgeConnectorListener()));
+            // edgeConnectorListener.OnDropOutsidePortEvent = TestEvent;
+            // inputPort.AddManipulator(MouseManipulator)
 
             /* TITLE CONTAINER */
             string Text = DialogueName.DialogueNameRangeFormat();
@@ -83,7 +100,7 @@ namespace DialogueSystem.Elements
                 "ds-node__filename-text-field"
             );
 
-            titleContainer.Insert(0, dialogueNameTextElement);
+            titleContainer.Insert(1, dialogueNameTextElement);
 
 
 
@@ -113,6 +130,11 @@ namespace DialogueSystem.Elements
 
         }
 
+        // att
+        public void TestEvent(UnityEditor.Experimental.GraphView.Edge edge, Vector2 position){
+            // GraphView.CreateNode()
+        }
+
         private void OnDialogueNameChanged(ChangeEvent<string> callback)
         {
             TextElement target = (TextElement)callback.target;
@@ -122,16 +144,17 @@ namespace DialogueSystem.Elements
                 SetErrorColor();
                 if (!string.IsNullOrEmpty(DialogueName))
                 {
-
                     ++graphView.NameErrorsAmount;
                 }
             }
             else
             {
+
+                ResetBackgroundColor();  //* Fix do bug da node sempre vermelha mesmo com texto
+                --graphView.NameErrorsAmount;
                 if (string.IsNullOrEmpty(DialogueName))
                 {
                     ResetBackgroundColor();
-                    --graphView.NameErrorsAmount;
                 }
             }
 
@@ -204,6 +227,7 @@ namespace DialogueSystem.Elements
         public bool IsStartingNode()
         {
             Port inputPort = (Port)inputContainer.Children().First();
+            inputContainer.Add(inputPort);
 
             return !inputPort.connected;
         }
@@ -223,5 +247,21 @@ namespace DialogueSystem.Elements
             mainContainer.style.backgroundColor = defaultBackgroundColor;
         }
 
+        // Defina o evento ou delegate apenas uma vez     
+
+        public void OnDropOutsidePort(UnityEditor.Experimental.GraphView.Edge edge, Vector2 position)
+        {
+            Debug.Log("Oi");
+            OnDropOutsidePortEvent?.Invoke(edge, position);
+            throw new NotImplementedException();
+        }
+
+        public void OnDrop(GraphView graphView, UnityEditor.Experimental.GraphView.Edge edge)
+        {
+            throw new NotImplementedException();
+        }
+
     }
+
+    
 }

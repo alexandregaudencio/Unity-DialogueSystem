@@ -140,6 +140,7 @@ namespace DialogueSystem.Windows
 
         public void EnableSaving()
         {
+            // att : Escurecimento do botão de Save
             saveButton.SetEnabled(true);
         }
 

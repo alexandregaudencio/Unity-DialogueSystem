@@ -23,6 +23,8 @@ namespace DialogueSystem.Windows
         private SerializableDictionary<string, DSGroupErrorData> groups;
         private SerializableDictionary<Group, SerializableDictionary<string, DSNodeErrorData>> groupedNodes;
 
+        private int createdGroupsCount = 0;
+
         private int nameErrorsAmount;
 
         public int NameErrorsAmount
@@ -44,7 +46,7 @@ namespace DialogueSystem.Windows
                 if (nameErrorsAmount == 1)
                 {
                     editorWindow.DisableSaving();
-                    Debug.Log("error");
+                    //! Debug.Log("error"); ta chamando toda hora
 
                 }
             }
@@ -73,17 +75,18 @@ namespace DialogueSystem.Windows
             AddMiniMapStyles();
 
 
-            // this.RegisterCallback<MouseDownEvent>((evt) => Debug.Log("Mouse down"));
-            // this.RegisterCallback<MouseUpEvent>((evt) => Debug.Log("Mouse up"));
-            //this.RegisterCallback<MouseMoveEvent>(OnMouseMove);
+            // this.RegisterCallback<MouseDownEvent>(OnMouseDown);
+            // this.RegisterCallback<MouseUpEvent>(OnMouseUp);
+            // this.RegisterCallback<MouseMoveEvent>(OnMouseMove);
         }
-        private Edge edgeInProgress;
+        // private Edge edgeInProgress;
 
 
-        //private void OnMouseDown(MouseDownEvent evt)
-        //{
+        // private void OnMouseDown(MouseDownEvent evt)
+        // {
         //    if (evt.button == (int)MouseButton.LeftMouse && edgeInProgress == null)
         //    {
+        //         Debug.Log("Foi na ledge");
         //        // Comece a criar uma nova aresta
         //        edgeInProgress = new Edge();
         //        //edgeInProgress.input = new Port();
@@ -92,10 +95,10 @@ namespace DialogueSystem.Windows
         //        AddElement(edgeInProgress);
         //        evt.StopPropagation();
         //    }
-        //}
+        // }
 
-        //private void OnMouseMove(MouseMoveEvent evt)
-        //{
+        // private void OnMouseMove(MouseMoveEvent evt)
+        // {
         //    if (edgeInProgress != null)
         //    {
         //        // Atualize a posi��o da extremidade da aresta conforme o mouse � movido
@@ -107,34 +110,36 @@ namespace DialogueSystem.Windows
         //        edgeInProgress.candidatePosition = mousePosition;
         //        evt.StopPropagation();
         //    }
-        //}
+        // }
 
-        //private void OnMouseUp(MouseUpEvent evt)
-        //{
+        // private void OnMouseUp(MouseUpEvent evt)
+        // {
+            
         //    if (edgeInProgress != null)
         //    {
-        //        // Verifique se a origem e o destino da aresta est�o definidos
-        //        if (edgeInProgress.input.owner == null || edgeInProgress.output.owner == null)
-        //        {
-        //            OnEdgeCreatedWithoutConnection(edgeInProgress);
-        //        }
+            
+        //     //    // Verifique se a origem e o destino da aresta est�o definidos
+        //     //    if (edgeInProgress.input.owner == null || edgeInProgress.output.owner == null)
+        //     //    {
+        //     //        OnEdgeCreatedWithoutConnection(edgeInProgress);
+        //     //    }
 
-        //        // Limpe a aresta em progresso
-        //        edgeInProgress.input.Disconnect(edgeInProgress);
-        //        edgeInProgress.output.Disconnect(edgeInProgress);
-        //        RemoveElement(edgeInProgress);
-        //        edgeInProgress = null;
-        //        evt.StopPropagation();
+        //     //    // Limpe a aresta em progresso
+        //     //    edgeInProgress.input.Disconnect(edgeInProgress);
+        //     //    edgeInProgress.output.Disconnect(edgeInProgress);
+        //     //    RemoveElement(edgeInProgress);
+        //     //    edgeInProgress = null;
+        //     //    evt.StopPropagation();
         //    }
-        //}
+        // }
 
-        //private void OnEdgeCreatedWithoutConnection(Edge edge)
-        //{
+        // private void OnEdgeCreatedWithoutConnection(Edge edge)
+        // {
         //    // Execute a l�gica desejada quando uma aresta � criada, mas n�o conectada a outro n�
         //    Debug.Log("Uma aresta foi criada, mas n�o conectada a outro n�!");
 
         //    // Aqui voc� pode executar qualquer a��o necess�ria quando uma aresta � criada sem uma conex�o
-        //}
+        // }
 
 
 
@@ -190,15 +195,19 @@ namespace DialogueSystem.Windows
 
         private IManipulator CreateGroupContextualMenu()
         {
+            
+            // Debug.Log($"{createdGroupsCount} conta de grupos na tela");
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup("DialogueGroup", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition)))
-            );
+                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup($"DialogueGroup( {createdGroupsCount} ) ", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))));
+            
 
             return contextualMenuManipulator;
         }
 
+        // att
         public DSGroup CreateGroup(string title, Vector2 position)
         {
+            ++createdGroupsCount;
             DSGroup group = new DSGroup(title, position);
 
             AddGroup(group);
@@ -207,6 +216,7 @@ namespace DialogueSystem.Windows
 
             foreach (GraphElement selectedElement in selection)
             {
+                //* att
                 if (!(selectedElement is DSNode))
                 {
                     continue;
@@ -237,6 +247,7 @@ namespace DialogueSystem.Windows
 
         public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, Vector2 position, bool shouldDraw = true)
         {
+            
             Type nodeType = Type.GetType($"{typeof(DSNode).Namespace}.DS{dialogueType}Node");
             DSNode node = (DSNode)Activator.CreateInstance(nodeType);
             node.Initialize(nodeName, DSActor.None, this, position);
@@ -246,18 +257,23 @@ namespace DialogueSystem.Windows
                 node.Draw();
             }
 
-            //DSGroup SelectedGroup = selection.First(s => s is DSGroup) as DSGroup;
-            //Debug.Log(SelectedGroup);
-            //if(SelectedGroup != null)
-            //{
-            //    AddGroupedNode(node, SelectedGroup);
-            //    return node;
-            //}
 
             AddUngroupedNode(node);
+             foreach (GraphElement selectedElement in selection) //! Procurar metodo mais eficiente para encontrar grupos selecionados
+                {
+                    if (selectedElement is DSGroup selectedGroup)
+                    {
+                        AddGroupedNode(node, selectedGroup);
+                        selectedGroup.AddElement(node);
+                        return node;
+                        
+                    }
+                }
+
             return node;
         }
 
+     
         private void OnElementsDeleted()
         {
             deleteSelection = (operationName, askUser) =>
@@ -340,6 +356,7 @@ namespace DialogueSystem.Windows
 
         private void OnGroupElementsAdded()
         {
+            // Debug.Log("Grupo adicionado");
             elementsAddedToGroup = (group, elements) =>
             {
                 foreach (GraphElement element in elements)
@@ -385,7 +402,7 @@ namespace DialogueSystem.Windows
                 DSGroup dsGroup = (DSGroup)group;
 
                 dsGroup.title = newTitle.RemoveWhitespaces().RemoveSpecialCharacters();
-
+                Debug.Log("Nome modificado");
                 if (string.IsNullOrEmpty(dsGroup.title))
                 {
                     if (!string.IsNullOrEmpty(dsGroup.OldTitle))
@@ -411,24 +428,30 @@ namespace DialogueSystem.Windows
 
         private void OnGraphViewChanged()
         {
+
             graphViewChanged = (changes) =>
             {
+                
+                // Debug.Log("Teste");
                 if (changes.edgesToCreate != null)
                 {
+                    
                     foreach (Edge edge in changes.edgesToCreate)
                     {
+                        // edge.OnSelected?.invoke
                         Debug.Log("Node: " + edge.input.node.title + " ___ " + edge.output.node.title);
                         DSNode nextNode = (DSNode)edge.input.node;
 
                         DSChoiceSaveData choiceData = (DSChoiceSaveData)edge.output.userData;
 
                         choiceData.NodeID = nextNode.ID;
-
                     }
                 }
 
+
                 if (changes.elementsToRemove != null)
                 {
+                    
                     Type edgeType = typeof(Edge);
 
                     foreach (GraphElement element in changes.elementsToRemove)
@@ -450,17 +473,16 @@ namespace DialogueSystem.Windows
             };
         }
 
-
+        // att
         public void AddUngroupedNode(DSNode node)
         {
             string nodeName = node.DialogueName;
 
-            if (!ungroupedNodes.ContainsKey(nodeName))
+            if (!ungroupedNodes .ContainsKey(nodeName))  //* Verifica se a node não existe antes de adicionar ela
             {
+                
                 DSNodeErrorData nodeErrorData = new DSNodeErrorData();
-
                 nodeErrorData.Nodes.Add(node);
-
                 ungroupedNodes.Add(nodeName, nodeErrorData);
 
                 return;
@@ -562,40 +584,46 @@ namespace DialogueSystem.Windows
             }
         }
 
-        public void AddGroupedNode(DSNode node, DSGroup group)
+        // att
+       public void AddGroupedNode(DSNode node, DSGroup group)
         {
             string nodeName = node.DialogueName;
 
             node.Group = group;
 
-            if (!groupedNodes.ContainsKey(group))
+            if (!groupedNodes.ContainsKey(group))  // Verifica se o grupo não está presente no dicionário de nós agrupados
             {
-                groupedNodes.Add(group, new SerializableDictionary<string, DSNodeErrorData>());
+                groupedNodes.Add(group, new SerializableDictionary<string, DSNodeErrorData>());  // Adiciona o grupo ao dicionário com um novo dicionário serializável
             }
 
-            if (!groupedNodes[group].ContainsKey(nodeName))
+            if (!groupedNodes[group].ContainsKey(nodeName))  // Verifica se o nome do nó não está presente no dicionário do grupo
             {
-                DSNodeErrorData nodeErrorData = new DSNodeErrorData();
+                DSNodeErrorData nodeErrorData = new DSNodeErrorData();  // Cria uma nova instância de DSNodeErrorData
+                nodeErrorData.Nodes.Add(node);  // Adiciona o nó à lista de nós no DSNodeErrorData
+                groupedNodes[group].Add(nodeName, nodeErrorData);  // Adiciona o DSNodeErrorData ao dicionário do grupo usando o nome do nó como chave
 
-                nodeErrorData.Nodes.Add(node);
-
-                groupedNodes[group].Add(nodeName, nodeErrorData);
-
-                return;
+                return;  // Sai da função, pois o nó foi adicionado pela primeira vez
             }
 
-            List<DSNode> groupedNodesList = groupedNodes[group][nodeName].Nodes;
+            List<DSNode> groupedNodesList = groupedNodes[group][nodeName].Nodes;  // Obtém a lista de nós do dicionário do grupo
 
-            groupedNodesList.Add(node);
+            groupedNodesList.Add(node);  // Adiciona o nó à lista de nós
+            Debug.Log($"teste: {nodeName}");
+            
+            // foreach (DSNode item in groupedNodesList)
+            // {
+            //    //  Debug.Log(item.viewDataKey);
+            // }
+            // Debug.Log("Node adicionada a um grupo com sucesso");
 
-            Color errorColor = DSErrorData.Color;
+            Color errorColor = DSErrorData.Color; 
 
-            node.SetBackgroundColor(errorColor);
+            node.SetBackgroundColor(errorColor);  
 
-            if (groupedNodesList.Count == 2)
+            if (groupedNodesList.Count == 2) 
             {
-                ++NameErrorsAmount;
-                groupedNodesList[0].SetBackgroundColor(errorColor);
+                ++NameErrorsAmount;  // Incrementa a quantidade de erros de nome
+                groupedNodesList[0].SetBackgroundColor(errorColor);  // Define a cor de fundo do primeiro nó como a cor de erro
             }
         }
 
@@ -715,7 +743,6 @@ namespace DialogueSystem.Windows
         {
             miniMap.visible = !miniMap.visible;
         }
-
 
     }
 }
