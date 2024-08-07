@@ -40,6 +40,7 @@ namespace DialogueSystem.Elements
 
                 Choices.Add(choiceData);
                 Port choicePort = CreateChoicePort(choiceData);
+                choicePort.AddManipulator(new EdgeConnector<Edge>(graphView._edgeConnectorListener));
                 outputContainer.Add(choicePort);
             });
 

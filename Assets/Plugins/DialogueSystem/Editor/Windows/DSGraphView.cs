@@ -12,6 +12,51 @@ namespace DialogueSystem.Windows
     using Enumerations;
     using Utilities;
 
+
+    public class EdgeConnectionListener : IEdgeConnectorListener
+    {
+        private DSGraphView _graphView;
+
+        public EdgeConnectionListener(DSGraphView graphView)
+        {
+            _graphView = graphView;
+        }
+
+        public void OnDrop(GraphView graphView, Edge edge)
+        {
+            Debug.Log("on drop " + edge.input.node.name);
+            Debug.Log("on drop " + edge.output.node.name);
+            // Aqui você pode tratar a conexão entre dois portos existentes
+        }
+
+        public void OnDropOutsidePort(Edge edge, Vector2 position)
+        {
+            Debug.Log("on drop outside " );
+
+            //// Se a conexão foi solta fora de um porto, crie um novo nó
+            //if (edge.output != null && edge.input == null)
+            //{
+            //    var newNode = _graphView.CreateNode("New Node", position);
+
+            //    // Conectar o novo nó à conexão existente
+            //    var newEdge = edge.output.ConnectTo(newNode.inputContainer[0] as Port);
+            //    _graphView.AddElement(newEdge);
+            //}
+            //else if (edge.input != null && edge.output == null)
+            //{
+            //    var newNode = _graphView.CreateNode("New Node", position);
+
+            //    // Conectar o novo nó à conexão existente
+            //    var newEdge = newNode.outputContainer[0].ConnectTo(edge.input);
+            //    _graphView.AddElement(newEdge);
+            //}
+
+            //// Remover a conexão original que não estava conectada
+            //edge.RemoveFromHierarchy();
+        }
+    }
+
+
     public class DSGraphView : GraphView
     {
         private DSEditorWindow editorWindow;
@@ -51,6 +96,7 @@ namespace DialogueSystem.Windows
                 }
             }
         }
+        public EdgeConnectionListener _edgeConnectorListener;
 
         public DSGraphView(DSEditorWindow dsEditorWindow)
         {
@@ -74,6 +120,7 @@ namespace DialogueSystem.Windows
             AddStyles();
             AddMiniMapStyles();
 
+            _edgeConnectorListener = new EdgeConnectionListener(this);
 
             // this.RegisterCallback<MouseDownEvent>(OnMouseDown);
             // this.RegisterCallback<MouseUpEvent>(OnMouseUp);
@@ -114,10 +161,10 @@ namespace DialogueSystem.Windows
 
         // private void OnMouseUp(MouseUpEvent evt)
         // {
-            
+
         //    if (edgeInProgress != null)
         //    {
-            
+
         //     //    // Verifique se a origem e o destino da aresta est�o definidos
         //     //    if (edgeInProgress.input.owner == null || edgeInProgress.output.owner == null)
         //     //    {
@@ -269,6 +316,9 @@ namespace DialogueSystem.Windows
                         
                     }
                 }
+            //node..connector = new EdgeConnector<Edge>(_edgeConnectorListener);
+            //node.inputContainer.ad
+
 
             return node;
         }

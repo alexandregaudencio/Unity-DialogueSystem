@@ -35,7 +35,6 @@ namespace DialogueSystem.Elements
         TextElement dialogueNameTextElement;
         
         public Action<UnityEditor.Experimental.GraphView.Edge, Vector2> OnDropOutsidePortEvent;
-        private IEdgeConnectorListener edgeConnectorListener;
 
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
@@ -80,7 +79,6 @@ namespace DialogueSystem.Elements
             inputPort = this.CreatePort("Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
             inputContainer.Add(inputPort);
             
-            inputPort.AddManipulator(new EdgeConnector<UnityEditor.Experimental.GraphView.Edge>(edgeConnectorListener));
             
 
         // ... other code ...

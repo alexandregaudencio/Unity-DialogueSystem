@@ -5,6 +5,7 @@ namespace DialogueSystem.Elements
 {
     using Data.Save;
     using Enumerations;
+    using UnityEngine.UIElements;
     using Utilities;
     using Windows;
 
@@ -35,6 +36,7 @@ namespace DialogueSystem.Elements
                 Port choicePort = this.CreatePort(choice.Text);
 
                 choicePort.userData = choice;
+                choicePort.AddManipulator(new EdgeConnector<Edge>(graphView._edgeConnectorListener));
 
                 outputContainer.Add(choicePort);
             }
