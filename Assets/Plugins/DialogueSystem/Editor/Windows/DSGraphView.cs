@@ -230,7 +230,7 @@ namespace DialogueSystem.Windows
             
             // Debug.Log($"{createdGroupsCount} conta de grupos na tela");
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup($"DialogueGroup( {createdGroupsCount} ) ", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))));
+                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup($"DialogueGroup({createdGroupsCount})", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition)))); 
             
 
             return contextualMenuManipulator;

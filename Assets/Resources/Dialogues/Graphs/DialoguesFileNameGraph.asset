@@ -15,29 +15,29 @@ MonoBehaviour:
   <FileName>k__BackingField: DialoguesFileName
   <Groups>k__BackingField: []
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: c2aec25d-bc78-4fdc-bdbb-b45e054ae41e
-    <Name>k__BackingField: "Oi meu nome \xE9 lucas rocha"
-    <Text>k__BackingField: "Oi meu nome \xE9 lucas rocha"
+  - <ID>k__BackingField: 9cc2b6dc-84bb-4776-8b1a-b78f5e9fd71c
+    <Name>k__BackingField: ddd
+    <Text>k__BackingField: ddd
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 1467, y: 360}
-  - <ID>k__BackingField: 7e7e3942-8c03-41b4-8639-030baa55e5ba
-    <Name>k__BackingField: Oi meu nome
-    <Text>k__BackingField: Oi meu nome
+    <Position>k__BackingField: {x: 747, y: 143}
+  - <ID>k__BackingField: cc0df549-e96d-4e24-8801-c2bb574fbce4
+    <Name>k__BackingField: ddddd
+    <Text>k__BackingField: ddddd
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 979, y: 283}
+    <Position>k__BackingField: {x: 101, y: 245}
   <OldGroupNames>k__BackingField: []
   <OldUngroupedNodeNames>k__BackingField:
-  - "Oi meu nome \xE9 lucas rocha"
-  - Oi meu nome
+  - ddd
+  - ddddd
   <OldGroupedNodeNames>k__BackingField:
     list: []

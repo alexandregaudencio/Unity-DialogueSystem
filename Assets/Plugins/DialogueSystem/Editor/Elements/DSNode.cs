@@ -10,7 +10,6 @@ namespace DialogueSystem.Elements
     using Data.Save;
     using DialogueSystem.Data.Error;
     using Enumerations;
-    using Unity.VisualScripting;
     using Utilities;
     using Windows;
 
@@ -23,6 +22,7 @@ namespace DialogueSystem.Elements
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
         public DSActor Actor { get; set; }
+        public Animation SpeechAnimation { get; set; }
 
         public DSGroup Group { get; set; }
         protected DSGraphView graphView;
@@ -65,10 +65,14 @@ namespace DialogueSystem.Elements
             {
                 SetErrorColor();
                 ++graphView.NameErrorsAmount;
-
             }
-
             
+            CharacterDialogueAnimations charactersDialogueAnimations = DSIOUtility.LoadAsset<CharacterDialogueAnimations>("Assets/DataBase/Dialogues/DialogueAnimations", "CharactersDialogueAnimations" );// <CharacterDialogueAnimations>("Assets/DataBase/Dialogues/DialogueAnimations/CharactersDialogueAnimations")
+            if(charactersDialogueAnimations){
+                Debug.Log("Character Animations loaded");
+            } else {
+                Debug.Log("Não encontrei ");
+            }
             
         }
 
@@ -114,6 +118,11 @@ namespace DialogueSystem.Elements
             int defaultIndex = actors.IndexOf(Actor.ToString());
             DropdownField dropdown = DSElementUtility.CreateDropdown("Actor", actors, OnActorChange, defaultIndex);
             textFoldout.Add(dropdown);
+            // List<string> actors = Enum.GetNames(typeof(DSActor)).ToList();
+            // int defaultIndex = actors.IndexOf(Actor.ToString());
+            // List<string> AnimationList = Enum.GetNames(typeof(AnimationClip)).ToList();
+            DropdownField dropdown2 = DSElementUtility.CreateDropdown("Speech Animation", actors, OnActorChange, defaultIndex);
+            textFoldout.Add(dropdown2);
 
             TextField textTextField = DSElementUtility.CreateTextArea(Text, null, OnDialogueTextChanged);
             textTextField.AddClasses(
@@ -126,11 +135,6 @@ namespace DialogueSystem.Elements
 
             extensionContainer.Add(customDataContainer);
 
-        }
-
-        // att
-        public void TestEvent(UnityEditor.Experimental.GraphView.Edge edge, Vector2 position){
-            // GraphView.CreateNode()
         }
 
         private void OnDialogueNameChanged(ChangeEvent<string> callback)
@@ -190,7 +194,9 @@ namespace DialogueSystem.Elements
 
         private string OnActorChange(string actor)
         {
+            // load scriptable object depending on character
             Actor = (DSActor)Enum.Parse(typeof(DSActor), actor, true);
+            Debug.Log(actor);
             return actor;
         }
 
@@ -249,7 +255,6 @@ namespace DialogueSystem.Elements
 
         public void OnDropOutsidePort(UnityEditor.Experimental.GraphView.Edge edge, Vector2 position)
         {
-            Debug.Log("Oi");
             OnDropOutsidePortEvent?.Invoke(edge, position);
             throw new NotImplementedException();
         }
