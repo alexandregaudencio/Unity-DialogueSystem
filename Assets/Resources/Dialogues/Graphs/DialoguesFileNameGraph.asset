@@ -13,31 +13,37 @@ MonoBehaviour:
   m_Name: DialoguesFileNameGraph
   m_EditorClassIdentifier: 
   <FileName>k__BackingField: DialoguesFileName
-  <Groups>k__BackingField: []
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: 460cdd93-9ade-4127-9d1c-d9afc6a28e1e
+    <Name>k__BackingField: DialogueGroup(0)
+    <Position>k__BackingField: {x: 1133.0001, y: 267.99994}
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: 9cc2b6dc-84bb-4776-8b1a-b78f5e9fd71c
-    <Name>k__BackingField: ddd
-    <Text>k__BackingField: ddd
+  - <ID>k__BackingField: d6f61942-258a-4992-8145-d47f360f7f32
+    <Name>k__BackingField: asd
+    <Text>k__BackingField: asd
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 747, y: 143}
-  - <ID>k__BackingField: cc0df549-e96d-4e24-8801-c2bb574fbce4
-    <Name>k__BackingField: ddddd
-    <Text>k__BackingField: ddddd
+    <Position>k__BackingField: {x: 735, y: 229}
+  - <ID>k__BackingField: f587d894-037b-44a4-ae45-2680b9fa6c56
+    <Name>k__BackingField: aaa
+    <Text>k__BackingField: aaa
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: 
+    <GroupID>k__BackingField: 460cdd93-9ade-4127-9d1c-d9afc6a28e1e
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 0
-    <Position>k__BackingField: {x: 101, y: 245}
-  <OldGroupNames>k__BackingField: []
+    <Position>k__BackingField: {x: 1158, y: 327}
+  <OldGroupNames>k__BackingField:
+  - DialogueGroup(0)
   <OldUngroupedNodeNames>k__BackingField:
-  - ddd
-  - ddddd
+  - asd
   <OldGroupedNodeNames>k__BackingField:
-    list: []
+    list:
+    - Key: DialogueGroup(0)
+      Value:
+      - aaa

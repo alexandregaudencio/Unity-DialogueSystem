@@ -4,6 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterDialogueAnimations", menuName = "ScriptableObjects/CharactersDialogueAnimations", order = 1)]
 public class CharacterDialogueAnimations : ScriptableObject
 {
+
+
+    
     [System.Serializable]
     public class CharacterAnimations
     {
@@ -18,4 +21,6 @@ public class CharacterDialogueAnimations : ScriptableObject
         CharacterAnimations characterAnimations = charactersAnimationsList.Find(c => c.characterName == characterName);
         return characterAnimations != null ? characterAnimations.dialogueAnimations : new List<AnimationClip>();
     }
+
+    
 }

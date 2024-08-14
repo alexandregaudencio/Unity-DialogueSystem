@@ -32,6 +32,7 @@ namespace DialogueSystem.Windows
             {
                 Vector2 localMousePosition = _graphView.GetLocalMousePosition(position);
                 var newNode = _graphView.CreateNode("", DSDialogueType.SingleChoice, localMousePosition);
+                
                 var newEdge = edge.output.ConnectTo(newNode.inputContainer[0] as Port);
                 _graphView.AddElement(newNode);
                 _graphView.AddElement(newEdge);
@@ -73,11 +74,9 @@ namespace DialogueSystem.Windows
                     editorWindow.EnableSaving();
                 }
 
-                if (nameErrorsAmount == 1)
+                if (nameErrorsAmount >= 1)
                 {
                     editorWindow.DisableSaving();
-                    //! Debug.Log("error"); ta chamando toda hora
-
                 }
             }
         }
@@ -107,71 +106,7 @@ namespace DialogueSystem.Windows
 
             _edgeConnectorListener = new EdgeConnectionListener(this);
 
-            // this.RegisterCallback<MouseDownEvent>(OnMouseDown);
-            // this.RegisterCallback<MouseUpEvent>(OnMouseUp);
-            // this.RegisterCallback<MouseMoveEvent>(OnMouseMove);
         }
-        // private Edge edgeInProgress;
-
-
-        // private void OnMouseDown(MouseDownEvent evt)
-        // {
-        //    if (evt.button == (int)MouseButton.LeftMouse && edgeInProgress == null)
-        //    {
-        //         Debug.Log("Foi na ledge");
-        //        // Comece a criar uma nova aresta
-        //        edgeInProgress = new Edge();
-        //        //edgeInProgress.input = new Port();
-        //        //edgeInProgress.input.owe = null; // Porta de origem n�o definida ainda
-        //        edgeInProgress.input.Connect(edgeInProgress);
-        //        AddElement(edgeInProgress);
-        //        evt.StopPropagation();
-        //    }
-        // }
-
-        // private void OnMouseMove(MouseMoveEvent evt)
-        // {
-        //    if (edgeInProgress != null)
-        //    {
-        //        // Atualize a posi��o da extremidade da aresta conforme o mouse � movido
-        //        Vector2 mousePosition = evt.mousePosition;
-        //        //edgeInProgress.output = new Port();
-        //        edgeInProgress.output.Connect(edgeInProgress);
-        //        //edgeInProgress.output.owner = null; // Porta de destino n�o definida ainda
-        //        edgeInProgress.UpdateEdgeControl();
-        //        edgeInProgress.candidatePosition = mousePosition;
-        //        evt.StopPropagation();
-        //    }
-        // }
-
-        // private void OnMouseUp(MouseUpEvent evt)
-        // {
-
-        //    if (edgeInProgress != null)
-        //    {
-
-        //     //    // Verifique se a origem e o destino da aresta est�o definidos
-        //     //    if (edgeInProgress.input.owner == null || edgeInProgress.output.owner == null)
-        //     //    {
-        //     //        OnEdgeCreatedWithoutConnection(edgeInProgress);
-        //     //    }
-
-        //     //    // Limpe a aresta em progresso
-        //     //    edgeInProgress.input.Disconnect(edgeInProgress);
-        //     //    edgeInProgress.output.Disconnect(edgeInProgress);
-        //     //    RemoveElement(edgeInProgress);
-        //     //    edgeInProgress = null;
-        //     //    evt.StopPropagation();
-        //    }
-        // }
-
-        // private void OnEdgeCreatedWithoutConnection(Edge edge)
-        // {
-        //    // Execute a l�gica desejada quando uma aresta � criada, mas n�o conectada a outro n�
-        //    Debug.Log("Uma aresta foi criada, mas n�o conectada a outro n�!");
-
-        //    // Aqui voc� pode executar qualquer a��o necess�ria quando uma aresta � criada sem uma conex�o
-        // }
 
 
 
@@ -776,6 +711,7 @@ namespace DialogueSystem.Windows
 
         public void ToggleMiniMap()
         {
+            Debug.Log("Botão Pressionado");
             miniMap.visible = !miniMap.visible;
         }
 

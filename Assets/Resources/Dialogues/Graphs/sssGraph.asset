@@ -13,37 +13,31 @@ MonoBehaviour:
   m_Name: sssGraph
   m_EditorClassIdentifier: 
   <FileName>k__BackingField: sss
-  <Groups>k__BackingField:
-  - <ID>k__BackingField: cb9f67ef-977d-4483-96ae-7090cb8856a7
-    <Name>k__BackingField: DialogueGroup
-    <Position>k__BackingField: {x: 270.4, y: -200}
+  <Groups>k__BackingField: []
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: c009c5bc-e10c-4d7f-b0a1-a6988b0e033e
-    <Name>k__BackingField: __________
-    <Text>k__BackingField: '     ???  '
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: dd771010-511a-42f9-8d3d-281a3d493c4d
-    <GroupID>k__BackingField: cb9f67ef-977d-4483-96ae-7090cb8856a7
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 2
-    <Position>k__BackingField: {x: 296, y: -140}
-  - <ID>k__BackingField: dd771010-511a-42f9-8d3d-281a3d493c4d
-    <Name>k__BackingField: jj
-    <Text>k__BackingField: jj
+  - <ID>k__BackingField: 4cb2c02e-9636-4215-8987-79288ad02c31
+    <Name>k__BackingField: asd
+    <Text>k__BackingField: asd
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: cb9f67ef-977d-4483-96ae-7090cb8856a7
+    <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <Position>k__BackingField: {x: 580, y: -140}
-  <OldGroupNames>k__BackingField:
-  - DialogueGroup
-  <OldUngroupedNodeNames>k__BackingField: []
+    <Actor>k__BackingField: 0
+    <Position>k__BackingField: {x: 150, y: -138}
+  - <ID>k__BackingField: 68de9ac5-7d5c-41b8-ba64-4bea82a3ce3b
+    <Name>k__BackingField: d
+    <Text>k__BackingField: d
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 0
+    <Position>k__BackingField: {x: 521, y: -138}
+  <OldGroupNames>k__BackingField: []
+  <OldUngroupedNodeNames>k__BackingField:
+  - asd
+  - d
   <OldGroupedNodeNames>k__BackingField:
-    list:
-    - Key: DialogueGroup
-      Value:
-      - __________
-      - jj
+    list: []
