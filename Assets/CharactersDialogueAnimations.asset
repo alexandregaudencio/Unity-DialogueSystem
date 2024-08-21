@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: CharactersDialogueAnimations
   m_EditorClassIdentifier: 
   charactersAnimationsList:
-  - characterName: default
+  - characterName: 0
     dialogueAnimations:
     - {fileID: 7400000, guid: b050adcf9a97d8e4fbf05d4ef6ce4fda, type: 2}
-  - characterName: Uyara
+  - characterName: 1
     dialogueAnimations:
     - {fileID: 7400000, guid: b050adcf9a97d8e4fbf05d4ef6ce4fda, type: 2}
     - {fileID: 7400000, guid: 8b37f71ea1c0a5042a4a3232bcaa8460, type: 2}
-  - characterName: Leo
+  - characterName: 2
     dialogueAnimations:
+    - {fileID: 7400000, guid: e90da6ba10b465b4b8009666515b4c5a, type: 2}
+    - {fileID: 7400000, guid: 93681e589eb4cdd4e8d38b30c343b94e, type: 2}
+  - characterName: 3
+    dialogueAnimations:
+    - {fileID: 7400000, guid: b050adcf9a97d8e4fbf05d4ef6ce4fda, type: 2}
+    - {fileID: 7400000, guid: 8b37f71ea1c0a5042a4a3232bcaa8460, type: 2}
     - {fileID: 7400000, guid: e90da6ba10b465b4b8009666515b4c5a, type: 2}
     - {fileID: 7400000, guid: 93681e589eb4cdd4e8d38b30c343b94e, type: 2}

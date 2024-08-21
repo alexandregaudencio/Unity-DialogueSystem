@@ -15,6 +15,7 @@ namespace DialogueSystem.ScriptableObjects
         [field: SerializeField, ReadOnly] public List<DSDialogueChoiceData> Choices { get; set; }
         [field: SerializeField, ReadOnly] public DSDialogueType DialogueType { get; set; }
         [field: SerializeField, ReadOnly] public DSActor Actor { get; set; }
+        [field: SerializeField, ReadOnly] public string speechAnimation { get; set; }
 
         [field: SerializeField, ReadOnly] public bool IsStartingDialogue { get; set; }
         public event Action TextRequested = delegate { };
@@ -36,14 +37,16 @@ namespace DialogueSystem.ScriptableObjects
             set { text = value; }
         }
 
-        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType,DSActor actor, bool isStartingDialogue)
+        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType,DSActor actor, bool isStartingDialogue, string SpeechAnimation)
         {
             DialogueName = dialogueName;
             RequestText = text;
             Choices = choices;
             DialogueType = dialogueType;
             Actor = actor;
+            speechAnimation = SpeechAnimation;
             IsStartingDialogue = isStartingDialogue;
+
         }
 
     }

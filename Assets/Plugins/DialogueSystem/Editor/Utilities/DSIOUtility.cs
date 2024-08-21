@@ -164,8 +164,12 @@ namespace DialogueSystem.Utilities
                 GroupID = node.Group?.ID,
                 DialogueType = node.DialogueType,
                 Actor = node.Actor,
+                _SpeechAnimation = node.SpeechAnimation,
+                
                 Position = node.GetPosition().position
+                
             };
+            Debug.Log(nodeData._SpeechAnimation);
 
             graphData.Nodes.Add(nodeData);
         }
@@ -193,7 +197,9 @@ namespace DialogueSystem.Utilities
                 ConvertNodeChoicesToDialogueChoices(node.Choices),
                 node.DialogueType,
                 node.Actor,
-                node.IsStartingNode()
+                node.IsStartingNode(),
+                node.SpeechAnimation
+                
             );
 
             createdDialogues.Add(node.ID, dialogue);
@@ -320,18 +326,21 @@ namespace DialogueSystem.Utilities
             }
         }
 
+        //* att
         private static void LoadNodes(List<DSNodeSaveData> nodes)
         {
             foreach (DSNodeSaveData nodeData in nodes)
             {
                 List<DSChoiceSaveData> choices = CloneNodeChoices(nodeData.Choices);
 
-                DSNode node = graphView.CreateNode(nodeData.Text, nodeData.DialogueType, nodeData.Position, false);
+                DSNode node = graphView.CreateNode(nodeData.Text, nodeData.DialogueType, nodeData._SpeechAnimation, nodeData.Position, false);
 
                 node.ID = nodeData.ID;
                 node.Choices = choices;
                 node.Text = nodeData.Text;
                 node.Actor = nodeData.Actor;
+                node.SpeechAnimation = nodeData._SpeechAnimation; 
+                // Debug.Log($"Loading node: {node.ID} | Actor: {node.Actor} | speech animation: {node.SpeechAnimation}");
                 node.Draw();
 
                 graphView.AddElement(node);
@@ -358,7 +367,6 @@ namespace DialogueSystem.Utilities
                 foreach (Port choicePort in loadedNode.Value.outputContainer.Children())
                 {
                     DSChoiceSaveData choiceData = (DSChoiceSaveData) choicePort.userData;
-
                     if (string.IsNullOrEmpty(choiceData.NodeID.ToString()))
                     {
                         continue;

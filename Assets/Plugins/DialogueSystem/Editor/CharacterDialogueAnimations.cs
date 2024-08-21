@@ -1,16 +1,14 @@
 using System.Collections.Generic;
+using DialogueSystem.Enumerations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterDialogueAnimations", menuName = "ScriptableObjects/CharactersDialogueAnimations", order = 1)]
 public class CharacterDialogueAnimations : ScriptableObject
 {
-
-
-    
     [System.Serializable]
     public class CharacterAnimations
     {
-        public string characterName;
+        public DSActor characterName;
         public List<AnimationClip> dialogueAnimations = new List<AnimationClip>();
     }
 
@@ -18,7 +16,7 @@ public class CharacterDialogueAnimations : ScriptableObject
 
     public List<AnimationClip> GetAnimationsForCharacter(string characterName)
     {
-        CharacterAnimations characterAnimations = charactersAnimationsList.Find(c => c.characterName == characterName);
+        CharacterAnimations characterAnimations = charactersAnimationsList.Find(c => c.characterName.ToString() == characterName);
         return characterAnimations != null ? characterAnimations.dialogueAnimations : new List<AnimationClip>();
     }
 

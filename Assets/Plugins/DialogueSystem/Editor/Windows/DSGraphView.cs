@@ -31,7 +31,7 @@ namespace DialogueSystem.Windows
             if (edge.output != null && edge.input == null)
             {
                 Vector2 localMousePosition = _graphView.GetLocalMousePosition(position);
-                var newNode = _graphView.CreateNode("", DSDialogueType.SingleChoice, localMousePosition);
+                var newNode = _graphView.CreateNode("", DSDialogueType.SingleChoice,null, localMousePosition);
                 
                 var newEdge = edge.output.ConnectTo(newNode.inputContainer[0] as Port);
                 _graphView.AddElement(newNode);
@@ -154,7 +154,7 @@ namespace DialogueSystem.Windows
         private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType)
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("", dialogueType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("", dialogueType, null,GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
             );
 
             return contextualMenuManipulator;
@@ -212,12 +212,14 @@ namespace DialogueSystem.Windows
             return count > 1;
         }
 
-        public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, Vector2 position, bool shouldDraw = true)
+        //* att
+        public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, string SpeechAnimation,Vector2 position, bool shouldDraw = true)
         {
             
             Type nodeType = Type.GetType($"{typeof(DSNode).Namespace}.DS{dialogueType}Node");
             DSNode node = (DSNode)Activator.CreateInstance(nodeType);
-            node.Initialize(nodeName, DSActor.None, this, position);
+            node.Initialize(nodeName, DSActor.None, SpeechAnimation,this, position);
+            // Debug.Log($"node data on graph view {node.SpeechAnimation}");
 
             if (shouldDraw)
             {
@@ -226,7 +228,7 @@ namespace DialogueSystem.Windows
 
 
             AddUngroupedNode(node);
-             foreach (GraphElement selectedElement in selection) //! Procurar metodo mais eficiente para encontrar grupos selecionados
+             foreach (GraphElement selectedElement in selection)
                 {
                     if (selectedElement is DSGroup selectedGroup)
                     {

@@ -11,19 +11,19 @@ namespace DialogueSystem.Elements
 
     public class DSMultipleChoiceNode : DSNode
     {
-        public override void Initialize(string nodeName, DSActor actor, DSGraphView dsGraphView, Vector2 position)
-        {
-            base.Initialize(nodeName, actor, dsGraphView, position);
+        // public override void Initialize(string nodeName, DSActor actor, DSGraphView dsGraphView, Vector2 position)
+        // {
+        //     // base.Initialize(nodeName, actor, dsGraphView, position);
 
-            DialogueType = DSDialogueType.MultipleChoice;
+        //     DialogueType = DSDialogueType.MultipleChoice;
 
-            DSChoiceSaveData choiceData = new DSChoiceSaveData()
-            {
-                Text = "New Choice"
-            };
+        //     DSChoiceSaveData choiceData = new DSChoiceSaveData()
+        //     {
+        //         Text = "New Choice"
+        //     };
 
-            Choices.Add(choiceData);
-        }
+        //     Choices.Add(choiceData);
+        // }
 
         public override void Draw()
         {

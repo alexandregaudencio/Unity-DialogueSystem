@@ -22,11 +22,12 @@ namespace DialogueSystem.Elements
         public string Text { get; set; }
         public DSDialogueType DialogueType { get; set; }
         public DSActor Actor { get; set; }
+        public string SpeechAnimation { get; set; }
         List<string> animations { get; set; }
         public CharacterDialogueAnimations charactersDialogueAnimations { get; set; }
 
-        DropdownField animationDropdown;
-        
+        public DropdownField animationDropdown { get; set; }
+
 
         public DSGroup Group { get; set; }
         protected DSGraphView graphView;
@@ -37,7 +38,7 @@ namespace DialogueSystem.Elements
 
         private Port inputPort;
         TextElement dialogueNameTextElement;
-        
+
         public Action<UnityEditor.Experimental.GraphView.Edge, Vector2> OnDropOutsidePortEvent;
 
 
@@ -50,15 +51,16 @@ namespace DialogueSystem.Elements
         }
 
 
-        public virtual void Initialize(string nodeName, DSActor actor, DSGraphView dsGraphView, Vector2 position)
+        public virtual void Initialize(string nodeName, DSActor actor, string _speechAnimation, DSGraphView dsGraphView, Vector2 position)
         {
             ID = Guid.NewGuid().ToString();
-            DialogueName = nodeName ;
+            DialogueName = nodeName;
             Choices = new List<DSChoiceSaveData>();
             Text = " Dialogue " + ID;
             Actor = actor;
-
+            SpeechAnimation = _speechAnimation; //* Animação sendo definida
             SetPosition(new Rect(position, Vector2.zero));
+
 
             graphView = dsGraphView;
             graphView.NameErrorsAmount += 1;
@@ -72,23 +74,25 @@ namespace DialogueSystem.Elements
                 ++graphView.NameErrorsAmount;
             }
 
-            charactersDialogueAnimations = DSIOUtility.LoadAsset<CharacterDialogueAnimations>("Assets", "CharactersDialogueAnimations" );// <CharacterDialogueAnimations>("Assets/DataBase/Dialogues/DialogueAnimations/CharactersDialogueAnimations")
-            if(!charactersDialogueAnimations)  Debug.LogError("Node não conseguiu encontrar as animações de dialogo, por favor cheque o caminho para este asset.");
+            charactersDialogueAnimations = DSIOUtility.LoadAsset<CharacterDialogueAnimations>("Assets", "CharactersDialogueAnimations");// <CharacterDialogueAnimations>("Assets/DataBase/Dialogues/DialogueAnimations/CharactersDialogueAnimations")
+            if (!charactersDialogueAnimations) Debug.LogError("Node não conseguiu encontrar as animações de dialogo, por favor cheque o caminho para este asset.");
             
             
-            
+
+
+
         }
 
         public virtual void Draw()
         {
-            
+
             /* INPUT CONTAINER */
             inputPort = this.CreatePort("Connection", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
             inputContainer.Add(inputPort);
-            
-            
 
-        // ... other code ...
+
+
+            // ... other code ...
             // var edgeConnectorListener = new CustomEdgeConnectorListener();
             // inputPort.AddManipulator(new EdgeConnector<Edge>(new CustomEdgeConnectorListener()));
             // edgeConnectorListener.OnDropOutsidePortEvent = TestEvent;
@@ -110,7 +114,7 @@ namespace DialogueSystem.Elements
 
 
             /* EXTENSION CONTAINER */
-                VisualElement customDataContainer = new VisualElement();
+            VisualElement customDataContainer = new VisualElement();
 
             customDataContainer.AddToClassList("ds-node__custom-data-container");
 
@@ -122,12 +126,17 @@ namespace DialogueSystem.Elements
             int defaultIndex = actors.IndexOf(Actor.ToString());
             DropdownField dropdown = DSElementUtility.CreateDropdown("Actor", actors, OnActorChange, defaultIndex);
             textFoldout.Add(dropdown);
-            
+
+
             //* Carregar lista de speech animations disponiveis
-            animations = charactersDialogueAnimations.GetAnimationsForCharacter("default").Select(anim => anim.name).ToList();
-            int animationIndex = animations.IndexOf(animations.ToString(), 0);
+            animations = charactersDialogueAnimations.GetAnimationsForCharacter(Actor.ToString()).Select(anim => anim.name).ToList();
+            int animationIndex = animations.IndexOf(SpeechAnimation);
+            Debug.Log(animationIndex);
             animationDropdown = DSElementUtility.CreateDropdown("Speech Animation", animations, OnAnimationChange, animationIndex);
-            textFoldout.Add(animationDropdown );
+            textFoldout.Add(animationDropdown);
+            
+
+
 
             TextField textTextField = DSElementUtility.CreateTextArea(Text, null, OnDialogueTextChanged);
             textTextField.AddClasses(
@@ -140,14 +149,21 @@ namespace DialogueSystem.Elements
 
             extensionContainer.Add(customDataContainer);
 
+
+            if(DialogueName != "") UpdateAnimationDropdownOnLoad();
+            else Debug.Log("node nova");
+            
+
         }
 
-        public string OnAnimationChange(string actor){
-            return actor;
+        public string OnAnimationChange(string animation)
+        {
+            SpeechAnimation = animation;
+            return animation;
         }
 
 
-       private string OnActorChange(string actor)
+        private string OnActorChange(string actor)
         {
             // Atualizar a lista de animações de acordo com o ator selecionado
             Actor = (DSActor)Enum.Parse(typeof(DSActor), actor, true);
@@ -157,23 +173,49 @@ namespace DialogueSystem.Elements
 
         private void UpdateAnimationDropdown(string newActor)
         {
-            // Carregar as animações do novo ator
-            animations = charactersDialogueAnimations.GetAnimationsForCharacter(newActor).Select(anim => anim.name).ToList();
             
-            // Atualizar o dropdown de animações
-            if (animationDropdown != null)
-            {
+            
+            if (animationDropdown == null) return;
+            
+            // quando essa função é chamada sem actor defina o actor do dataSave da node
+            if(SpeechAnimation == null){
+                animations = charactersDialogueAnimations.GetAnimationsForCharacter(newActor.ToString()).Select(anim => anim.name).ToList();
                 animationDropdown.choices = animations;
-                if (animations.Count > 0)
-                {
-                    animationDropdown.value = animations[0]; // Selecionar a primeira animação por padrão
-                }
-                else
-                {
-                    animationDropdown.value = string.Empty; // Limpar o dropdown se não houver animações
-                }
+                animationDropdown.value = animations[0];    
+            } else {
+                animations = charactersDialogueAnimations.GetAnimationsForCharacter(newActor.ToString()).Select(anim => anim.name).ToList();
+                animationDropdown.choices = animations;
+                animationDropdown.value = SpeechAnimation;    
             }
+            
+            
+            
+                // // Carregar as animações do novo ator
+                // if (animationDropdown != null)
+                // {
+                //     animationDropdown.choices = animations;
+                //     if (animations.Count > 0)
+                //     {
+                //         animationDropdown.value = animations[0]; // Selecionar a primeira animação por padrão
+                //     }
+                //     else
+                //     {
+                //         animationDropdown.value = string.Empty; // Limpar o dropdown se não houver animações
+                //     }
+                // }
         }
+
+        void UpdateAnimationDropdownOnLoad(){
+            animations = charactersDialogueAnimations.GetAnimationsForCharacter(Actor.ToString()).Select(anim => anim.name).ToList();
+            animationDropdown.choices = animations;
+            Debug.Log($"UpdateAnimationDropdownOnLoad {SpeechAnimation}");
+            int currenAnimationIndex =animations.IndexOf(SpeechAnimation);     
+            animationDropdown.value = SpeechAnimation;
+        }
+
+            
+        
+
 
         private void OnDialogueNameChanged(ChangeEvent<string> callback)
         {
@@ -226,7 +268,7 @@ namespace DialogueSystem.Elements
             TextField target = (TextField)callback.target;
             Text = target.text;
             dialogueNameTextElement.text = target.text.DialogueNameRangeFormat();
-            if(target.text == "") SetErrorColor();
+            if (target.text == "") SetErrorColor();
             else ResetBackgroundColor();
         }
 
@@ -299,5 +341,5 @@ namespace DialogueSystem.Elements
 
     }
 
-    
+
 }
