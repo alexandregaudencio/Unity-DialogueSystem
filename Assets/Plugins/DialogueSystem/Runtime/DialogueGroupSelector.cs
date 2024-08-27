@@ -46,9 +46,9 @@ namespace DialogueSystem
         private void SubscribeDialogueEvents()
         {
             for (int i = 0; i < DialogueGroupTarget.Count; i++)
-            {               
+            {
                 int index = i;
-                 //TODO: subscribe method. Not expression
+                //TODO: subscribe method. Not expression
                 DialogueGroupTarget[index].TextRequested += () => onDialogueTextRequested[index].Invoke();
             }
         }

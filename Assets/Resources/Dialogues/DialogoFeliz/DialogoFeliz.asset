@@ -17,7 +17,8 @@ MonoBehaviour:
     list:
     - Key: {fileID: 11400000, guid: 87e80493a6f9cc544935257a58885c7f, type: 2}
       Value:
-      - {fileID: 11400000, guid: b9840483586ba70459cacd8cd3b7c3d2, type: 2}
       - {fileID: 11400000, guid: ffa04cf25dc379240a7199394842067a, type: 2}
+      - {fileID: 11400000, guid: 87886f099dfa8044caffef26b9e60457, type: 2}
+      - {fileID: 11400000, guid: b9840483586ba70459cacd8cd3b7c3d2, type: 2}
       - {fileID: 11400000, guid: 651283aa940164546a2472a1b8ff4275, type: 2}
   <UngroupedDialogues>k__BackingField: []

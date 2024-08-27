@@ -41,16 +41,49 @@ MonoBehaviour:
     <_SpeechAnimation>k__BackingField: Enjoada
     <Position>k__BackingField: {x: 752, y: 232}
   - <ID>k__BackingField: 0bd31922-bbf0-45a5-b9a4-a322c32a3e5b
-    <Name>k__BackingField: Enjoada
-    <Text>k__BackingField: Enjoada
+    <Name>k__BackingField: enjoada
+    <Text>k__BackingField: enjoada
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 9d43edc9-6b89-4f14-b164-cb4520aed1cb
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Angry answer
+    <Position>k__BackingField: {x: 1065, y: 234}
+  - <ID>k__BackingField: 9d43edc9-6b89-4f14-b164-cb4520aed1cb
+    <Name>k__BackingField: Uyara Falando, iaiii
+    <Text>k__BackingField: Uyara Falando, iaiii
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 2c466b0e-9eaa-4e34-a7cb-8aeb80ab7bf1
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 2
+    <_SpeechAnimation>k__BackingField: Exausta
+    <Position>k__BackingField: {x: 1377, y: 234}
+  - <ID>k__BackingField: 2c466b0e-9eaa-4e34-a7cb-8aeb80ab7bf1
+    <Name>k__BackingField: Mais uma e eu aqui
+    <Text>k__BackingField: Mais uma e eu aqui
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: fdf488be-3693-4ab7-bbbb-1ce1f305097f
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Enjoada
+    <Position>k__BackingField: {x: 1688, y: 234}
+  - <ID>k__BackingField: fdf488be-3693-4ab7-bbbb-1ce1f305097f
+    <Name>k__BackingField: Acho_vc_fraca
+    <Text>k__BackingField: Acho vc fraca
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 2
-    <_SpeechAnimation>k__BackingField: Exausta
-    <Position>k__BackingField: {x: 1065, y: 234}
+    <_SpeechAnimation>k__BackingField: Super thanks
+    <Position>k__BackingField: {x: 2023, y: 234}
   <OldGroupNames>k__BackingField:
   - DialogueGroup(0)
   <OldUngroupedNodeNames>k__BackingField: []
@@ -60,4 +93,7 @@ MonoBehaviour:
       Value:
       - teste1
       - teste22
-      - Enjoada
+      - enjoada
+      - Uyara Falando, iaiii
+      - Mais uma e eu aqui
+      - Acho_vc_fraca
