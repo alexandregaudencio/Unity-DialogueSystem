@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: DialogoFelizGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: DialogoFeliz
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
+    <Name>k__BackingField: DialogueGroup(0)
+    <Position>k__BackingField: {x: 270, y: 371}
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: c4e3ba2c-a43a-4335-bd41-4158fdaec254
+    <Name>k__BackingField: "Sem ela n\xE3o vamos conseguir sa..."
+    <Text>k__BackingField: "Sem ela n\xE3o vamos conseguir sa..."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 9c4e3128-e16c-4344-895d-fb8db3fdc0a7
+    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Gritando
+    <Position>k__BackingField: {x: 667, y: 430}
+  - <ID>k__BackingField: 56c0bd74-a046-42b4-9efb-f6cda68a8cab
+    <Name>k__BackingField: Uyara, precisamos descobrir...
+    <Text>k__BackingField: Uyara, precisamos descobrir...
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: c4e3ba2c-a43a-4335-bd41-4158fdaec254
+    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: talking
+    <Position>k__BackingField: {x: 295, y: 430}
+  - <ID>k__BackingField: 9c4e3128-e16c-4344-895d-fb8db3fdc0a7
+    <Name>k__BackingField: Teste
+    <Text>k__BackingField: Teste
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 2
+    <_SpeechAnimation>k__BackingField: Super thanks
+    <Position>k__BackingField: {x: 974, y: 430}
+  <OldGroupNames>k__BackingField:
+  - DialogueGroup(0)
+  <OldUngroupedNodeNames>k__BackingField: []
+  <OldGroupedNodeNames>k__BackingField:
+    list:
+    - Key: DialogueGroup(0)
+      Value:
+      - "Sem ela n\xE3o vamos conseguir sa..."
+      - Uyara, precisamos descobrir...
+      - Teste

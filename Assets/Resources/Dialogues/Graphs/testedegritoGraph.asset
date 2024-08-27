@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: testedegritoGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: testedegrito
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <Name>k__BackingField: DialogueGroup(0)
+    <Position>k__BackingField: {x: 435, y: 173}
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: ffea56df-5872-4861-9d9b-96ef47068be3
+    <Name>k__BackingField: teste1
+    <Text>k__BackingField: teste1
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 53d7e137-1452-41aa-b4d3-512f633f3203
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Enjoada
+    <Position>k__BackingField: {x: 460, y: 232}
+  - <ID>k__BackingField: 53d7e137-1452-41aa-b4d3-512f633f3203
+    <Name>k__BackingField: teste22
+    <Text>k__BackingField: teste22
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 0bd31922-bbf0-45a5-b9a4-a322c32a3e5b
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Enjoada
+    <Position>k__BackingField: {x: 752, y: 232}
+  - <ID>k__BackingField: 0bd31922-bbf0-45a5-b9a4-a322c32a3e5b
+    <Name>k__BackingField: Enjoada
+    <Text>k__BackingField: Enjoada
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 2
+    <_SpeechAnimation>k__BackingField: Exausta
+    <Position>k__BackingField: {x: 1065, y: 234}
+  <OldGroupNames>k__BackingField:
+  - DialogueGroup(0)
+  <OldUngroupedNodeNames>k__BackingField: []
+  <OldGroupedNodeNames>k__BackingField:
+    list:
+    - Key: DialogueGroup(0)
+      Value:
+      - teste1
+      - teste22
+      - Enjoada
