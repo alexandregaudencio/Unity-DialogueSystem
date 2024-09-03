@@ -81,7 +81,6 @@ namespace DialogueSystem.ScriptableObjects
 
                 ungroupedDialogueNames.Add(dialogueSO.DialogueName);
             }
-
             return ungroupedDialogueNames;
         }
     }

@@ -17,6 +17,8 @@ namespace DialogueSystem.Windows
         private Button saveButton;
         private Button miniMapButton;
         private Button actorsButton;
+        private static TextField playerCharacter;
+
         private string lastLoadedFilePath = "";
 
         [MenuItem("Tools/Dialogue Graph")]
@@ -46,22 +48,28 @@ namespace DialogueSystem.Windows
         {
             Toolbar toolbar = new Toolbar();
 
-            fileNameTextField = DSElementUtility.CreateTextField(defaultFileName,"", callback =>
+            fileNameTextField = DSElementUtility.CreateTextField(defaultFileName, "", callback =>
             {
                 fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
             });
 
-            saveButton = DSElementUtility.CreateButton("Save",Save);
+            playerCharacter = DSElementUtility.CreateTextField("Thaynara", "", callback =>
+            {
+                playerCharacter.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
+            });
+
+            saveButton = DSElementUtility.CreateButton("Save", Save);
 
             Button loadButton = DSElementUtility.CreateButton("Load", OpenLoadFilePanel);
             Button clearButton = DSElementUtility.CreateButton("Clear", Clear);
             Button resetButton = DSElementUtility.CreateButton("Reset", ResetGraph);
             TextElement tf = DSElementUtility.CreateTextElement("               ");
 
-            miniMapButton = DSElementUtility.CreateButton("Minimap",ToggleMiniMap);
+            miniMapButton = DSElementUtility.CreateButton("Minimap", ToggleMiniMap);
             actorsButton = DSElementUtility.CreateButton("Actor", Actors);
 
             toolbar.Add(fileNameTextField);
+            toolbar.Add(playerCharacter);
             toolbar.Add(saveButton);
             toolbar.Add(loadButton);
             toolbar.Add(clearButton);
@@ -102,7 +110,7 @@ namespace DialogueSystem.Windows
         //* att
         private void Load(string filePath)
         {
-            if (string.IsNullOrEmpty(filePath))  return;    
+            if (string.IsNullOrEmpty(filePath)) return;
             Clear();
             DSIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
             DSIOUtility.StartLoad();

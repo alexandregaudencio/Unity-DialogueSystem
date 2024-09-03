@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: Acho_vc_fraca
+  m_Name: "Acho_voc\xEA_muiiito_fraquinha_rs..."
   m_EditorClassIdentifier: 
-  text: Acho vc fraca
-  <DialogueName>k__BackingField: Acho_vc_fraca
+  text: "Acho voc\xEA muiiito fraquinha rsrs"
+  <DialogueName>k__BackingField: "Acho_voc\xEA_muiiito_fraquinha_rs..."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 0}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 2
-  <speechAnimation>k__BackingField: Super thanks
+  <speechAnimation>k__BackingField: Uyara Conversando
   <IsStartingDialogue>k__BackingField: 0

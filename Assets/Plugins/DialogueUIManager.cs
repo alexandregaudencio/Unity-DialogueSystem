@@ -15,20 +15,19 @@ public class DialogueUIManager : MonoBehaviour
     [SerializeField] GameObject dialogueUI;
     [SerializeField] TMP_Text dialogText;
     [SerializeField] TMP_Text characterNameText;
+    [SerializeField] TMP_Text listenerNameText;
     [SerializeField] CanvasGroup canvasGroup;
-    [SerializeField] Transform talkingPos, listeningPos;
-    public GameObject charactersParent;
     public DialogueGroupSelector dialogue;
     DSDialogueSO targetDialogue;
 
     [Header("Dialogue Animation Settings")]
+    public Animator TalkingCharacter;
+    public Animator ListeningCharacter;
     public float popDuration = 0.2f;
     public float popScale = 1.2f;
 
     // private data
     private Animator[] talkingCharacters;
-    private Animator currentTalkingCharacter;
-    private Animator lastTalkingCharacter;
     private Vector3 originalScale;
 
 
@@ -38,12 +37,12 @@ public class DialogueUIManager : MonoBehaviour
         dialogueUI.SetActive(false);
         dialogue = GetComponent<DialogueGroupSelector>();
 
-        SetUpCharacters();
     }
 
     void OnEnable()
     {
         targetDialogue = dialogue.targetDialogue;
+
 
         if (dialogueUI.activeSelf)
         {
@@ -65,7 +64,6 @@ public class DialogueUIManager : MonoBehaviour
                 FinishDialogue();
                 return;
             }
-
             UpdateDialogue();
         }
     }
@@ -78,60 +76,55 @@ public class DialogueUIManager : MonoBehaviour
 
     void UpdateDialogue()
     {
-        string newActor = targetDialogue.Actor.ToString();
-        PlayPopAnimation();
-
-        lastTalkingCharacter = currentTalkingCharacter;
-
         targetDialogue = targetDialogue.Choices[0].NextDialogue;
         dialogText.text = targetDialogue.RequestText;
-        characterNameText.text = targetDialogue.Actor.ToString();
+        string newActor = targetDialogue.Actor.ToString(); // recebe a informação de quem é o novo ator
 
-        if (lastTalkingCharacter.gameObject.name != targetDialogue.Actor.ToString())
+        //* update this as detecting if first character to speak isnt the new actor
+        if (newActor != "Thaynara")
         {
-            SetCharacterForListening(lastTalkingCharacter);
+            SetCharacterForListening(newActor, targetDialogue.speechAnimation);
+            listenerNameText.text = targetDialogue.Actor.ToString();
+            PlayPopAnimation(listenerNameText);
+            TalkingCharacter.Play("listening");
+        }
+        else
+        {
+            characterNameText.text = targetDialogue.Actor.ToString();
+            SetCharacterForTalking(newActor, targetDialogue.speechAnimation);
+            PlayPopAnimation(characterNameText);
+            ListeningCharacter.Play("listening");
         }
 
-        SetCharacterForDialogue(newActor, targetDialogue.speechAnimation);
     }
 
-    private void PlayPopAnimation()
+    private void PlayPopAnimation(TMP_Text text)
     {
         originalScale = new Vector3(1.4f, 1.4f, 1);
-
-        characterNameText.transform.DOScale(popScale, popDuration / 2).SetEase(Ease.OutQuad)
+        text.transform.DOScale(popScale, popDuration / 2).SetEase(Ease.OutQuad)
             .OnComplete(() =>
             {
-                characterNameText.transform.DOScale(originalScale, popDuration / 2).SetEase(Ease.InQuad);
+                text.transform.DOScale(originalScale, popDuration / 2).SetEase(Ease.InQuad);
             });
     }
 
-    void SetCharacterForDialogue(string actorName, string speechAnimation)
+
+    void SetCharacterForTalking(string CharacterName, string Animation)
     {
-        currentTalkingCharacter = FindCharacterAnimatorByName(targetDialogue.speechAnimation);
-        if (currentTalkingCharacter != null)
-        {
-            currentTalkingCharacter.gameObject.SetActive(true);
-            currentTalkingCharacter.transform.position = talkingPos.position;
-            currentTalkingCharacter.Play(speechAnimation, 0);
-        }
+        TalkingCharacter.Play(Animation);
     }
 
-    void SetCharacterForListening(Animator character)
+    void SetCharacterForListening(string CharacterName, string Animation)
     {
-        if (character != null)
-        {
-            character.transform.position = listeningPos.position;
-            character.Play("listening", 0);
-        }
+        ListeningCharacter.Play(Animation);
     }
+
 
     public void StartDialogue()
     {
         dialogueUI.SetActive(true);
         dialogueHappening = true;
         targetDialogue = dialogue.targetDialogue;
-
         InitializeDialogueUI();
     }
 
@@ -139,12 +132,16 @@ public class DialogueUIManager : MonoBehaviour
     {
         dialogText.text = targetDialogue.RequestText;
         characterNameText.text = targetDialogue.Actor.ToString();
-
-        PlayPopAnimation();
+        PlayPopAnimation(characterNameText);
 
         if (targetDialogue != null)
         {
-            SetCharacterForDialogue(targetDialogue.Actor.ToString(), targetDialogue.speechAnimation);
+            SetCharacterForTalking(targetDialogue.Actor.ToString(), targetDialogue.speechAnimation);
+        }
+        if (dialogue.ActorsOnDialogue.Count >= 1)
+        {
+            Debug.Log($" Primeiro personagem escutando {dialogue.ActorsOnDialogue[1].ToString()}");
+            SetCharacterForListening(dialogue.ActorsOnDialogue[1].ToString(), "listening");
         }
     }
 
@@ -152,33 +149,10 @@ public class DialogueUIManager : MonoBehaviour
     {
         dialogueUI.SetActive(false);
         dialogueHappening = false;
-        foreach (Animator obj in talkingCharacters)
-        {
-            obj.gameObject.SetActive(false);
-        }
     }
 
-    void SetUpCharacters()
+    void DarkenCharacter()
     {
-        if (charactersParent != null)
-        {
-            talkingCharacters = charactersParent.GetComponentsInChildren<Animator>(true);
-        }
-        else
-        {
-            Debug.LogWarning("GameObject 'Characters' não encontrado na cena.");
-        }
-    }
 
-    Animator FindCharacterAnimatorByName(string name)
-    {
-        foreach (Animator animator in talkingCharacters)
-        {
-            if (animator.gameObject.name == targetDialogue.Actor.ToString())
-            {
-                return animator;
-            }
-        }
-        return null;
     }
 }

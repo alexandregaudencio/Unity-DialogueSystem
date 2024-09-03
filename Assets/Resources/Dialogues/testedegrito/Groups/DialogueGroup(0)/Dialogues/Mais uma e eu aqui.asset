@@ -16,8 +16,8 @@ MonoBehaviour:
   <DialogueName>k__BackingField: Mais uma e eu aqui
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 925e6de22b1e45a44a6456f242b1da05, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 11473f7c136a1db42a403e43082ecaa5, type: 2}
   <DialogueType>k__BackingField: 0
-  <Actor>k__BackingField: 1
-  <speechAnimation>k__BackingField: Enjoada
+  <Actor>k__BackingField: 2
+  <speechAnimation>k__BackingField: UyaraEnjoada
   <IsStartingDialogue>k__BackingField: 0
