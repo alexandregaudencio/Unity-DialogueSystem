@@ -339,15 +339,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bbff7e15b77bb24bbebf6bbb6c39cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterterAnimations: {fileID: 11400000, guid: 6788f48bc7cc84a4f8e9d961e634ede7, type: 2}
+  characterAnimations: {fileID: 11400000, guid: 6788f48bc7cc84a4f8e9d961e634ede7, type: 2}
   dialogueUI: {fileID: 820239660}
-  dialogText: {fileID: 861888772}
+  dialogueText: {fileID: 861888772}
   characterNameText: {fileID: 967381931}
   listenerNameText: {fileID: 983976102}
   canvasGroup: {fileID: 1913195654}
-  dialogue: {fileID: 519420034}
-  TalkingCharacter: {fileID: 933009478}
-  ListeningCharacter: {fileID: 1583785662}
+  talkingCharacter: {fileID: 933009478}
+  listeningCharacter: {fileID: 1583785662}
   popDuration: 0.2
   popScale: 1.2
 --- !u!1 &820239660
@@ -1037,7 +1036,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 7
-  m_Spacing: 2.08
+  m_Spacing: -179.6
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

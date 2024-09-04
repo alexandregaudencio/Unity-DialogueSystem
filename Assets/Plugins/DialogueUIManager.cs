@@ -8,41 +8,35 @@ using DG.Tweening;
 [RequireComponent(typeof(DialogueGroupSelector))]
 public class DialogueUIManager : MonoBehaviour
 {
-    private bool dialogueHappening;
+    private bool isDialogueHappening;
 
     [Header("References")]
-    [SerializeField] CharacterDialogueAnimations characterterAnimations;
-    [SerializeField] GameObject dialogueUI;
-    [SerializeField] TMP_Text dialogText;
-    [SerializeField] TMP_Text characterNameText;
-    [SerializeField] TMP_Text listenerNameText;
-    [SerializeField] CanvasGroup canvasGroup;
-    public DialogueGroupSelector dialogue;
-    DSDialogueSO targetDialogue;
+    [SerializeField] private CharacterDialogueAnimations characterAnimations;
+    [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private TMP_Text characterNameText;
+    [SerializeField] private TMP_Text listenerNameText;
+    [SerializeField] private CanvasGroup canvasGroup;
+    private DialogueGroupSelector dialogueGroupSelector;
+    private DSDialogueSO currentDialogue;
 
     [Header("Dialogue Animation Settings")]
-    public Animator TalkingCharacter;
-    public Animator ListeningCharacter;
-    public float popDuration = 0.2f;
-    public float popScale = 1.2f;
+    [SerializeField] private Animator talkingCharacter;
+    [SerializeField] private Animator listeningCharacter;
+    [SerializeField] private float popDuration = 0.2f;
+    [SerializeField] private float popScale = 1.2f;
 
-    // private data
-    private Animator[] talkingCharacters;
-    private Vector3 originalScale;
-
-
+    private Vector3 originalScale = new Vector3(1.4f, 1.4f, 1); // modificar para ser dinamico
 
     private void Start()
     {
         dialogueUI.SetActive(false);
-        dialogue = GetComponent<DialogueGroupSelector>();
-
+        dialogueGroupSelector = GetComponent<DialogueGroupSelector>();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        targetDialogue = dialogue.targetDialogue;
-
+        currentDialogue = dialogueGroupSelector.targetDialogue;
 
         if (dialogueUI.activeSelf)
         {
@@ -50,16 +44,16 @@ public class DialogueUIManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         CheckForInput();
     }
 
-    void CheckForInput()
+    private void CheckForInput()
     {
-        if (dialogueHappening && Input.anyKeyDown)
+        if (isDialogueHappening && Input.anyKeyDown)
         {
-            if (targetDialogue.Choices[0].NextDialogue == null)
+            if (currentDialogue.Choices[0].NextDialogue == null)
             {
                 FinishDialogue();
                 return;
@@ -68,39 +62,34 @@ public class DialogueUIManager : MonoBehaviour
         }
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 50, 50), "Iniciar dialogo"))
+        if (GUI.Button(new Rect(10, 10, 50, 50), "Iniciar diálogo"))
+        {
             StartDialogue();
+        }
     }
 
-    void UpdateDialogue()
+    private void UpdateDialogue()
     {
-        targetDialogue = targetDialogue.Choices[0].NextDialogue;
-        dialogText.text = targetDialogue.RequestText;
-        string newActor = targetDialogue.Actor.ToString(); // recebe a informação de quem é o novo ator
+        currentDialogue = currentDialogue.Choices[0].NextDialogue;
+        dialogueText.text = currentDialogue.RequestText;
+        string newActor = currentDialogue.Actor.ToString();
 
-        //* update this as detecting if first character to speak isnt the new actor
-        if (newActor != "Thaynara")
+
+        // Simplificação da verificação do ator e atualização de UI
+        if (newActor != dialogueGroupSelector.ActorsOnDialogue[0].ToString())
         {
-            SetCharacterForListening(newActor, targetDialogue.speechAnimation);
-            listenerNameText.text = targetDialogue.Actor.ToString();
-            PlayPopAnimation(listenerNameText);
-            TalkingCharacter.Play("listening");
+            SetCharacterState(listeningCharacter, newActor, currentDialogue.speechAnimation, listenerNameText);
         }
         else
         {
-            characterNameText.text = targetDialogue.Actor.ToString();
-            SetCharacterForTalking(newActor, targetDialogue.speechAnimation);
-            PlayPopAnimation(characterNameText);
-            ListeningCharacter.Play("listening");
+            SetCharacterState(talkingCharacter, newActor, currentDialogue.speechAnimation, characterNameText);
         }
-
     }
 
     private void PlayPopAnimation(TMP_Text text)
     {
-        originalScale = new Vector3(1.4f, 1.4f, 1);
         text.transform.DOScale(popScale, popDuration / 2).SetEase(Ease.OutQuad)
             .OnComplete(() =>
             {
@@ -108,51 +97,44 @@ public class DialogueUIManager : MonoBehaviour
             });
     }
 
-
-    void SetCharacterForTalking(string CharacterName, string Animation)
+    // Unificação de SetCharacterForTalking e SetCharacterForListening
+    private void SetCharacterState(Animator characterAnimator, string characterName, string animation, TMP_Text nameText)
     {
-        TalkingCharacter.Play(Animation);
+        nameText.text = characterName;
+        characterAnimator.Play(animation);
+        PlayPopAnimation(nameText);
     }
-
-    void SetCharacterForListening(string CharacterName, string Animation)
-    {
-        ListeningCharacter.Play(Animation);
-    }
-
 
     public void StartDialogue()
     {
         dialogueUI.SetActive(true);
-        dialogueHappening = true;
-        targetDialogue = dialogue.targetDialogue;
+        isDialogueHappening = true;
+        currentDialogue = dialogueGroupSelector.targetDialogue;
         InitializeDialogueUI();
     }
 
-    void InitializeDialogueUI()
+    private void InitializeDialogueUI()
     {
-        dialogText.text = targetDialogue.RequestText;
-        characterNameText.text = targetDialogue.Actor.ToString();
+        dialogueText.text = currentDialogue.RequestText;
+        characterNameText.text = currentDialogue.Actor.ToString();
         PlayPopAnimation(characterNameText);
 
-        if (targetDialogue != null)
+        if (currentDialogue != null)
         {
-            SetCharacterForTalking(targetDialogue.Actor.ToString(), targetDialogue.speechAnimation);
+            talkingCharacter.Play(currentDialogue.speechAnimation);
         }
-        if (dialogue.ActorsOnDialogue.Count >= 1)
+
+        if (dialogueGroupSelector.ActorsOnDialogue.Count >= 1)
         {
-            Debug.Log($" Primeiro personagem escutando {dialogue.ActorsOnDialogue[1].ToString()}");
-            SetCharacterForListening(dialogue.ActorsOnDialogue[1].ToString(), "listening");
+            string firstListener = dialogueGroupSelector.ActorsOnDialogue[1].ToString();
+            Debug.Log($"Primeiro personagem escutando: {firstListener}");
+            listeningCharacter.Play("listening");
         }
     }
 
-    void FinishDialogue()
+    private void FinishDialogue()
     {
         dialogueUI.SetActive(false);
-        dialogueHappening = false;
-    }
-
-    void DarkenCharacter()
-    {
-
+        isDialogueHappening = false;
     }
 }
