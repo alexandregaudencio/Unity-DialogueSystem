@@ -18,42 +18,20 @@ MonoBehaviour:
     <Name>k__BackingField: DialogueGroup(0)
     <Position>k__BackingField: {x: 511, y: 152}
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: ffea56df-5872-4861-9d9b-96ef47068be3
-    <Name>k__BackingField: teste1
-    <Text>k__BackingField: teste1
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 53d7e137-1452-41aa-b4d3-512f633f3203
-    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <_SpeechAnimation>k__BackingField: conversando
-    <Position>k__BackingField: {x: 536, y: 211}
-  - <ID>k__BackingField: 53d7e137-1452-41aa-b4d3-512f633f3203
-    <Name>k__BackingField: teste22
-    <Text>k__BackingField: teste22
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 0bd31922-bbf0-45a5-b9a4-a322c32a3e5b
-    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <_SpeechAnimation>k__BackingField: conversando
-    <Position>k__BackingField: {x: 828, y: 211}
   - <ID>k__BackingField: 0bd31922-bbf0-45a5-b9a4-a322c32a3e5b
-    <Name>k__BackingField: enjoada
-    <Text>k__BackingField: enjoada
+    <Name>k__BackingField: queria conversar com voce
+    <Text>k__BackingField: queria conversar com voce
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 9d43edc9-6b89-4f14-b164-cb4520aed1cb
     <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 1
-    <_SpeechAnimation>k__BackingField: enjoado
+    <_SpeechAnimation>k__BackingField: Thaynara Enjoado
     <Position>k__BackingField: {x: 1141, y: 213}
   - <ID>k__BackingField: 9d43edc9-6b89-4f14-b164-cb4520aed1cb
-    <Name>k__BackingField: Uyara Falando, iaiii
-    <Text>k__BackingField: Uyara Falando, iaiii
+    <Name>k__BackingField: Uyara Falando, iaii Thaynara
+    <Text>k__BackingField: Uyara Falando, iaii Thaynara
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 2c466b0e-9eaa-4e34-a7cb-8aeb80ab7bf1
@@ -71,7 +49,7 @@ MonoBehaviour:
     <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 2
-    <_SpeechAnimation>k__BackingField: UyaraEnjoada
+    <_SpeechAnimation>k__BackingField: Uyara Conversando
     <Position>k__BackingField: {x: 1764, y: 213}
   - <ID>k__BackingField: fdf488be-3693-4ab7-bbbb-1ce1f305097f
     <Name>k__BackingField: "Acho voc\xEA muiiito fraquinha rsrs"
@@ -85,30 +63,30 @@ MonoBehaviour:
     <_SpeechAnimation>k__BackingField: Uyara Conversando
     <Position>k__BackingField: {x: 536, y: 504}
   - <ID>k__BackingField: cf9c575f-533c-4c41-919f-acdf136f701f
-    <Name>k__BackingField: "Eu n\xE3o sei nem oque falar mas eu to aqui tamb\xE9m!"
-    <Text>k__BackingField: "Eu n\xE3o sei nem oque falar mas eu to aqui tamb\xE9m!"
+    <Name>k__BackingField: Tinha mesmo necessidade de falar assim dela
+    <Text>k__BackingField: Tinha mesmo necessidade de falar assim dela
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: c4c78226-27f3-426a-a3fb-d31e5c82f6d7
     <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 3
-    <_SpeechAnimation>k__BackingField: LeoFalando
+    <_SpeechAnimation>k__BackingField: Leo Falando
     <Position>k__BackingField: {x: 857, y: 504}
   - <ID>k__BackingField: a2eba90d-aae9-48b3-9bf5-23274e911b16
-    <Name>k__BackingField: Eu to bem e voce
-    <Text>k__BackingField: Eu to bem e voce
+    <Name>k__BackingField: 'Eu to bem e voce '
+    <Text>k__BackingField: 'Eu to bem e voce '
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 5ac7a97f-ef1b-487d-a409-4c215407c541
     <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 3
-    <_SpeechAnimation>k__BackingField: LeoFalando
+    <_SpeechAnimation>k__BackingField: Leo Falando
     <Position>k__BackingField: {x: 1434, y: 508}
   - <ID>k__BackingField: c4c78226-27f3-426a-a3fb-d31e5c82f6d7
-    <Name>k__BackingField: "Iai Leo, como que voc\xEA t\xE1"
-    <Text>k__BackingField: "Iai Leo, como que voc\xEA t\xE1"
+    <Name>k__BackingField: "Iai_Leo,_como_que_voc\xEA_esta"
+    <Text>k__BackingField: "Iai Leo, como que voc\xEA esta"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: a2eba90d-aae9-48b3-9bf5-23274e911b16
@@ -118,7 +96,8 @@ MonoBehaviour:
     <_SpeechAnimation>k__BackingField: Uyara Conversando
     <Position>k__BackingField: {x: 1145, y: 506}
   - <ID>k__BackingField: 5ac7a97f-ef1b-487d-a409-4c215407c541
-    <Name>k__BackingField: "Caraca_prestem_aten\xE7\xE3o_em_mim,..."
+    <Name>k__BackingField: "Caraca prestem aten\xE7\xE3o em mim, eu que sou a protagonista
+      aqui"
     <Text>k__BackingField: "Caraca prestem aten\xE7\xE3o em mim, eu que sou a protagonista
       aqui"
     <Choices>k__BackingField:
@@ -127,8 +106,30 @@ MonoBehaviour:
     <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 1
-    <_SpeechAnimation>k__BackingField: enjoado
+    <_SpeechAnimation>k__BackingField: Thaynara Conversando
     <Position>k__BackingField: {x: 1754, y: 506}
+  - <ID>k__BackingField: ffea56df-5872-4861-9d9b-96ef47068be3
+    <Name>k__BackingField: Inicio do dialogo
+    <Text>k__BackingField: Inicio do dialogo
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 53d7e137-1452-41aa-b4d3-512f633f3203
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Thaynara Conversando
+    <Position>k__BackingField: {x: 536, y: 211}
+  - <ID>k__BackingField: 53d7e137-1452-41aa-b4d3-512f633f3203
+    <Name>k__BackingField: "Uyara voc\xEA esta por ai"
+    <Text>k__BackingField: "Uyara voc\xEA esta por ai"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 0bd31922-bbf0-45a5-b9a4-a322c32a3e5b
+    <GroupID>k__BackingField: cc9b162e-be9e-4c57-be01-9316f84cbe8b
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Thaynara Enjoado
+    <Position>k__BackingField: {x: 828, y: 211}
   <OldGroupNames>k__BackingField:
   - DialogueGroup(0)
   <OldUngroupedNodeNames>k__BackingField: []
@@ -136,13 +137,13 @@ MonoBehaviour:
     list:
     - Key: DialogueGroup(0)
       Value:
-      - teste1
-      - teste22
-      - enjoada
-      - Uyara Falando, iaiii
+      - queria conversar com voce
+      - Uyara Falando, iaii Thaynara
       - Mais uma e eu aqui
       - "Acho voc\xEA muiiito fraquinha rsrs"
-      - "Eu n\xE3o sei nem oque falar mas eu to aqui tamb\xE9m!"
-      - Eu to bem e voce
-      - "Iai Leo, como que voc\xEA t\xE1"
-      - "Caraca_prestem_aten\xE7\xE3o_em_mim,..."
+      - Tinha mesmo necessidade de falar assim dela
+      - 'Eu to bem e voce '
+      - "Iai_Leo,_como_que_voc\xEA_esta"
+      - "Caraca prestem aten\xE7\xE3o em mim, eu que sou a protagonista aqui"
+      - Inicio do dialogo
+      - "Uyara voc\xEA esta por ai"

@@ -17,16 +17,16 @@ MonoBehaviour:
     dialogueAnimations: []
   - characterName: 1
     dialogueAnimations:
-    - {fileID: 7400000, guid: e99cafb07028e364d9446e27d8f07dae, type: 2}
+    - {fileID: 7400000, guid: bbc12cde92b4b254cbbc852aacbaaacb, type: 2}
     - {fileID: 7400000, guid: ee201733e0f22de47b56e8ee34852f37, type: 2}
     - {fileID: 7400000, guid: ab7dc04aa48b321468aad6e774d12d0b, type: 2}
   - characterName: 2
     dialogueAnimations:
-    - {fileID: 7400000, guid: e99cafb07028e364d9446e27d8f07dae, type: 2}
+    - {fileID: 7400000, guid: 6adef867881760646bcbcb26e1f2c810, type: 2}
     - {fileID: 7400000, guid: 9887897dd8b14ae41b1011e585541925, type: 2}
     - {fileID: 7400000, guid: 84b20f75609eb9b41a6d2d25d7a45e93, type: 2}
   - characterName: 3
     dialogueAnimations:
-    - {fileID: 7400000, guid: e99cafb07028e364d9446e27d8f07dae, type: 2}
+    - {fileID: 7400000, guid: 2e07a471996a89044ab670a1b6d70384, type: 2}
     - {fileID: 7400000, guid: 69780b6d02d13c8429fbc3de9799a31d, type: 2}
     - {fileID: 7400000, guid: bf696113b98d1544887cece06ddbd286, type: 2}

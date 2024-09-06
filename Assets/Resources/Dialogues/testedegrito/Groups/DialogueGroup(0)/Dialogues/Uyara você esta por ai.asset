@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: Uyara Falando, iaiii
+  m_Name: "Uyara voc\xEA esta por ai"
   m_EditorClassIdentifier: 
-  text: Uyara Falando, iaiii
-  <DialogueName>k__BackingField: Uyara Falando, iaiii
+  text: "Uyara voc\xEA esta por ai"
+  <DialogueName>k__BackingField: "Uyara voc\xEA esta por ai"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 8cd590181d6a3a14c88de699cae35075, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 9224eb4c91c3ae14bb2ad7801520cbbf, type: 2}
   <DialogueType>k__BackingField: 0
-  <Actor>k__BackingField: 2
-  <speechAnimation>k__BackingField: Uyara Conversando
+  <Actor>k__BackingField: 1
+  <speechAnimation>k__BackingField: Thaynara Enjoado
   <IsStartingDialogue>k__BackingField: 0

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeoPiscando
+  m_Name: Thaynara Enjoado
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 239070722, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - time: 0.06666667
-      value: {fileID: -46864439, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - time: 0.15
-      value: {fileID: 799671015, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - time: 0.21666667
-      value: {fileID: -917918488, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - time: 0.28333333
-      value: {fileID: 1256972426, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - time: 0.36666667
-      value: {fileID: 1745316067, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - time: 0.43333334
-      value: {fileID: -2048534224, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
+      value: {fileID: -84873111, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+    - time: 0.3
+      value: {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+    - time: 0.46666667
+      value: {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -56,19 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 239070722, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - {fileID: -46864439, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - {fileID: 799671015, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - {fileID: -917918488, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - {fileID: 1256972426, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - {fileID: 1745316067, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
-    - {fileID: -2048534224, guid: bec51c7b98cd09d4aa78dec70ad58d94, type: 3}
+    - {fileID: -84873111, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+    - {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+    - {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.45000002
+    m_StopTime: 0.48333335
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

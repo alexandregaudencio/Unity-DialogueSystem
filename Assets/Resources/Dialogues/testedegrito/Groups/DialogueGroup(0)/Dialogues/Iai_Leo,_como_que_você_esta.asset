@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: Eu to bem e voce
+  m_Name: "Iai_Leo,_como_que_voc\xEA_esta"
   m_EditorClassIdentifier: 
-  text: Eu to bem e voce
-  <DialogueName>k__BackingField: Eu to bem e voce
+  text: "Iai Leo, como que voc\xEA esta"
+  <DialogueName>k__BackingField: "Iai_Leo,_como_que_voc\xEA_esta"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: efac2ff25d4792d4c9b2badb998eb642, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 64856150d8f2c8642a2cfbb85cc7cb97, type: 2}
   <DialogueType>k__BackingField: 0
-  <Actor>k__BackingField: 3
-  <speechAnimation>k__BackingField: LeoFalando
+  <Actor>k__BackingField: 2
+  <speechAnimation>k__BackingField: Uyara Conversando
   <IsStartingDialogue>k__BackingField: 0

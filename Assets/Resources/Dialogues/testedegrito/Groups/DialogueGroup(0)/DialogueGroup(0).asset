@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DialogueGroup(0)
   m_EditorClassIdentifier: 
   <GroupName>k__BackingField: DialogueGroup(0)
-  <FirstDialogueSO>k__BackingField: {fileID: 11400000, guid: 0ec7a21de0e739347a1d9d3cb0527991, type: 2}
+  <FirstDialogueSO>k__BackingField: {fileID: 11400000, guid: e2f90477ddbc7074c856ecc3355ab630, type: 2}

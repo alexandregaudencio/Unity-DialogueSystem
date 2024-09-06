@@ -113,24 +113,27 @@ public class DialogueUIManager : MonoBehaviour
     private void SetCharacterState(Animator characterAnimator, string characterName, string animation, TMP_Text nameText)
     {
         nameText.text = characterName;
+        characterAnimator.gameObject.name = characterName;
         characterAnimator.Play(animation);
         dialogueText.alignment = TextAlignmentOptions.Left;
         PlayPopAnimation(nameText);
-        foreach (Transform child in rightGroup.transform)
+
+        foreach (Transform child in rightGroup.transform) //* coloca todos os outros em listening
         {
-            child.GetComponent<Animator>().Play("default");
+            child.GetComponent<Animator>().Play($"{child.gameObject.name} listening");
         }
     }
 
 
     private void SetOnRightGroup(Animator characterAnimator, string characterName, string animation, TMP_Text nameText)
     {
+        talkingCharacter.Play($"{talkingCharacter.gameObject.name} listening");
         actorsOnRightGroup.Append(characterName);
         nameText.text = characterName;
         dialogueText.alignment = TextAlignmentOptions.Right;
         PlayPopAnimation(nameText);
 
-        // se o ator não está no grupo
+        // se o ator não está no grupo adicione ele no grupo
         if (!actorsOnRightGroup.Contains(characterName))
         {
             actorsOnRightGroup.Add(characterName);
@@ -138,13 +141,28 @@ public class DialogueUIManager : MonoBehaviour
             {
                 if (!child.gameObject.activeSelf)
                 {
-
                     child.gameObject.SetActive(true);
+                    child.gameObject.name = characterName;
                     Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
                     childAnimator.Play(animation);
                     // Sai do loop ao encontrar e ativar o primeiro filho desativado
                     break;
+                    //* PARAR TODAS AS ANIMAÇÕES MENOS A DO CHARACTER ATUAL
                 }
+            }
+        }
+        foreach (Transform child in rightGroup.transform)
+        {
+            if (child.gameObject.name != characterName)
+            {
+                Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
+                childAnimator.Play($"{child.gameObject.name} listening");
+
+            }
+            else
+            {
+                Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
+                childAnimator.Play(animation);
             }
         }
     }

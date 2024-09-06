@@ -403,7 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueContainer: {fileID: 11400000, guid: ac88a21c73963004fb0477b3acc6ad6c, type: 2}
   dialogueGroup: {fileID: 11400000, guid: 3f3acc5f0d62c664a90d34f7f09889f9, type: 2}
-  dialogue: {fileID: 11400000, guid: 0ec7a21de0e739347a1d9d3cb0527991, type: 2}
+  dialogue: {fileID: 11400000, guid: e2f90477ddbc7074c856ecc3355ab630, type: 2}
   startingDialoguesOnly: 0
   ActorsOnDialogue: 
   selectedDialogueGroupIndex: 0
