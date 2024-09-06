@@ -1,0 +1,99 @@
+Third-Party Notices for InspectMe
+
+
+This document lists the third-party assets included in InspectMe, along with their licensing information.
+The inclusion of these assets adheres to their respective licenses and terms of use.
+
+1. Fira Mono Font
+-----------------
+The Fira Mono font is provided by Google Fonts (https://fonts.google.com/specimen/Fira+Mono). Fira Mono is utilized within InspectMe to enhance its user interface aesthetic and readability.
+
+
+License:
+The Fira Mono font is licensed under the SIL Open Font License, Version 1.1. This license is a free, open-source license specifically designed for fonts and related software. It allows for both personal and commercial use, modification, and distribution of the font software.
+
+A full copy of the SIL Open Font License can be found at:
+https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+By using the InspectMe package, you agree to comply with the terms and conditions of the SIL Open Font License concerning the Fira Mono font.
+
+
+2. Original Icons Created by DivinityCodes
+------------------------------------------
+- Description: Original icons designed for various user interface elements within InspectMe. These icons are created by DivinityCodes and are intended to enhance the visual appeal and user experience of InspectMe.
+- License: Owned by DivinityCodes - All rights reserved. These icons may not be redistributed or used outside of the InspectMe package without explicit permission from DivinityCodes.
+- Icons List:
+	- add_bookmark.png
+	- addWatcher.png
+	- array.png
+	- back.png
+	- bookmark.png
+	- bookmarks.png
+	- Char.png
+	- collapse_all.png
+	- collapse_circle.png
+	- collapse_round.png
+	- collapsed-code.png
+	- Color.png
+	- console-log.png
+	- copy.png
+	- default_collapse.png
+	- default_expand.png
+	- defaultTex.png
+	- delete_all.png
+	- destroy.png
+	- donation.png
+	- edit.png
+	- error.png
+	- expand_all.png
+	- expand_circle.png
+	- expanded-code.png
+	- explorer.png
+	- export.png
+	- fav-off.png
+	- fav-on.png
+	- favorite-menu.png
+	- filter.png
+	- header-bg-logo.png
+	- header-bg.png
+	- help.png
+	- highlight.png
+	- info.png
+	- inspect_value.png
+	- int32.png
+	- kofi.png
+	- link.png
+	- logo-lite.png
+	- logo-pro.png
+	- logo-small.png
+	- object.png
+	- OpenInEditor2.png
+	- random.png
+	- read-more.png
+	- Rect.png
+	- reload.png
+	- remove_bookmark.png
+	- removeWatcher.png
+	- reset.png
+	- runTimeInspect.png
+	- scope.png
+	- select.png
+	- setNull.png
+	- settings.png
+	- shaderProp.png
+	- stacktrace.png
+	- stacktrace2.png
+	- static.png
+	- transparent.png
+	- trash.png
+	- uniform-child.png
+	- uniform-null.png
+	- uniform-parent.png
+	- uniform-root.png
+	- upgrade.png
+	- Vector2.png
+	- Vector3.png
+	- Vector4.png
+	- watchers.png
+
+End of Third-Party Notices
+

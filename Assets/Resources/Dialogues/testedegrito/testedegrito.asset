@@ -22,5 +22,9 @@ MonoBehaviour:
       - {fileID: 11400000, guid: fddb4157a95646e4ab442d8308ff0e3e, type: 2}
       - {fileID: 11400000, guid: 08a16663df310b54ca336006620152d6, type: 2}
       - {fileID: 11400000, guid: 8cd590181d6a3a14c88de699cae35075, type: 2}
-      - {fileID: 11400000, guid: 11473f7c136a1db42a403e43082ecaa5, type: 2}
+      - {fileID: 11400000, guid: 16c612c55bd7b1047a97b93f9ee3eb03, type: 2}
+      - {fileID: 11400000, guid: c1cdf09ae472d3a49af3a59bfe70d49f, type: 2}
+      - {fileID: 11400000, guid: cd1abdd6302240047ab6642656a9f898, type: 2}
+      - {fileID: 11400000, guid: 9484e8a9554521249a3812179eafc1df, type: 2}
+      - {fileID: 11400000, guid: efac2ff25d4792d4c9b2badb998eb642, type: 2}
   <UngroupedDialogues>k__BackingField: []

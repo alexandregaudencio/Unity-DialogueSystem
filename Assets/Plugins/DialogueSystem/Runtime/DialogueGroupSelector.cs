@@ -98,6 +98,8 @@ namespace DialogueSystem
                     ActorsOnDialogue.Add(currentActor);
                 }
             }
+            firstTalking = ActorsOnDialogue[0];
+            firstListener = ActorsOnDialogue[1];
 
 
         }

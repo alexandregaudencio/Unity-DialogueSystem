@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InspectMe.Runtime</name>
+    </assembly>
+    <members>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectResult`1.AddWatcher(System.Action{`0},System.Boolean,System.Boolean,DivinityCodes.InspectMe.Runtime.Core.Inspect.WatcherNotifications)">
+            <summary>
+            Add a watcher with a callback
+            </summary>
+            <param name="watcherCallback"> Callback to be called when the value changes</param>
+            <param name="startActive"> Should the watcher start active</param>
+            <param name="isContinuous"> Should the watcher be continuous</param>
+            <param name="notifications"> Desired notifications</param>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectResult`1.AddWatcher(DivinityCodes.InspectMe.Runtime.Core.Inspect.WatcherNotifications,System.Boolean,System.Boolean)">
+            <summary>
+            Add a watcher with notifications
+            </summary>
+            <param name="notifications"> Desired notifications</param>
+            <param name="startActive"> Should the watcher start active</param>
+            <param name="isContinuous"> Should the watcher be continuous</param>
+            <returns>
+            Returns the current instance of the InspectResult
+            </returns>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}},System.String,System.Int32,System.String)">
+            <summary>
+            Inspects a specific member of a class using a lambda expression. This method is useful for detailed, runtime inspection of class members within the Unity Editor.
+            </summary>
+            <typeparam name="T">The type of the host object containing the member.</typeparam>
+            <typeparam name="TValue">The type of the member to be inspected.</typeparam>
+            <param name="host">The instance of the class containing the member to inspect.</param>
+            <param name="inspectExpression">A lambda expression leading to the specific member to be inspected.</param>
+            <param name="instanceName">An optional name for the instance to aid in identification during inspection. If not provided, the member name is used as default.</param>
+            <param name="lineNumber">[Optional] The line number from where this method is called, used for debugging purposes.</param>
+            <param name="filePath">[Optional] The file path of the source code file where this method is called, used for debugging purposes.</param>
+            <returns>
+            An instance of InspectResult, allowing for further actions such as adding watchers or retrieving the value of the inspected member.
+            </returns>
+            <remarks>
+            The method uses expression trees to provide runtime inspection capabilities and is primarily intended for debugging purposes within the Unity Editor.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.String)">
+            <summary>
+            Inspects a specific member of a class using a lambda expression. This method is useful for detailed, runtime inspection of class members within the Unity Editor.
+            </summary>
+            <typeparam name="T">The type of the host object containing the member.</typeparam>
+            <typeparam name="TValue">The type of the member to be inspected.</typeparam>
+            <param name="host">The instance of the class containing the member to inspect.</param>
+            <param name="inspectExpression">A lambda expression leading to the specific member to be inspected.</param>
+            <param name="lineNumber">[Optional] The line number from where this method is called, used for debugging purposes.</param>
+            <param name="filePath">[Optional] The file path of the source code file where this method is called, used for debugging purposes.</param>
+            <returns>
+            An instance of InspectResult, allowing for further actions such as adding watchers or retrieving the value of the inspected member.
+            </returns>
+            <remarks>
+            The method uses expression trees to provide runtime inspection capabilities and is primarily intended for debugging purposes within the Unity Editor.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe(System.Object,System.String,System.Int32,System.String)">
+            <summary>
+            Inspects an object at runtime within the Unity Editor, offering real-time debugging capabilities. Allows naming the inspected instance for easy identification.
+            </summary>
+            <param name="host">The object to be inspected.</param>
+            <param name="instanceName">An optional name for the inspected instance, aiding in identification and tracking.</param>
+            <param name="lineNumber">[Optional] The line number from where this method is called, used for debugging purposes.</param>
+            <param name="filePath">[Optional] The file path of the source code file where this method is called, used for debugging purposes.</param>
+            <remarks>
+            This method is ideal for inspecting objects without a specific focus on their internal members. It is primarily used for debugging purposes.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe``1(``0,System.String,System.Int32,System.String)">
+            <summary>
+            Inspects a class instance at runtime within the Unity Editor. This method enables the inspection of class properties and fields, with the option to name the instance.
+            </summary>
+            <typeparam name="T">The type of the class to be inspected.</typeparam>
+            <param name="host">The class instance to inspect.</param>
+            <param name="instanceName">An optional name for the inspected instance, facilitating easier tracking and identification.</param>
+            <param name="lineNumber">[Optional] The line number from where this method is called, used for debugging purposes.</param>
+            <param name="filePath">[Optional] The file path of the source code file where this method is called, used for debugging purposes.</param>
+            <returns>
+            An instance of InspectResult, allowing for further actions such as adding watchers or retrieving values of the inspected class.
+            </returns>
+            <remarks>
+            This method is particularly useful for detailed inspection of class instances and their members, enhancing the debugging process in Unity.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe(System.Object,System.Reflection.MemberInfo,System.String,System.Int32,System.String)">
+            <summary>
+            Inspects a specific member of an object using MemberInfo, allowing for runtime debugging. Optionally set a custom instance name for the member.
+            </summary>
+            <param name="host">The object containing the member to inspect.</param>
+            <param name="memberInfo">MemberInfo of the member to be inspected.</param>
+            <param name="instanceName">Optional instance name for easy identification.</param>
+            <param name="lineNumber">[Optional] Line number for debugging purposes.</param>
+            <param name="filePath">[Optional] File path for debugging purposes.</param>
+            <remarks>
+            This method is suitable for inspecting specific members within an object, enhancing detailed debugging in the Unity Editor.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe``1(``0,System.Reflection.MemberInfo,System.String,System.Int32,System.String)">
+            <summary>
+            Inspects a specific member of a class instance using MemberInfo, with an option to name the instance. Ideal for detailed member inspection and runtime debugging.
+            </summary>
+            <typeparam name="T">The type of the class containing the member.</typeparam>
+            <param name="host">The class instance containing the member.</param>
+            <param name="memberInfo">MemberInfo of the member to be inspected.</param>
+            <param name="instanceName">Optional instance name for the member.</param>
+            <param name="lineNumber">[Optional] Line number for debugging purposes.</param>
+            <param name="filePath">[Optional] File path for debugging purposes.</param>
+            <returns>
+            An instance of InspectResult allowing additional actions such as adding watchers.
+            </returns>
+            <remarks>
+            Use this method for in-depth analysis of class members during Unity Editor runtime.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe(System.Object,System.Reflection.MemberInfo,System.Int32,System.String)">
+            <summary>
+            Inspects a member of an object identified through MemberInfo, offering real-time inspection capabilities in the Unity Editor.
+            </summary>
+            <param name="host">The object containing the member.</param>
+            <param name="memberInfo">The MemberInfo of the member to inspect.</param>
+            <param name="lineNumber">[Optional] Line number for debugging purposes.</param>
+            <param name="filePath">[Optional] File path for debugging purposes.</param>
+            <remarks>
+            This method is streamlined for inspecting members within an object, providing a focused approach to debugging.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.InspectMe``1(``0,System.Reflection.MemberInfo,System.Int32,System.String)">
+            <summary>
+            Inspects a member of a class instance identified via MemberInfo, enhancing runtime debugging with focused member inspection.
+            </summary>
+            <typeparam name="T">The type of the class containing the member.</typeparam>
+            <param name="host">The class instance to inspect.</param>
+            <param name="memberInfo">MemberInfo of the member to be inspected.</param>
+            <param name="lineNumber">[Optional] Line number for debugging purposes.</param>
+            <param name="filePath">[Optional] File path for debugging purposes.</param>
+            <returns>
+            An InspectResult instance, enabling additional actions like adding watchers.
+            </returns>
+            <remarks>
+            Ideal for targeted member inspection within class instances in the Unity Editor.
+            </remarks>
+        </member>
+        <member name="M:DivinityCodes.InspectMe.Runtime.Core.Inspect.InspectMeAPI.CanInspect(System.Type)">
+            <summary>
+            This method is used to check if we can debug the object or not.
+            Also, it will draw a warning box if the object is null and we want to debug in edit mode.
+            </summary>
+        </member>
+    </members>
+</doc>

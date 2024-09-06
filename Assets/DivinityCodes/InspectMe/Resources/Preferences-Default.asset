@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1564428848, guid: 474b2468bba9341c888fe84c9de7b769, type: 3}
+  m_Name: Preferences-Default
+  m_EditorClassIdentifier: 
+  eulaAccepted: 1
+  general:
+    zoom:
+      value: 0
+      fontSize: {x: 12, y: 16}
+      iconZoomMax: 6
+      stringLengthForExpand: {x: 50, y: 20}
+    confirmDelete: 0
+    realTimeUpdate: 1
+    cacheTypes: 1
+  operations:
+    displaySetNamePopup: 1
+    inspectGameObjectType: 0
+    dropArea:
+      enabled: 1
+      text: Drop it here to inspect
+      codeStyle: 1
+      boldText: 1
+      innerRectOffset: 5
+      activeColor: {r: 0.56, g: 0.84, b: 0.28, a: 0.14}
+      inactiveColor: {r: 0.91, g: 0.34, b: 0.34, a: 0.12}
+    inspectMeButtonColor: {r: 0.61, g: 0.99, b: 1, a: 1}
+  inspector:
+    autoSwitchToValueInspector: 1
+    inTextFilter: 0
+    startFilter: 60
+    endFilter: 62
+    autoDisplaySearchContent: 1
+    groupInvisibleMembers: 1
+    showContextMenuButton: 1
+  treeView:
+    showHighlighter: 1
+    treeViewDrawer: 0
+    nodeIcons: 1
+    displayedColumns: 7
+    highlightBg: 0
+    fixDisplayedName: 1
+    mouseOverEffect: 1
+    mouseOverColor: {r: 1, g: 1, b: 1, a: 0.13}
+    menuButtons: 23
+    displayNotification: 1
+    notificationDuration: 5
+    autoSelectInspectedMember: 0
+    expandOnlySelectedTree: 0
+    expandOnlyOneEntriesGroup: 1
+    showPrefabIcon: 1
+    highlightWatchedNode: 1
+    displayBookmarkIcon: 1
+    keyboardNavigation: 1
+    deleteMonoNodeIfDestroyed: 1
+    deleteNullRoots: 0
+  watchers:
+    expandWatchersIfTriggered: 0
+    showWatchersIfTriggered: 1
+    exportType: 0
+    exportNameFormat: dd/MM/yyyy_HH:mm:ss
+    logInConsole: 1
+    defaultNotifications: 3
+  inspectStatic:
+    excludedNamespaces:
+    - System
+    - UnityEngine
+    - UnityEditor
+    - Anonymously Hosted
+    - Unity
+    - Mono
+    - JetBrains
+    - Microsoft
+    - nunit
+    - netstandard
+    - PsdPlugin
+    - ExCSS
+    - log4net
+    - NiceIO
+    - BeeBuildProgramCommon
+    - BeeBuildProgramCommon
+    - Bee.
+    - unityplastic
+    - ScriptCompilationBuildProgram
+    - PlayerBuildProgramLibrary
+    - AndroidPlayerBuildProgram
+    - mscorlib
+    assemblyBrowsingMethod: 0
+    favoriteStaticClasses: []
+  stacktrace:
+    openInEditor: 1
+    fontPath: Fonts/FiraMono-Regular
+    defaultFontPath: Fonts/FiraMono-Regular
+    codeSyntax:
+      syntaxColor: {r: 1, g: 0.56, b: 0.47, a: 1}
+      commentColor: {r: 0.47, g: 0.47, b: 0.47, a: 1}
+      stringColor: {r: 0.74, g: 0.83, b: 0.52, a: 1}
+      numberColor: {r: 0.62, g: 0.89, b: 0.87, a: 1}
+      keywordColor: {r: 1, g: 0.56, b: 0.47, a: 1}
+      typeColor: {r: 0.39, g: 0.88, b: 0.78, a: 1}
+      genericTypeColor: {r: 0.55, g: 0.99, b: 0.41, a: 1}
+      interfaceType: {r: 0.76, g: 0.69, b: 0.24, a: 1}
+  console:
+    enabled: 1
+    showModuleInDetails: 0
+    toastNotification: 1
+    toastDuration: 3
+    exportType: 0
+    exportNameFormat: dd/MM/yyyy_HH:mm:ss
+    modules: 11
+    logs: 1
+    warnings: 1
+    errors: 1
+    collapse: 1
+  edit:
+    randomRange: {x: 0, y: 999}
+    randomStringLengthRange: {x: 1, y: 25}
+  inspectMethods:
+    tooltipSignatureType: 0
+    accessibility: 7
+    returnedValueHandling: 0
+    propertiesGroups: 255
+    markMethodResultNodes: 1
+    markInterfaceMethods: 1
+    returnTypeIcon: 1
+    groupOverloads: 1
+    onlyDeclaredMethods: 0
+    tooltipDelay: 1
+    saveInvocationResultHistory: 1
+    popupWidthRange: {x: 450, y: 600}
+    popupHeightRange: {x: 600, y: 600}
+  inspectTypes:
+    popupGroups: 31
+    popupWidthRange: {x: 450, y: 600}
+    popupHeightRange: {x: 600, y: 600}

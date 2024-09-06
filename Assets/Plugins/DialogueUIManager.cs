@@ -4,6 +4,8 @@ using DialogueSystem.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(DialogueGroupSelector))]
 public class DialogueUIManager : MonoBehaviour
@@ -26,6 +28,10 @@ public class DialogueUIManager : MonoBehaviour
     [SerializeField] private float popDuration = 0.2f;
     [SerializeField] private float popScale = 1.2f;
 
+
+    public GameObject rightGroup;
+    List<string> actorsOnRightGroup = new List<string>(); // Inicializa uma lista vazia
+
     private Vector3 originalScale = new Vector3(1.4f, 1.4f, 1); // modificar para ser dinamico
 
     private void Start()
@@ -36,7 +42,7 @@ public class DialogueUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        currentDialogue = dialogueGroupSelector.targetDialogue;
+        if (currentDialogue != null) currentDialogue = dialogueGroupSelector.targetDialogue;
 
         if (dialogueUI.activeSelf)
         {
@@ -70,23 +76,29 @@ public class DialogueUIManager : MonoBehaviour
         }
     }
 
+
+
     private void UpdateDialogue()
     {
         currentDialogue = currentDialogue.Choices[0].NextDialogue;
         dialogueText.text = currentDialogue.RequestText;
+
         string newActor = currentDialogue.Actor.ToString();
 
-
-        // Simplificação da verificação do ator e atualização de UI
+        Debug.Log($"Dialogo de {newActor}");
+        //*  Quando o new actor for diferente do actor default (player)
         if (newActor != dialogueGroupSelector.ActorsOnDialogue[0].ToString())
         {
-            SetCharacterState(listeningCharacter, newActor, currentDialogue.speechAnimation, listenerNameText);
+
+            SetOnRightGroup(listeningCharacter, newActor, currentDialogue.speechAnimation, listenerNameText);
         }
         else
         {
-            SetCharacterState(talkingCharacter, newActor, currentDialogue.speechAnimation, characterNameText);
+            SetCharacterState(talkingCharacter, newActor, currentDialogue.speechAnimation, characterNameText); //* O primeiro character a falar nesse caso esta sendo considerado o player, que fica ao lado esquerdo
         }
     }
+
+
 
     private void PlayPopAnimation(TMP_Text text)
     {
@@ -102,7 +114,39 @@ public class DialogueUIManager : MonoBehaviour
     {
         nameText.text = characterName;
         characterAnimator.Play(animation);
+        dialogueText.alignment = TextAlignmentOptions.Left;
         PlayPopAnimation(nameText);
+        foreach (Transform child in rightGroup.transform)
+        {
+            child.GetComponent<Animator>().Play("default");
+        }
+    }
+
+
+    private void SetOnRightGroup(Animator characterAnimator, string characterName, string animation, TMP_Text nameText)
+    {
+        actorsOnRightGroup.Append(characterName);
+        nameText.text = characterName;
+        dialogueText.alignment = TextAlignmentOptions.Right;
+        PlayPopAnimation(nameText);
+
+        // se o ator não está no grupo
+        if (!actorsOnRightGroup.Contains(characterName))
+        {
+            actorsOnRightGroup.Add(characterName);
+            foreach (Transform child in rightGroup.transform)
+            {
+                if (!child.gameObject.activeSelf)
+                {
+
+                    child.gameObject.SetActive(true);
+                    Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
+                    childAnimator.Play(animation);
+                    // Sai do loop ao encontrar e ativar o primeiro filho desativado
+                    break;
+                }
+            }
+        }
     }
 
     public void StartDialogue()
@@ -129,6 +173,7 @@ public class DialogueUIManager : MonoBehaviour
             string firstListener = dialogueGroupSelector.ActorsOnDialogue[1].ToString();
             Debug.Log($"Primeiro personagem escutando: {firstListener}");
             listeningCharacter.Play("listening");
+
         }
     }
 
@@ -136,5 +181,17 @@ public class DialogueUIManager : MonoBehaviour
     {
         dialogueUI.SetActive(false);
         isDialogueHappening = false;
+        actorsOnRightGroup.Clear();
+        dialogueText.text = "";
+        listenerNameText.text = "";
+        characterNameText.text = "";
+        foreach (Transform child in rightGroup.transform)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
     }
 }
