@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Thaynara Enjoado
+  m_Name: Falando
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -84873111, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
-    - time: 0.3
-      value: {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+      value: {fileID: -970244748, guid: 0e8370a589f696b4994a46fb93946585, type: 3}
+    - time: 0.23333333
+      value: {fileID: 875838126, guid: 0e8370a589f696b4994a46fb93946585, type: 3}
     - time: 0.46666667
-      value: {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+      value: {fileID: -970244748, guid: 0e8370a589f696b4994a46fb93946585, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -84873111, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
-    - {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
-    - {fileID: 55541947, guid: e25dec1ebde685441b3b1f00a9739534, type: 3}
+    - {fileID: -970244748, guid: 0e8370a589f696b4994a46fb93946585, type: 3}
+    - {fileID: 875838126, guid: 0e8370a589f696b4994a46fb93946585, type: 3}
+    - {fileID: -970244748, guid: 0e8370a589f696b4994a46fb93946585, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

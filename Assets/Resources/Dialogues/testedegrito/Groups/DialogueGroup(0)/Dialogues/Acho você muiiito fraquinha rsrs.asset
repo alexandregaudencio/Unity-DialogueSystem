@@ -19,5 +19,5 @@ MonoBehaviour:
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: e7d15805712050945b8901d10f2113e9, type: 2}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 2
-  <speechAnimation>k__BackingField: Uyara Conversando
+  <speechAnimation>k__BackingField: Enjoada
   <IsStartingDialogue>k__BackingField: 0

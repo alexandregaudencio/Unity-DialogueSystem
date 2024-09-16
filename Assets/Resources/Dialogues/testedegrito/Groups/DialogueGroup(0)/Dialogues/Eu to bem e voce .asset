@@ -16,8 +16,8 @@ MonoBehaviour:
   <DialogueName>k__BackingField: 'Eu to bem e voce '
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 248ee2393fcb4b84ebd1a2ecb369b954, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: d5c281fc41e08a245b271194cbed2eaf, type: 2}
   <DialogueType>k__BackingField: 0
-  <Actor>k__BackingField: 3
-  <speechAnimation>k__BackingField: Leo Falando
+  <Actor>k__BackingField: 1
+  <speechAnimation>k__BackingField: listening
   <IsStartingDialogue>k__BackingField: 0

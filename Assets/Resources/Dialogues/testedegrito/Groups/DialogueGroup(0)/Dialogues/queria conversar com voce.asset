@@ -19,5 +19,5 @@ MonoBehaviour:
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: af6e627642c573d41ab08ce5a686e432, type: 2}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 1
-  <speechAnimation>k__BackingField: Thaynara Enjoado
+  <speechAnimation>k__BackingField: Enjoado
   <IsStartingDialogue>k__BackingField: 0

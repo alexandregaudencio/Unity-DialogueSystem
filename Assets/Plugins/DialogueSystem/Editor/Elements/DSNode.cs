@@ -76,8 +76,8 @@ namespace DialogueSystem.Elements
 
             charactersDialogueAnimations = DSIOUtility.LoadAsset<CharacterDialogueAnimations>("Assets", "CharactersDialogueAnimations");// <CharacterDialogueAnimations>("Assets/DataBase/Dialogues/DialogueAnimations/CharactersDialogueAnimations")
             if (!charactersDialogueAnimations) Debug.LogError("Node não conseguiu encontrar as animações de dialogo, por favor cheque o caminho para este asset.");
-            
-            
+
+
 
 
 
@@ -99,8 +99,8 @@ namespace DialogueSystem.Elements
             // inputPort.AddManipulator(MouseManipulator)
 
             /* TITLE CONTAINER */
-            string Text = DialogueName.DialogueNameRangeFormat();
-            dialogueNameTextElement = DSElementUtility.CreateTextElement(Text, OnDialogueNameChanged);
+            string DialogueNameFormated = DialogueName.DialogueNameRangeFormat();
+            dialogueNameTextElement = DSElementUtility.CreateTextElement(DialogueNameFormated, OnDialogueNameChanged);
 
             //! Verificar
             dialogueNameTextElement.AddClasses(
@@ -131,14 +131,13 @@ namespace DialogueSystem.Elements
             //* Carregar lista de speech animations disponiveis
             animations = charactersDialogueAnimations.GetAnimationsForCharacter(Actor.ToString()).Select(anim => anim.name).ToList();
             int animationIndex = animations.IndexOf(SpeechAnimation);
-            Debug.Log(animationIndex);
             animationDropdown = DSElementUtility.CreateDropdown("Speech Animation", animations, OnAnimationChange, animationIndex);
             textFoldout.Add(animationDropdown);
-            
 
 
 
-            TextField textTextField = DSElementUtility.CreateTextArea(Text, null, OnDialogueTextChanged);
+
+            TextField textTextField = DSElementUtility.CreateTextArea(this.Text, null, OnDialogueTextChanged);
             textTextField.AddClasses(
                 "ds-node__text-field",
                 "ds-node__quote-text-field"
@@ -150,9 +149,9 @@ namespace DialogueSystem.Elements
             extensionContainer.Add(customDataContainer);
 
 
-            if(DialogueName != "") UpdateAnimationDropdownOnLoad();
+            if (DialogueName != "") UpdateAnimationDropdownOnLoad();
             else Debug.Log("node nova");
-            
+
 
         }
 
@@ -173,48 +172,52 @@ namespace DialogueSystem.Elements
 
         private void UpdateAnimationDropdown(string newActor)
         {
-            
-            
+
+
             if (animationDropdown == null) return;
-            
+
             // quando essa função é chamada sem actor defina o actor do dataSave da node
-            if(SpeechAnimation == null){
+            if (SpeechAnimation == null)
+            {
                 animations = charactersDialogueAnimations.GetAnimationsForCharacter(newActor.ToString()).Select(anim => anim.name).ToList();
                 animationDropdown.choices = animations;
-                animationDropdown.value = animations[0];    
-            } else {
-                animations = charactersDialogueAnimations.GetAnimationsForCharacter(newActor.ToString()).Select(anim => anim.name).ToList();
-                animationDropdown.choices = animations;
-                animationDropdown.value = SpeechAnimation;    
+                animationDropdown.value = animations[0];
             }
-            
-            
-            
-                // // Carregar as animações do novo ator
-                // if (animationDropdown != null)
-                // {
-                //     animationDropdown.choices = animations;
-                //     if (animations.Count > 0)
-                //     {
-                //         animationDropdown.value = animations[0]; // Selecionar a primeira animação por padrão
-                //     }
-                //     else
-                //     {
-                //         animationDropdown.value = string.Empty; // Limpar o dropdown se não houver animações
-                //     }
-                // }
+            else
+            {
+                animations = charactersDialogueAnimations.GetAnimationsForCharacter(newActor.ToString()).Select(anim => anim.name).ToList();
+                animationDropdown.choices = animations;
+                animationDropdown.value = SpeechAnimation;
+            }
+
+
+
+            // // Carregar as animações do novo ator
+            // if (animationDropdown != null)
+            // {
+            //     animationDropdown.choices = animations;
+            //     if (animations.Count > 0)
+            //     {
+            //         animationDropdown.value = animations[0]; // Selecionar a primeira animação por padrão
+            //     }
+            //     else
+            //     {
+            //         animationDropdown.value = string.Empty; // Limpar o dropdown se não houver animações
+            //     }
+            // }
         }
 
-        void UpdateAnimationDropdownOnLoad(){
+        void UpdateAnimationDropdownOnLoad()
+        {
             animations = charactersDialogueAnimations.GetAnimationsForCharacter(Actor.ToString()).Select(anim => anim.name).ToList();
             animationDropdown.choices = animations;
             Debug.Log($"UpdateAnimationDropdownOnLoad {SpeechAnimation}");
-            int currenAnimationIndex =animations.IndexOf(SpeechAnimation);     
+            int currenAnimationIndex = animations.IndexOf(SpeechAnimation);
             animationDropdown.value = SpeechAnimation;
         }
 
-            
-        
+
+
 
 
         private void OnDialogueNameChanged(ChangeEvent<string> callback)

@@ -10,7 +10,7 @@ using System.Linq;
 [RequireComponent(typeof(DialogueGroupSelector))]
 public class DialogueUIManager : MonoBehaviour
 {
-    private bool isDialogueHappening;
+    private bool isDialogueHappening = false;
 
     [Header("References")]
     [SerializeField] private CharacterDialogueAnimations characterAnimations;
@@ -29,25 +29,38 @@ public class DialogueUIManager : MonoBehaviour
     [SerializeField] private float popScale = 1.2f;
 
 
+    public event Action<string, string> OnDialogueChanged; // evento pra disparar toda vez que o dialogo muda
+
+
     public GameObject rightGroup;
     List<string> actorsOnRightGroup = new List<string>(); // Inicializa uma lista vazia
-
     private Vector3 originalScale = new Vector3(1.4f, 1.4f, 1); // modificar para ser dinamico
 
+    // iniciar o primeiro current dialogue
     private void Start()
     {
         dialogueUI.SetActive(false);
         dialogueGroupSelector = GetComponent<DialogueGroupSelector>();
+        // currentDialogue = dialogueGroupSelector.targetDialogue;
+        if (currentDialogue == null) currentDialogue = dialogueGroupSelector.targetDialogue;
     }
 
     private void OnEnable()
     {
-        if (currentDialogue != null) currentDialogue = dialogueGroupSelector.targetDialogue;
-
-        if (dialogueUI.activeSelf)
+        // Debug.Log($"{currentDialogue.Actor.ToString()}, {currentDialogue.speechAnimation}"); //* Chega corretamente
+        if (dialogueUI.activeSelf && currentDialogue != null)
         {
-            InitializeDialogueUI();
+            InitializeDialogueUI(currentDialogue);
         }
+    }
+
+    public void StartDialogue()
+    {
+        dialogueUI.SetActive(true);
+        isDialogueHappening = true;
+        // currentDialogue = dialogueGroupSelector.targetDialogue;
+        // Debug.Log($"current dialogue: {currentDialogue.Actor.ToString()}"); // chegando corretamente
+        InitializeDialogueUI(currentDialogue);
     }
 
     private void Update()
@@ -65,6 +78,7 @@ public class DialogueUIManager : MonoBehaviour
                 return;
             }
             UpdateDialogue();
+
         }
     }
 
@@ -82,20 +96,18 @@ public class DialogueUIManager : MonoBehaviour
     {
         currentDialogue = currentDialogue.Choices[0].NextDialogue;
         dialogueText.text = currentDialogue.RequestText;
-
         string newActor = currentDialogue.Actor.ToString();
 
-        Debug.Log($"Dialogo de {newActor}");
         //*  Quando o new actor for diferente do actor default (player)
         if (newActor != dialogueGroupSelector.ActorsOnDialogue[0].ToString())
         {
-
             SetOnRightGroup(listeningCharacter, newActor, currentDialogue.speechAnimation, listenerNameText);
         }
         else
         {
             SetCharacterState(talkingCharacter, newActor, currentDialogue.speechAnimation, characterNameText); //* O primeiro character a falar nesse caso esta sendo considerado o player, que fica ao lado esquerdo
         }
+        OnDialogueChanged?.Invoke(newActor, currentDialogue.speechAnimation);
     }
 
 
@@ -113,22 +125,14 @@ public class DialogueUIManager : MonoBehaviour
     private void SetCharacterState(Animator characterAnimator, string characterName, string animation, TMP_Text nameText)
     {
         nameText.text = characterName;
-        characterAnimator.gameObject.name = characterName;
-        characterAnimator.Play(animation);
         dialogueText.alignment = TextAlignmentOptions.Left;
+        talkingCharacter.gameObject.GetComponent<DialogueActor>().InitializeActor(characterName, animation);
         PlayPopAnimation(nameText);
-
-        foreach (Transform child in rightGroup.transform) //* coloca todos os outros em listening
-        {
-            child.GetComponent<Animator>().Play($"{child.gameObject.name} listening");
-        }
     }
 
 
     private void SetOnRightGroup(Animator characterAnimator, string characterName, string animation, TMP_Text nameText)
     {
-        talkingCharacter.Play($"{talkingCharacter.gameObject.name} listening");
-        actorsOnRightGroup.Append(characterName);
         nameText.text = characterName;
         dialogueText.alignment = TextAlignmentOptions.Right;
         PlayPopAnimation(nameText);
@@ -142,57 +146,32 @@ public class DialogueUIManager : MonoBehaviour
                 if (!child.gameObject.activeSelf)
                 {
                     child.gameObject.SetActive(true);
-                    child.gameObject.name = characterName;
-                    Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
-                    childAnimator.Play(animation);
-                    // Sai do loop ao encontrar e ativar o primeiro filho desativado
+                    child.GetComponent<DialogueActor>().InitializeActor(characterName, animation);
                     break;
-                    //* PARAR TODAS AS ANIMAÇÕES MENOS A DO CHARACTER ATUAL
                 }
             }
         }
-        foreach (Transform child in rightGroup.transform)
-        {
-            if (child.gameObject.name != characterName)
-            {
-                Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
-                childAnimator.Play($"{child.gameObject.name} listening");
-
-            }
-            else
-            {
-                Animator childAnimator = child.GetComponent<Animator>(); // Atualiza o Animator com o personagem atual e toca a animação correspondente
-                childAnimator.Play(animation);
-            }
-        }
     }
 
-    public void StartDialogue()
-    {
-        dialogueUI.SetActive(true);
-        isDialogueHappening = true;
-        currentDialogue = dialogueGroupSelector.targetDialogue;
-        InitializeDialogueUI();
-    }
 
-    private void InitializeDialogueUI()
+
+    private void InitializeDialogueUI(DSDialogueSO currentDialogue)
     {
         dialogueText.text = currentDialogue.RequestText;
         characterNameText.text = currentDialogue.Actor.ToString();
-        PlayPopAnimation(characterNameText);
 
+        PlayPopAnimation(characterNameText);
         if (currentDialogue != null)
         {
-            talkingCharacter.Play(currentDialogue.speechAnimation);
+            talkingCharacter.gameObject.GetComponent<DialogueActor>().InitializeActor(currentDialogue.Actor.ToString(), currentDialogue.speechAnimation.ToString());
         }
 
         if (dialogueGroupSelector.ActorsOnDialogue.Count >= 1)
         {
             string firstListener = dialogueGroupSelector.ActorsOnDialogue[1].ToString();
-            Debug.Log($"Primeiro personagem escutando: {firstListener}");
-            listeningCharacter.Play("listening");
-
         }
+        OnDialogueChanged?.Invoke(currentDialogue.Actor.ToString(), currentDialogue.speechAnimation);
+
     }
 
     private void FinishDialogue()
@@ -212,4 +191,6 @@ public class DialogueUIManager : MonoBehaviour
         }
 
     }
+
+
 }

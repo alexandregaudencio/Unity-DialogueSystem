@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: Mais uma e eu aqui
+  m_Name: "Oiii,_iai,_aqui_\xE9_a_Thaynara"
   m_EditorClassIdentifier: 
-  text: Mais uma e eu aqui
-  <DialogueName>k__BackingField: Mais uma e eu aqui
+  text: "Oiii, iai, aqui \xE9 a Thaynara"
+  <DialogueName>k__BackingField: "Oiii,_iai,_aqui_\xE9_a_Thaynara"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 16c612c55bd7b1047a97b93f9ee3eb03, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: a01b3b19bbe4cb340acdd23222134923, type: 2}
   <DialogueType>k__BackingField: 0
-  <Actor>k__BackingField: 2
+  <Actor>k__BackingField: 1
   <speechAnimation>k__BackingField: Conversando
-  <IsStartingDialogue>k__BackingField: 0
+  <IsStartingDialogue>k__BackingField: 1

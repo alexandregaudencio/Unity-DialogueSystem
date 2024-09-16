@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: "Caraca prestem aten\xE7\xE3o em mim, eu que sou a protagonista aqui"
+  m_Name: "Eiiiii, prestem aten\xE7\xE3o em mim, eu que sou a protagonista aqui!"
   m_EditorClassIdentifier: 
-  text: "Caraca prestem aten\xE7\xE3o em mim, eu que sou a protagonista aqui"
-  <DialogueName>k__BackingField: "Caraca prestem aten\xE7\xE3o em mim, eu que sou
-    a protagonista aqui"
+  text: "Eiiiii, prestem aten\xE7\xE3o em mim, eu que sou a protagonista aqui!"
+  <DialogueName>k__BackingField: "Eiiiii, prestem aten\xE7\xE3o em mim, eu que sou
+    a protagonista aqui!"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 0}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 7979e588484e3c94fb5260eb6b81b977, type: 2}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 1
-  <speechAnimation>k__BackingField: Thaynara Conversando
+  <speechAnimation>k__BackingField: Conversando
   <IsStartingDialogue>k__BackingField: 0

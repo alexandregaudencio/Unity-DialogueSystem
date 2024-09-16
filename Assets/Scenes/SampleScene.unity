@@ -210,8 +210,9 @@ GameObject:
   - component: {fileID: 424810695}
   - component: {fileID: 424810694}
   - component: {fileID: 424810693}
+  - component: {fileID: 424810696}
   m_Layer: 5
-  m_Name: Character1 (1)
+  m_Name: Character2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 418.62003, y: -332.895}
+  m_AnchoredPosition: {x: 429.205, y: -336.425}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &424810693
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 447973653, guid: 275e2936b818dd84b822bbba762b7bdb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -295,6 +296,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424810691}
   m_CullTransparentMesh: 1
+--- !u!114 &424810696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424810691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2a510197e43e4788373b4f8c39022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUIManager: {fileID: 519420035}
+  characterDialogueAnimations: {fileID: 11400000, guid: 6788f48bc7cc84a4f8e9d961e634ede7, type: 2}
+  ActorName: 
+  Active: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,13 +420,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueContainer: {fileID: 11400000, guid: ac88a21c73963004fb0477b3acc6ad6c, type: 2}
   dialogueGroup: {fileID: 11400000, guid: 3f3acc5f0d62c664a90d34f7f09889f9, type: 2}
-  dialogue: {fileID: 11400000, guid: e2f90477ddbc7074c856ecc3355ab630, type: 2}
+  dialogue: {fileID: 11400000, guid: 15f55c5c285fe334d8158b5a9df4826f, type: 2}
   startingDialoguesOnly: 0
   ActorsOnDialogue: 
   selectedDialogueGroupIndex: 0
   selectedDialogueIndex: 0
   DialogueGroupTarget: []
   onDialogueTextRequested:
+  - m_PersistentCalls:
+      m_Calls: []
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:
@@ -467,8 +486,9 @@ GameObject:
   - component: {fileID: 796336219}
   - component: {fileID: 796336218}
   - component: {fileID: 796336217}
+  - component: {fileID: 796336220}
   m_Layer: 5
-  m_Name: Character1 (2)
+  m_Name: Character3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 626.43, y: -332.895}
+  m_AnchoredPosition: {x: 713.3417, y: -336.425}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &796336217
@@ -534,7 +554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 447973653, guid: 275e2936b818dd84b822bbba762b7bdb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -552,6 +572,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796336215}
   m_CullTransparentMesh: 1
+--- !u!114 &796336220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796336215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2a510197e43e4788373b4f8c39022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUIManager: {fileID: 519420035}
+  characterDialogueAnimations: {fileID: 11400000, guid: 6788f48bc7cc84a4f8e9d961e634ede7, type: 2}
+  ActorName: 
+  Active: 0
 --- !u!1 &820239660
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &820239661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -755,6 +791,7 @@ GameObject:
   - component: {fileID: 933009480}
   - component: {fileID: 933009479}
   - component: {fileID: 933009478}
+  - component: {fileID: 933009481}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -840,6 +877,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933009476}
   m_CullTransparentMesh: 1
+--- !u!114 &933009481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933009476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2a510197e43e4788373b4f8c39022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUIManager: {fileID: 519420035}
+  characterDialogueAnimations: {fileID: 11400000, guid: 6788f48bc7cc84a4f8e9d961e634ede7, type: 2}
+  ActorName: 
+  Active: 0
 --- !u!1 &967381929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609977721}
   - component: {fileID: 1609977722}
+  - component: {fileID: 1609977723}
   m_Layer: 5
   m_Name: ListeningCharacter group
   m_TagString: Untagged
@@ -1144,8 +1198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 493.56, y: -23.26}
-  m_SizeDelta: {x: 837.24, y: 665.79}
+  m_AnchoredPosition: {x: 482.97, y: -19.73}
+  m_SizeDelta: {x: 858.41, y: 672.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1609977722
 MonoBehaviour:
@@ -1173,6 +1227,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1609977723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609977720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2a510197e43e4788373b4f8c39022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUIManager: {fileID: 519420035}
+  characterDialogueAnimations: {fileID: 0}
+  ActorName: 
+  Active: 0
 --- !u!1 &1913195650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1352,7 @@ GameObject:
   - component: {fileID: 1966862052}
   - component: {fileID: 1966862051}
   - component: {fileID: 1966862050}
+  - component: {fileID: 1966862053}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -1305,7 +1376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 418.62, y: -332.895}
+  m_AnchoredPosition: {x: 145.06833, y: -336.425}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1966862050
@@ -1367,6 +1438,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966862048}
   m_CullTransparentMesh: 1
+--- !u!114 &1966862053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966862048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2a510197e43e4788373b4f8c39022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUIManager: {fileID: 519420035}
+  characterDialogueAnimations: {fileID: 11400000, guid: 6788f48bc7cc84a4f8e9d961e634ede7, type: 2}
+  ActorName: 
+  Active: 0
 --- !u!1 &2072082343
 GameObject:
   m_ObjectHideFlags: 0

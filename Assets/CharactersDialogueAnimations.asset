@@ -17,8 +17,8 @@ MonoBehaviour:
     dialogueAnimations: []
   - characterName: 1
     dialogueAnimations:
-    - {fileID: 7400000, guid: bbc12cde92b4b254cbbc852aacbaaacb, type: 2}
     - {fileID: 7400000, guid: ee201733e0f22de47b56e8ee34852f37, type: 2}
+    - {fileID: 7400000, guid: bbc12cde92b4b254cbbc852aacbaaacb, type: 2}
     - {fileID: 7400000, guid: ab7dc04aa48b321468aad6e774d12d0b, type: 2}
   - characterName: 2
     dialogueAnimations:
