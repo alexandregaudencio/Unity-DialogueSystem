@@ -4,7 +4,6 @@ using UnityEngine;
 namespace DialogueSystem.ScriptableObjects
 {
     using System;
-    using Data;
     using Enumerations;
     using CustomAttributes;
 
@@ -23,7 +22,7 @@ namespace DialogueSystem.ScriptableObjects
         /// To simple acess to Text value of dialogue.
         /// </summary>
         public string Text => text;
-        
+
         /// <summary>
         /// To Use just for show text on Interface, because the acess invoke TextRequest event.
         /// </summary>
@@ -37,7 +36,7 @@ namespace DialogueSystem.ScriptableObjects
             set { text = value; }
         }
 
-        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType,DSActor actor, bool isStartingDialogue, string SpeechAnimation)
+        public void Initialize(string dialogueName, string text, List<DSDialogueChoiceData> choices, DSDialogueType dialogueType, DSActor actor, bool isStartingDialogue, string SpeechAnimation)
         {
             DialogueName = dialogueName;
             RequestText = text;
@@ -52,7 +51,7 @@ namespace DialogueSystem.ScriptableObjects
     }
 
 
-    
+
 
 
 }

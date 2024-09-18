@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202a3095b7477a4091d56344f0af6b3, type: 3}
+  m_Name: DialogofinalGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: Dialogofinal
+  <Groups>k__BackingField:
+  - <ID>k__BackingField: 3ca91f42-c9d3-40df-9ac2-d5840e37581f
+    <Name>k__BackingField: DialogueGroup(0)
+    <Position>k__BackingField: {x: 792, y: 168}
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: 6c66d29e-d903-41fb-8408-14db95494108
+    <Name>k__BackingField: Falaaaaa mane
+    <Text>k__BackingField: Falaaaaa mane
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: aaef476a-c32f-490c-bf1c-0338adcc29bc
+    <GroupID>k__BackingField: 3ca91f42-c9d3-40df-9ac2-d5840e37581f
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: listening
+    <Position>k__BackingField: {x: 817, y: 227}
+  - <ID>k__BackingField: aaef476a-c32f-490c-bf1c-0338adcc29bc
+    <Name>k__BackingField: Oi como se ta
+    <Text>k__BackingField: Oi como se ta
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 53099d1b-2fd2-4ecb-961a-19ad6d8a8e66
+    <GroupID>k__BackingField: 3ca91f42-c9d3-40df-9ac2-d5840e37581f
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 1
+    <_SpeechAnimation>k__BackingField: Enjoado
+    <Position>k__BackingField: {x: 1145, y: 227}
+  - <ID>k__BackingField: 53099d1b-2fd2-4ecb-961a-19ad6d8a8e66
+    <Name>k__BackingField: blababa
+    <Text>k__BackingField: blababa
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 3ca91f42-c9d3-40df-9ac2-d5840e37581f
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 2
+    <_SpeechAnimation>k__BackingField: Conversando
+    <Position>k__BackingField: {x: 1449, y: 227}
+  <OldGroupNames>k__BackingField:
+  - DialogueGroup(0)
+  <OldUngroupedNodeNames>k__BackingField: []
+  <OldGroupedNodeNames>k__BackingField:
+    list:
+    - Key: DialogueGroup(0)
+      Value:
+      - Falaaaaa mane
+      - Oi como se ta
+      - blababa

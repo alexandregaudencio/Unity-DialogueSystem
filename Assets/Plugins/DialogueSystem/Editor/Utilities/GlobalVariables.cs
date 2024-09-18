@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace DialogueSystem.Utilities
+namespace DialogueSystem.Editor.Utilities
 {
     public static class GlobalVariables
     {
@@ -24,7 +24,7 @@ namespace DialogueSystem.Utilities
                 }
             }
 
-            return null; 
+            return null;
         }
 
     }

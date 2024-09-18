@@ -2,7 +2,7 @@ using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-namespace DialogueSystem.Utilities
+namespace DialogueSystem.Editor.Utilities
 {
     using Elements;
     using System.Collections.Generic;

@@ -1,7 +1,7 @@
 using System;
 using UnityEditor;
 
-namespace DialogueSystem.Utilities
+namespace DialogueSystem.Editor.Utilities
 {
     public static class DSInspectorUtility
     {

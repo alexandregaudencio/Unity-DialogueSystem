@@ -32,8 +32,6 @@ namespace DialogueSystem
         private void Awake()
         {
             DialogueGroupTarget = dialogueContainer.GetGroupedDialogue(dialogueGroup);
-
-
         }
 
         void OnEnable()
@@ -82,11 +80,8 @@ namespace DialogueSystem
 
         // *define the first character to speak and define it as player 
         //* definir o segundo personagem na lista como quem esta na ordem para escutar 
-
-
         public void characterList()
         {
-
             for (int i = 0; i < DialogueGroupTarget.Count; i++)
             {
                 DSActor currentActor = DialogueGroupTarget[i].Actor;
@@ -97,7 +92,7 @@ namespace DialogueSystem
                     ActorsOnDialogue.Add(currentActor);
                 }
             }
-            ActorsOnDialogue.Reverse();
+            // ActorsOnDialogue.Reverse();
             firstTalking = ActorsOnDialogue[0];
             firstListener = ActorsOnDialogue[1];
         }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DialogueSystem.Data
+namespace DialogueSystem.ScriptableObjects
 {
     using ScriptableObjects;
 

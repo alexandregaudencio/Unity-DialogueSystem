@@ -419,17 +419,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4278ca070d8dc141ad5b07a22032d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueContainer: {fileID: 11400000, guid: fe90a4daaefa5b44ba9a2ef1c4b20c37, type: 2}
-  dialogueGroup: {fileID: 11400000, guid: 87e80493a6f9cc544935257a58885c7f, type: 2}
-  dialogue: {fileID: 11400000, guid: 35f87ae8d7160724098e8b21548438be, type: 2}
+  dialogueContainer: {fileID: 11400000, guid: e481cd4863d95064cad45ea643defaab, type: 2}
+  dialogueGroup: {fileID: 11400000, guid: 97f595455f468e5489fb5c29f0bd3084, type: 2}
+  dialogue: {fileID: 11400000, guid: b501d36d420b1f7428a8c33b5e3645a4, type: 2}
   startingDialoguesOnly: 0
   ActorsOnDialogue: 
   selectedDialogueGroupIndex: 0
   selectedDialogueIndex: 0
   DialogueGroupTarget: []
   onDialogueTextRequested:
-  - m_PersistentCalls:
-      m_Calls: []
   - m_PersistentCalls:
       m_Calls: []
   - m_PersistentCalls:

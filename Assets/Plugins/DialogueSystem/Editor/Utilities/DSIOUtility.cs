@@ -5,9 +5,8 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace DialogueSystem.Utilities
+namespace DialogueSystem.Editor.Utilities
 {
-    using Data;
     using Data.Save;
     using Elements;
     using ScriptableObjects;
@@ -165,9 +164,9 @@ namespace DialogueSystem.Utilities
                 DialogueType = node.DialogueType,
                 Actor = node.Actor,
                 _SpeechAnimation = node.SpeechAnimation,
-                
+
                 Position = node.GetPosition().position
-                
+
             };
             Debug.Log(nodeData._SpeechAnimation);
 
@@ -199,7 +198,7 @@ namespace DialogueSystem.Utilities
                 node.Actor,
                 node.IsStartingNode(),
                 node.SpeechAnimation
-                
+
             );
 
             createdDialogues.Add(node.ID, dialogue);
@@ -339,7 +338,7 @@ namespace DialogueSystem.Utilities
                 node.Choices = choices;
                 node.Text = nodeData.Text;
                 node.Actor = nodeData.Actor;
-                node.SpeechAnimation = nodeData._SpeechAnimation; 
+                node.SpeechAnimation = nodeData._SpeechAnimation;
                 // Debug.Log($"Loading node: {node.ID} | Actor: {node.Actor} | speech animation: {node.SpeechAnimation}");
                 node.Draw();
 
@@ -366,7 +365,7 @@ namespace DialogueSystem.Utilities
             {
                 foreach (Port choicePort in loadedNode.Value.outputContainer.Children())
                 {
-                    DSChoiceSaveData choiceData = (DSChoiceSaveData) choicePort.userData;
+                    DSChoiceSaveData choiceData = (DSChoiceSaveData)choicePort.userData;
                     if (string.IsNullOrEmpty(choiceData.NodeID.ToString()))
                     {
                         continue;
@@ -374,7 +373,7 @@ namespace DialogueSystem.Utilities
 
                     DSNode nextNode = loadedNodes[choiceData.NodeID.ToString()];
 
-                    Port nextNodeInputPort = (Port) nextNode.inputContainer.Children().First();
+                    Port nextNodeInputPort = (Port)nextNode.inputContainer.Children().First();
 
                     Edge edge = choicePort.ConnectTo(nextNodeInputPort);
 
@@ -411,7 +410,7 @@ namespace DialogueSystem.Utilities
 
                 if (graphElement.GetType() == groupType)
                 {
-                    DSGroup group = (DSGroup) graphElement;
+                    DSGroup group = (DSGroup)graphElement;
 
                     groups.Add(group);
 

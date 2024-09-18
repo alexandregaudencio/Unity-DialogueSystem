@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951618c18f71b9f41936e00e499bf475, type: 3}
   m_Name: CharactersDialogueAnimations
   m_EditorClassIdentifier: 
-  charactersAnimationsList: []
+  charactersAnimationsList:
+  - characterName: 1
+    dialogueAnimations:
+    - {fileID: 7400000, guid: bbc12cde92b4b254cbbc852aacbaaacb, type: 2}
+    - {fileID: 7400000, guid: ab7dc04aa48b321468aad6e774d12d0b, type: 2}
+  - characterName: 2
+    dialogueAnimations:
+    - {fileID: 7400000, guid: 6adef867881760646bcbcb26e1f2c810, type: 2}
+    - {fileID: 7400000, guid: 9887897dd8b14ae41b1011e585541925, type: 2}

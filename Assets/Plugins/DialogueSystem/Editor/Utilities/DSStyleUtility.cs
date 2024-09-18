@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine.UIElements;
 
-namespace DialogueSystem.Utilities
+namespace DialogueSystem.Editor.Utilities
 {
     public static class DSStyleUtility
     {
@@ -20,8 +20,8 @@ namespace DialogueSystem.Utilities
             foreach (string styleSheetName in styleSheetNames)
             {
                 string styleSheetPath = string.Concat(GlobalVariables.StylePath, styleSheetName);
-                
-                StyleSheet styleSheet = (StyleSheet) EditorGUIUtility.Load(styleSheetPath);
+
+                StyleSheet styleSheet = (StyleSheet)EditorGUIUtility.Load(styleSheetPath);
                 element.styleSheets.Add(styleSheet);
             }
             //"Assets/DialogSystem/Editor Default Resources/DialogueSystem/DSGraphViewStyles.uss"
