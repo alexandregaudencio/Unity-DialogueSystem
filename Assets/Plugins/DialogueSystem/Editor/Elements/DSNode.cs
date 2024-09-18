@@ -9,6 +9,7 @@ namespace DialogueSystem.Elements
 {
     using Data.Save;
     using DialogueSystem.Data.Error;
+    using ScriptableObjects;
     using Enumerations;
     using Utilities;
     using Windows;

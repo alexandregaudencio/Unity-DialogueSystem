@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace DialogueSystem
 {
-    using System;
     using DialogueSystem.Enumerations;
     using ScriptableObjects;
     using UnityEngine.Events;
