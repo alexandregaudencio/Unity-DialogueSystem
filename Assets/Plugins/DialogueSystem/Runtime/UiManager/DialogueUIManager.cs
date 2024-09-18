@@ -58,7 +58,7 @@ public class DialogueUIManager : MonoBehaviour
     {
         dialogueUI.SetActive(true);
         isDialogueHappening = true;
-        // currentDialogue = dialogueGroupSelector.targetDialogue;
+        currentDialogue = dialogueGroupSelector.targetDialogue;
         // Debug.Log($"current dialogue: {currentDialogue.Actor.ToString()}"); // chegando corretamente
         InitializeDialogueUI(currentDialogue);
     }
@@ -101,6 +101,7 @@ public class DialogueUIManager : MonoBehaviour
         //*  Quando o new actor for diferente do actor default (player)
         if (newActor != dialogueGroupSelector.ActorsOnDialogue[0].ToString())
         {
+            // Debug.Log(dialogueGroupSelector.ActorsOnDialogue[1]);
             SetOnRightGroup(listeningCharacter, newActor, currentDialogue.speechAnimation, listenerNameText);
         }
         else
@@ -169,6 +170,7 @@ public class DialogueUIManager : MonoBehaviour
         if (dialogueGroupSelector.ActorsOnDialogue.Count >= 1)
         {
             string firstListener = dialogueGroupSelector.ActorsOnDialogue[1].ToString();
+            // Debug.Log($"First talking {dialogueGroupSelector.firstTalking}");
         }
         OnDialogueChanged?.Invoke(currentDialogue.Actor.ToString(), currentDialogue.speechAnimation);
 
@@ -182,6 +184,7 @@ public class DialogueUIManager : MonoBehaviour
         dialogueText.text = "";
         listenerNameText.text = "";
         characterNameText.text = "";
+        // currentDialogue = currentDialogue.;
         foreach (Transform child in rightGroup.transform)
         {
             if (child.gameObject.activeSelf)

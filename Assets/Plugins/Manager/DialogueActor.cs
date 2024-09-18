@@ -6,7 +6,7 @@ public class DialogueActor : MonoBehaviour
 {
     [SerializeField] DialogueUIManager dialogueUIManager;
     public CharacterDialogueAnimations characterDialogueAnimations; // modificar para receber o speech animation diretamente do graphview como animation clip 
-    Animator animator;
+    public Animator animator;
 
     public string ActorName;
     public bool Active;
@@ -44,8 +44,8 @@ public class DialogueActor : MonoBehaviour
     {
         Active = true;
         ActorName = Actor;
-        Debug.Log($"{Animation} Animation initializar");
-        if (characterDialogueAnimations.GetAnimationClip(ActorName, Animation)) Debug.Log("Oiii apareci");
+        // Debug.Log($"{Animation} Animation initializar");
+        // if (characterDialogueAnimations.GetAnimationClip(ActorName, Animation)) Debug.Log("Oiii apareci"); //* Funcionando
         AnimationClip animationTest = characterDialogueAnimations.GetAnimationClip(ActorName, Animation);
         ChangeAnimation(animationTest);
     }

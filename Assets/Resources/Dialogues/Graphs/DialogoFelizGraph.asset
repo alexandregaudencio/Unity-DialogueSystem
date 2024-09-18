@@ -16,52 +16,52 @@ MonoBehaviour:
   <Groups>k__BackingField:
   - <ID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
     <Name>k__BackingField: DialogueGroup(0)
-    <Position>k__BackingField: {x: 269.99997, y: 370}
+    <Position>k__BackingField: {x: 270, y: 370}
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: 56c0bd74-a046-42b4-9efb-f6cda68a8cab
-    <Name>k__BackingField: Uyara, precisamos descobrir...
-    <Text>k__BackingField: Uyara, precisamos descobrir...
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: c4e3ba2c-a43a-4335-bd41-4158fdaec254
-    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <_SpeechAnimation>k__BackingField: Angry answer
-    <Position>k__BackingField: {x: 295, y: 429}
-  - <ID>k__BackingField: 6ccadbbf-e079-4b22-8fac-049ebf4d7c8c
-    <Name>k__BackingField: Uyaraaa
-    <Text>k__BackingField: Uyaraaa
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
-    <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 2
-    <_SpeechAnimation>k__BackingField: Exausta
-    <Position>k__BackingField: {x: 1278, y: 429}
   - <ID>k__BackingField: c4e3ba2c-a43a-4335-bd41-4158fdaec254
-    <Name>k__BackingField: "Sem ela n\xE3o vamos conseguir sa..."
-    <Text>k__BackingField: "Sem ela n\xE3o vamos conseguir sa..."
+    <Name>k__BackingField: Eu sinto uma energia negativa muito grande aqui
+    <Text>k__BackingField: Eu sinto uma energia negativa muito grande aqui
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 9c4e3128-e16c-4344-895d-fb8db3fdc0a7
     <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
     <DialogueType>k__BackingField: 0
-    <Actor>k__BackingField: 1
-    <_SpeechAnimation>k__BackingField: Enjoada
+    <Actor>k__BackingField: 2
+    <_SpeechAnimation>k__BackingField: Conversando
     <Position>k__BackingField: {x: 667, y: 429}
   - <ID>k__BackingField: 9c4e3128-e16c-4344-895d-fb8db3fdc0a7
-    <Name>k__BackingField: teste
-    <Text>k__BackingField: teste
+    <Name>k__BackingField: "Eu acho que \xE9 melhor a gente ir embora!"
+    <Text>k__BackingField: "Eu acho que \xE9 melhor a gente ir embora!"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 6ccadbbf-e079-4b22-8fac-049ebf4d7c8c
     <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
     <DialogueType>k__BackingField: 0
     <Actor>k__BackingField: 2
-    <_SpeechAnimation>k__BackingField: Super thanks
+    <_SpeechAnimation>k__BackingField: Conversando
     <Position>k__BackingField: {x: 974, y: 429}
+  - <ID>k__BackingField: 56c0bd74-a046-42b4-9efb-f6cda68a8cab
+    <Name>k__BackingField: "Nossa,_oque_est\xE1_acontecendo_n..."
+    <Text>k__BackingField: "Nossa, oque est\xE1 acontecendo nesse lugar?"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: c4e3ba2c-a43a-4335-bd41-4158fdaec254
+    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 3
+    <_SpeechAnimation>k__BackingField: Falando
+    <Position>k__BackingField: {x: 295, y: 429}
+  - <ID>k__BackingField: 6ccadbbf-e079-4b22-8fac-049ebf4d7c8c
+    <Name>k__BackingField: Concordo, vamos!
+    <Text>k__BackingField: Concordo, vamos!
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: aecd143b-b07e-4d10-ac00-a7d4421602c7
+    <DialogueType>k__BackingField: 0
+    <Actor>k__BackingField: 3
+    <_SpeechAnimation>k__BackingField: listening
+    <Position>k__BackingField: {x: 1278, y: 429}
   <OldGroupNames>k__BackingField:
   - DialogueGroup(0)
   <OldUngroupedNodeNames>k__BackingField: []
@@ -69,7 +69,7 @@ MonoBehaviour:
     list:
     - Key: DialogueGroup(0)
       Value:
-      - Uyara, precisamos descobrir...
-      - Uyaraaa
-      - "Sem ela n\xE3o vamos conseguir sa..."
-      - teste
+      - Eu sinto uma energia negativa muito grande aqui
+      - "Eu acho que \xE9 melhor a gente ir embora!"
+      - "Nossa,_oque_est\xE1_acontecendo_n..."
+      - Concordo, vamos!

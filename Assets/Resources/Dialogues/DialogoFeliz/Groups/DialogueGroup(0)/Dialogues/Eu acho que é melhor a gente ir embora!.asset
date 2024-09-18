@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f262818b55b0f4418296bad0176bdab, type: 3}
-  m_Name: Uyaraaa
+  m_Name: "Eu acho que \xE9 melhor a gente ir embora!"
   m_EditorClassIdentifier: 
-  text: Uyaraaa
-  <DialogueName>k__BackingField: Uyaraaa
+  text: "Eu acho que \xE9 melhor a gente ir embora!"
+  <DialogueName>k__BackingField: "Eu acho que \xE9 melhor a gente ir embora!"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 0}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 63555638418cffb4f9f7d260a9bd95af, type: 2}
   <DialogueType>k__BackingField: 0
   <Actor>k__BackingField: 2
-  <speechAnimation>k__BackingField: Exausta
+  <speechAnimation>k__BackingField: Conversando
   <IsStartingDialogue>k__BackingField: 0

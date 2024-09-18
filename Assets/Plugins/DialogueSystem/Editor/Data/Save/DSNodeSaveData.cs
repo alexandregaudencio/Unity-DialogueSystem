@@ -19,6 +19,5 @@ namespace DialogueSystem.Data.Save
         [field: SerializeField, ReadOnly] public DSActor Actor { get; set; }
         [field: SerializeField, ReadOnly] public string _SpeechAnimation { get; set; }
         [field: SerializeField, ReadOnly] public Vector2 Position { get; set; }
-
     }
 }

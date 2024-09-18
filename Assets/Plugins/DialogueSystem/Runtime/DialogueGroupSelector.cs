@@ -91,17 +91,16 @@ namespace DialogueSystem
             for (int i = 0; i < DialogueGroupTarget.Count; i++)
             {
                 DSActor currentActor = DialogueGroupTarget[i].Actor;
-
+                Debug.Log($"Actor on dialogue {currentActor}");
                 // Verifica se o ator já foi adicionado à lista
                 if (!ActorsOnDialogue.Contains(currentActor))
                 {
                     ActorsOnDialogue.Add(currentActor);
                 }
             }
+            ActorsOnDialogue.Reverse();
             firstTalking = ActorsOnDialogue[0];
             firstListener = ActorsOnDialogue[1];
-
-
         }
     }
 }

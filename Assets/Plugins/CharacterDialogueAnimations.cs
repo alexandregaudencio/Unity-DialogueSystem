@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DialogueSystem.Enumerations;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharacterDialogueAnimations", menuName = "ScriptableObjects/CharactersDialogueAnimations", order = 1)]
+// [CreateAssetMenu(fileName = "CharacterDialogueAnimations", menuName = "ScriptableObjects/CharactersDialogueAnimations", order = 1)]
 public class CharacterDialogueAnimations : ScriptableObject
 {
     [System.Serializable]
@@ -20,7 +20,8 @@ public class CharacterDialogueAnimations : ScriptableObject
         return characterAnimations != null ? characterAnimations.dialogueAnimations : new List<AnimationClip>();
     }
 
-    public AnimationClip GetAnimationClip(string actor, string animationName){
+    public AnimationClip GetAnimationClip(string actor, string animationName)
+    {
         CharacterAnimations characterAnimations = charactersAnimationsList.Find(c => c.characterName.ToString() == actor);
         if (characterAnimations != null)
         {
@@ -28,6 +29,6 @@ public class CharacterDialogueAnimations : ScriptableObject
         }
         return null;
     }
-        
-    
+
+
 }
