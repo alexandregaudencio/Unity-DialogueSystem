@@ -5,7 +5,7 @@ namespace DialogueSystem.ScriptableObjects
 {
     using System;
     using Enumerations;
-    using CustomAttributes;
+    using Utilities;
 
     public class DSDialogueSO : ScriptableObject
     {

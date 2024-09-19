@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace DialogueSystem.Inspectors
+namespace DialogueSystem.Editor.Inspectors
 {
     using Utilities;
     using ScriptableObjects;
 
     [CustomEditor(typeof(DialogueSelector))]
-    public class DialogueSelectorEditor : Editor
+    public class DialogueSelectorEditor : UnityEditor.Editor
     {
         private SerializedProperty dialogueContainerProperty;
         private SerializedProperty dialogueGroupProperty;

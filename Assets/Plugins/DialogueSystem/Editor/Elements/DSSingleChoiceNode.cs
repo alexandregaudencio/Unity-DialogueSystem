@@ -1,7 +1,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace DialogueSystem.Elements
+namespace DialogueSystem.Editor.Elements
 {
     using Data.Save;
     using Enumerations;

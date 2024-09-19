@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace DialogueSystem.CustomAttributes
+namespace DialogueSystem.Editor.CustomAttributes
 {
-    public class ReadOnlyAttribute : PropertyAttribute
-    {
-    }
+    using DialogueSystem.Utilities;
 
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
     public class ReadOnlyDrawer : PropertyDrawer

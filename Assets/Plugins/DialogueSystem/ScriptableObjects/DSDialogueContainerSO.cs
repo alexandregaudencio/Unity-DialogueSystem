@@ -5,7 +5,6 @@ namespace DialogueSystem.ScriptableObjects
 {
     using System;
     using Utilities;
-    using CustomAttributes;
     public class DSDialogueContainerSO : ScriptableObject
     {
         [field: SerializeField, ReadOnly] public string FileName { get; set; }

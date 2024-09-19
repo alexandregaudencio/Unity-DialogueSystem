@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace DialogueSystem.Windows
+namespace DialogueSystem.Editor.Windows
 {
     using Utilities;
 

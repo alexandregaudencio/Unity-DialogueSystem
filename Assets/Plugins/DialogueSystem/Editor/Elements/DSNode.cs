@@ -5,10 +5,10 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DialogueSystem.Elements
+namespace DialogueSystem.Editor.Elements
 {
     using Data.Save;
-    using DialogueSystem.Data.Error;
+    using DialogueSystem.Editor.Data.Error;
     using ScriptableObjects;
     using Enumerations;
     using Utilities;

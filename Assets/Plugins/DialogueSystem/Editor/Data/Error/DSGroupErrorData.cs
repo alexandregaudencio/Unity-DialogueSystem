@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DialogueSystem.Data.Error
+namespace DialogueSystem.Editor.Data.Error
 {
     using Elements;
 

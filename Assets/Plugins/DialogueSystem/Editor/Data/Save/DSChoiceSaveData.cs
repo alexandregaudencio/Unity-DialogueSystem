@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace DialogueSystem.Data.Save
+namespace DialogueSystem.Editor.Data.Save
 {
-    using CustomAttributes;
+    using DialogueSystem.Utilities;
 
     [Serializable]
     public class DSChoiceSaveData

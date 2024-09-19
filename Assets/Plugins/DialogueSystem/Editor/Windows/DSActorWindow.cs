@@ -3,9 +3,9 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace DialogueSystem.Windows
+namespace DialogueSystem.Editor.Windows
 {
-    using DialogueSystem.Utilities;
+    using Utilities;
     using Enumerations;
 
     public class DSActorWindow : EditorWindow
@@ -13,7 +13,7 @@ namespace DialogueSystem.Windows
         private string filePath => GlobalVariables.ActorEnumPath;
         private string enumName = nameof(DSActor);
         private string inputActorValue;
-        
+
         private bool showErrorMessage;
         private string errorValue = "";
 
@@ -43,7 +43,7 @@ namespace DialogueSystem.Windows
             GUILayout.Label("Actors:", EditorStyles.boldLabel);
             foreach (string enumValue in Enum.GetNames(typeof(DSActor)))
             {
-                GUILayout.Label(" - "+enumValue);
+                GUILayout.Label(" - " + enumValue);
             }
         }
 
@@ -70,7 +70,7 @@ namespace DialogueSystem.Windows
                 errorValue = value;
                 return;
             }
-            
+
             if (File.Exists(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);
@@ -84,7 +84,7 @@ namespace DialogueSystem.Windows
                         string line = lines[i];
                         if (insideEnum && line.Contains("}"))
                         {
-                             writer.WriteLine(string.Concat("        ,", value));
+                            writer.WriteLine(string.Concat("        ,", value));
                             insideEnum = false;
                         }
                         writer.WriteLine(line);

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DialogueSystem.Data.Save
+namespace DialogueSystem.Editor.Data.Save
 {
-    using Utilities;
-    using CustomAttributes;
+    using DialogueSystem.Utilities;
     using System;
 
     public class DSGraphSaveDataSO : ScriptableObject

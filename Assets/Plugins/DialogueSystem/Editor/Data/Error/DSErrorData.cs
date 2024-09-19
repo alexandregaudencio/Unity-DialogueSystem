@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DialogueSystem.Data.Error
+namespace DialogueSystem.Editor.Data.Error
 {
     public static class DSErrorData
     {

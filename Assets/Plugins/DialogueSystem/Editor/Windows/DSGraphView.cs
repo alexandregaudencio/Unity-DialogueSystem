@@ -4,13 +4,14 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DialogueSystem.Windows
+namespace DialogueSystem.Editor.Windows
 {
     using Data.Error;
     using Data.Save;
     using Elements;
     using Enumerations;
     using Utilities;
+    using DialogueSystem.Utilities;
 
 
     public class EdgeConnectionListener : IEdgeConnectorListener
@@ -31,8 +32,8 @@ namespace DialogueSystem.Windows
             if (edge.output != null && edge.input == null)
             {
                 Vector2 localMousePosition = _graphView.GetLocalMousePosition(position);
-                var newNode = _graphView.CreateNode("", DSDialogueType.SingleChoice,null, localMousePosition);
-                
+                var newNode = _graphView.CreateNode("", DSDialogueType.SingleChoice, null, localMousePosition);
+
                 var newEdge = edge.output.ConnectTo(newNode.inputContainer[0] as Port);
                 _graphView.AddElement(newNode);
                 _graphView.AddElement(newEdge);
@@ -154,7 +155,7 @@ namespace DialogueSystem.Windows
         private IManipulator CreateNodeContextualMenu(string actionTitle, DSDialogueType dialogueType)
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("", dialogueType, null,GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
+                menuEvent => menuEvent.menu.AppendAction(actionTitle, actionEvent => AddElement(CreateNode("", dialogueType, null, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
             );
 
             return contextualMenuManipulator;
@@ -162,11 +163,11 @@ namespace DialogueSystem.Windows
 
         private IManipulator CreateGroupContextualMenu()
         {
-            
+
             // Debug.Log($"{createdGroupsCount} conta de grupos na tela");
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup($"DialogueGroup({createdGroupsCount})", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition)))); 
-            
+                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => CreateGroup($"DialogueGroup({createdGroupsCount})", GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))));
+
 
             return contextualMenuManipulator;
         }
@@ -213,12 +214,12 @@ namespace DialogueSystem.Windows
         }
 
         //* att
-        public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, string SpeechAnimation,Vector2 position, bool shouldDraw = true)
+        public DSNode CreateNode(string nodeName, DSDialogueType dialogueType, string SpeechAnimation, Vector2 position, bool shouldDraw = true)
         {
-            
+
             Type nodeType = Type.GetType($"{typeof(DSNode).Namespace}.DS{dialogueType}Node");
             DSNode node = (DSNode)Activator.CreateInstance(nodeType);
-            node.Initialize(nodeName, DSActor.None, SpeechAnimation,this, position);
+            node.Initialize(nodeName, DSActor.None, SpeechAnimation, this, position);
             // Debug.Log($"node data on graph view {node.SpeechAnimation}");
 
             if (shouldDraw)
@@ -228,16 +229,16 @@ namespace DialogueSystem.Windows
 
 
             AddUngroupedNode(node);
-             foreach (GraphElement selectedElement in selection)
+            foreach (GraphElement selectedElement in selection)
+            {
+                if (selectedElement is DSGroup selectedGroup)
                 {
-                    if (selectedElement is DSGroup selectedGroup)
-                    {
-                        AddGroupedNode(node, selectedGroup);
-                        selectedGroup.AddElement(node);
-                        return node;
-                        
-                    }
+                    AddGroupedNode(node, selectedGroup);
+                    selectedGroup.AddElement(node);
+                    return node;
+
                 }
+            }
             //node..connector = new EdgeConnector<Edge>(_edgeConnectorListener);
             //node.inputContainer.ad
 
@@ -245,7 +246,7 @@ namespace DialogueSystem.Windows
             return node;
         }
 
-     
+
         private void OnElementsDeleted()
         {
             deleteSelection = (operationName, askUser) =>
@@ -403,11 +404,11 @@ namespace DialogueSystem.Windows
 
             graphViewChanged = (changes) =>
             {
-                
+
                 // Debug.Log("Teste");
                 if (changes.edgesToCreate != null)
                 {
-                    
+
                     foreach (Edge edge in changes.edgesToCreate)
                     {
                         // edge.OnSelected?.invoke
@@ -423,7 +424,7 @@ namespace DialogueSystem.Windows
 
                 if (changes.elementsToRemove != null)
                 {
-                    
+
                     Type edgeType = typeof(Edge);
 
                     foreach (GraphElement element in changes.elementsToRemove)
@@ -450,9 +451,9 @@ namespace DialogueSystem.Windows
         {
             string nodeName = node.DialogueName;
 
-            if (!ungroupedNodes .ContainsKey(nodeName))  //* Verifica se a node não existe antes de adicionar ela
+            if (!ungroupedNodes.ContainsKey(nodeName))  //* Verifica se a node não existe antes de adicionar ela
             {
-                
+
                 DSNodeErrorData nodeErrorData = new DSNodeErrorData();
                 nodeErrorData.Nodes.Add(node);
                 ungroupedNodes.Add(nodeName, nodeErrorData);
@@ -557,7 +558,7 @@ namespace DialogueSystem.Windows
         }
 
         // att
-       public void AddGroupedNode(DSNode node, DSGroup group)
+        public void AddGroupedNode(DSNode node, DSGroup group)
         {
             string nodeName = node.DialogueName;
 
@@ -581,18 +582,18 @@ namespace DialogueSystem.Windows
 
             groupedNodesList.Add(node);  // Adiciona o nó à lista de nós
             Debug.Log($"teste: {nodeName}");
-            
+
             // foreach (DSNode item in groupedNodesList)
             // {
             //    //  Debug.Log(item.viewDataKey);
             // }
             // Debug.Log("Node adicionada a um grupo com sucesso");
 
-            Color errorColor = DSErrorData.Color; 
+            Color errorColor = DSErrorData.Color;
 
-            node.SetBackgroundColor(errorColor);  
+            node.SetBackgroundColor(errorColor);
 
-            if (groupedNodesList.Count == 2) 
+            if (groupedNodesList.Count == 2)
             {
                 ++NameErrorsAmount;  // Incrementa a quantidade de erros de nome
                 groupedNodesList[0].SetBackgroundColor(errorColor);  // Define a cor de fundo do primeiro nó como a cor de erro

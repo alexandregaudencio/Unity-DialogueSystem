@@ -2,7 +2,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DialogueSystem.Elements
+namespace DialogueSystem.Editor.Elements
 {
     using Data.Save;
     using Enumerations;
@@ -64,7 +64,7 @@ namespace DialogueSystem.Elements
 
             choicePort.userData = userData;
 
-            DSChoiceSaveData choiceData = (DSChoiceSaveData) userData;
+            DSChoiceSaveData choiceData = (DSChoiceSaveData)userData;
 
             Button deleteChoiceButton = DSElementUtility.CreateButton("X", () =>
             {

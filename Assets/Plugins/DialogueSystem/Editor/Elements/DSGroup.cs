@@ -1,9 +1,9 @@
-using DialogueSystem.Data.Error;
+using DialogueSystem.Editor.Data.Error;
 using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace DialogueSystem.Elements
+namespace DialogueSystem.Editor.Elements
 {
     public class DSGroup : Group
     {

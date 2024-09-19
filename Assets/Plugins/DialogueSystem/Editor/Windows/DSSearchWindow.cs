@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace DialogueSystem.Windows
+namespace DialogueSystem.Editor.Windows
 {
     using Elements;
     using Enumerations;
@@ -55,34 +55,34 @@ namespace DialogueSystem.Windows
             switch (SearchTreeEntry.userData)
             {
                 case DSDialogueType.SingleChoice:
-                {
-                    DSSingleChoiceNode singleChoiceNode = (DSSingleChoiceNode) graphView.CreateNode("", DSDialogueType.SingleChoice, null, localMousePosition);
+                    {
+                        DSSingleChoiceNode singleChoiceNode = (DSSingleChoiceNode)graphView.CreateNode("", DSDialogueType.SingleChoice, null, localMousePosition);
 
-                    graphView.AddElement(singleChoiceNode);
+                        graphView.AddElement(singleChoiceNode);
 
-                    return true;
-                }
+                        return true;
+                    }
 
                 case DSDialogueType.MultipleChoice:
-                {
-                    DSMultipleChoiceNode multipleChoiceNode = (DSMultipleChoiceNode) graphView.CreateNode("", DSDialogueType.MultipleChoice, null , localMousePosition);
+                    {
+                        DSMultipleChoiceNode multipleChoiceNode = (DSMultipleChoiceNode)graphView.CreateNode("", DSDialogueType.MultipleChoice, null, localMousePosition);
 
-                    graphView.AddElement(multipleChoiceNode);
+                        graphView.AddElement(multipleChoiceNode);
 
-                    return true;
-                }
+                        return true;
+                    }
 
                 case Group _:
-                {
-                    graphView.CreateGroup("DialogueGroup", localMousePosition);
+                    {
+                        graphView.CreateGroup("DialogueGroup", localMousePosition);
 
-                    return true;
-                }
+                        return true;
+                    }
 
                 default:
-                {
-                    return false;
-                }
+                    {
+                        return false;
+                    }
             }
         }
     }
